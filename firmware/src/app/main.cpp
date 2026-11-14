@@ -6,9 +6,12 @@
 //        stage state machine with dwell times + hysteresis (architecture.md §4.1)
 //   WP2: managed flooding – duplicate cache, relay with TTL + random jitter,
 //        advertising scheduler (one slot per queued packet), origin table,
-//        ALARM on stage change with ACK / retry / latch (band),
-//        ACK + per-child isolation detection by STATUS timeout (teacher)
-//   Debug: serial commands to simulate an out-of-range neighbour (see handleSerial)
+//        ALARM with ACK / retry / latch, one alarm slot per reason (band),
+//        ACK + per-child isolation detection by STATUS timeout, CMD recall (teacher)
+//   WP4: band  – reed tamper alarm, double-tap SOS (MMA8452Q), GPS duty cycle
+//                (on from stage 1, GPS packets from stage 2, D9), piezo feedback
+//        teacher – LEDs show the group state, piezo per alarm, GPS print
+//   Debug: serial commands (type 'help')
 // Each remaining TODO names its work package.
 //
 // Serial output: lines starting with '#' are debug only (protocol.md D8).
@@ -19,6 +22,7 @@
 #include "alarm.h"
 #include "ble_link.h"
 #include "config.h"
+#include "hw.h"
 #include "mesh.h"
 #include "neighbours.h"
 #include "protocol.h"
@@ -36,47 +40,56 @@ static const char* ROLE = "band";
 static constexpr bool IS_TEACHER = false;
 #endif
 
+// ---- mesh / stage state ----
 static bb::NeighbourTable neighbours;
 static bb::StageMachine stages;                 // thresholds: bb::StageConfig (provisional)
 static bb::DupCache dupCache;
 static bb::TxScheduler txSched(cfg::ADV_SLOT_MS);
 static bb::OriginTable origins;
-static bb::AlarmSender alarms(cfg::ALARM_RETRY_MS, cfg::ALARM_FAST_TRIES, cfg::ALARM_LATCH_MS);
-static bool childLost[256] = {};                // teacher: child currently isolated (STATUS timeout)
+
+// One alarm slot per reason, so e.g. a stage change can never supersede an SOS.
+static bb::AlarmSender alarms[3] = {
+    {cfg::ALARM_RETRY_MS, cfg::ALARM_FAST_TRIES, cfg::ALARM_LATCH_MS},   // REASON_NEIGHBOUR_LOSS
+    {cfg::ALARM_RETRY_MS, cfg::ALARM_FAST_TRIES, cfg::ALARM_LATCH_MS},   // REASON_TAMPER
+    {cfg::ALARM_RETRY_MS, cfg::ALARM_FAST_TRIES, cfg::ALARM_LATCH_MS},   // REASON_SOS
+};
+[[maybe_unused]] static bb::AlarmSender& alarmFor(uint8_t reason) { return alarms[(reason >= 1 && reason <= 3) ? reason - 1 : 0]; }
 
 static uint16_t seq;                            // random start, see setup()
 static uint8_t  stage = bb::STAGE_COMPLETE;     // stays 0 on the teacher band
 static uint32_t lastRxMs = 0;                   // last packet from own group (isolation timer)
 static bool     ignoreTx[256] = {};             // debug: simulated out-of-range nodes
 
+// ---- hardware ----
+static hw::Buzzer buzzer;
+[[maybe_unused]] static hw::Reed reed;
+[[maybe_unused]] static hw::Accel accel;
+[[maybe_unused]] static hw::Gps gps;
+[[maybe_unused]] static int gpsForce = -1;      // -1 auto (D9), 0 forced off, 1 forced on
+[[maybe_unused]] static uint32_t stageZeroSince = 0;
+
+// ---- teacher state ----
+static bool childLost[256] = {};                // child currently isolated (message timeout)
+[[maybe_unused]] static struct { uint8_t stage, prev, reason; uint32_t at; bool valid; } lastAlarm[256] = {};
+[[maybe_unused]] static uint32_t urgentUntil = 0;  // SOS / tamper keep the red LED on
+
 static struct {
-  uint32_t rx, own, dup, ignored, relayed, alarmsRx, acksTx;
+  uint32_t rx, own, dup, ignored, relayed, alarmsRx, acksTx, gpsTx, gpsRx;
 } stats = {};
 
 static uint16_t nextSeq() { return seq++; }
 
-// Band: (re)transmit the pending alarm with a fresh seq (see alarm.h why).
-[[maybe_unused]] static void serviceAlarm(uint32_t now) {
-  if (!alarms.due(now)) return;
-  bb::Packet p;
-  uint16_t s = nextSeq();
-  bb::buildPacket(p, GROUP_ID, bb::MSG_ALARM, NODE_ID, s, alarms.payload());
-  txSched.enqueue(p, now);
-  alarms.sent(s, now);
-  Serial.printf("# ALARM tx #%u seq=%u stage=%s prev=%s reason=%u%s\n", alarms.tries(), s,
-                bb::stageName(alarms.payload().stage), bb::stageName(alarms.payload().prev_stage),
-                alarms.payload().reason, alarms.latched() ? "  (latched)" : "");
+static const char* reasonName(uint8_t r) {
+  switch (r) {
+    case bb::REASON_NEIGHBOUR_LOSS: return "neighbour-loss";
+    case bb::REASON_TAMPER:         return "TAMPER";
+    case bb::REASON_SOS:            return "SOS";
+    default:                        return "?";
+  }
 }
 
-// Teacher: acknowledge one received ALARM copy.
-static void sendAck(uint8_t dst, uint16_t ackedSeq, uint32_t now) {
-  bb::Packet p;
-  bb::buildPacket(p, GROUP_ID, bb::MSG_ACK, NODE_ID, nextSeq(), bb::AckPayload{dst, ackedSeq});
-  txSched.enqueue(p, now);
-  stats.acksTx++;
-}
-
-// ---------------------------------------------------------------------------
+// ===========================================================================
+// sending
 static void sendStatus(uint32_t now) {
   bb::StatusPayload s{
       stage,
@@ -90,6 +103,168 @@ static void sendStatus(uint32_t now) {
   txSched.setBackground(p);   // ... and advertised whenever nothing else is due
 }
 
+// Band: (re)transmit pending alarms, each copy with a fresh seq (see alarm.h why).
+[[maybe_unused]] static void serviceAlarms(uint32_t now) {
+  for (auto& a : alarms) {
+    if (!a.due(now)) continue;
+    bb::Packet p;
+    uint16_t s = nextSeq();
+    bb::buildPacket(p, GROUP_ID, bb::MSG_ALARM, NODE_ID, s, a.payload());
+    txSched.enqueue(p, now);
+    a.sent(s, now);
+    Serial.printf("# ALARM tx #%u seq=%u %s stage=%s prev=%s%s\n", a.tries(), s,
+                  reasonName(a.payload().reason), bb::stageName(a.payload().stage),
+                  bb::stageName(a.payload().prev_stage), a.latched() ? "  (latched)" : "");
+  }
+}
+
+[[maybe_unused]] static void sendAck(uint8_t dst, uint16_t ackedSeq, uint32_t now) {
+  bb::Packet p;
+  bb::buildPacket(p, GROUP_ID, bb::MSG_ACK, NODE_ID, nextSeq(), bb::AckPayload{dst, ackedSeq});
+  txSched.enqueue(p, now);
+  stats.acksTx++;
+}
+
+[[maybe_unused]] static void sendCmd(uint8_t dst, uint8_t cmd, uint32_t now) {
+  for (int i = 0; i < 2; i++) {  // two copies (unacknowledged), each a new message
+    bb::Packet p;
+    bb::buildPacket(p, GROUP_ID, bb::MSG_CMD, NODE_ID, nextSeq(), bb::CmdPayload{dst, cmd});
+    txSched.enqueue(p, now + i * 400);
+  }
+}
+
+// ===========================================================================
+// child band: sensors
+#ifndef ROLE_TEACHER
+static void raiseAlarm(uint8_t reason, uint8_t prev, uint32_t now) {
+  alarmFor(reason).raise(bb::AlarmPayload{stage, prev, reason}, now);
+}
+
+static void playStageTune(uint8_t s) {
+  switch (s) {
+    case bb::STAGE_COMPLETE: buzzer.play(hw::tunes::OK, hw::tunes::OK_N); break;
+    case bb::STAGE_DRIFTING: buzzer.play(hw::tunes::DRIFT, hw::tunes::DRIFT_N); break;
+    case bb::STAGE_CRITICAL: buzzer.play(hw::tunes::CRITICAL, hw::tunes::CRITICAL_N); break;
+    default:                 buzzer.play(hw::tunes::ISOLATED, hw::tunes::ISOLATED_N); break;
+  }
+}
+
+static void triggerSos(uint32_t now) {
+  Serial.println("# SOS (double tap) -> ALARM");
+  raiseAlarm(bb::REASON_SOS, stage, now);
+  buzzer.play(hw::tunes::SOS, hw::tunes::SOS_N);
+}
+
+static void triggerTamper(uint32_t now) {
+  Serial.println("# TAMPER (clasp opened) -> ALARM");
+  raiseAlarm(bb::REASON_TAMPER, stage, now);
+  buzzer.play(hw::tunes::TAMPER, hw::tunes::TAMPER_N);
+}
+
+static void serviceSensors(uint32_t now) {
+  if (reed.poll(now, cfg::REED_OPEN_MS)) triggerTamper(now);
+
+  static uint32_t lastTap = 0;
+  if (accel.present() && now - lastTap >= 20) {
+    lastTap = now;
+    if (accel.pollDoubleTap()) triggerSos(now);
+  }
+
+  // GPS duty cycle (architecture.md D9): on from stage 1, off 60 s after back to complete
+  gps.poll(now);
+  if (stage != bb::STAGE_COMPLETE) stageZeroSince = now;
+  bool want = gpsForce >= 0 ? gpsForce == 1
+                            : (stage != bb::STAGE_COMPLETE || now - stageZeroSince < cfg::GPS_OFF_DELAY_MS);
+  if (want != gps.powered()) {
+    gps.power(want, now);
+    Serial.printf("# GPS power %s\n", want ? "ON" : "OFF");
+  }
+  static bool ttffPrinted = false;
+  if (!gps.powered()) ttffPrinted = false;
+  if (gps.firstFixMs() && !ttffPrinted) {
+    ttffPrinted = true;
+    Serial.printf("# GPS first fix after %lu s (sats=%u)\n", gps.firstFixMs() / 1000, gps.fix().sats);
+  }
+
+  // GPS packets from stage "critical" (protocol.md §3.2), unacknowledged: periodic anyway
+  static uint32_t lastGps = 0;
+  if (stage >= bb::STAGE_CRITICAL && gps.fix().valid && now - lastGps >= cfg::GPS_INTERVAL_MS) {
+    lastGps = now;
+    uint32_t age = (now - gps.fix().at_ms) / 1000;
+    bb::GpsPayload g{gps.fix().lat_e7, gps.fix().lon_e7, static_cast<uint8_t>(age > 255 ? 255 : age)};
+    bb::Packet p;
+    bb::buildPacket(p, GROUP_ID, bb::MSG_GPS, NODE_ID, nextSeq(), g);
+    txSched.enqueue(p, now);
+    stats.gpsTx++;
+  }
+
+  // remind the child while critical / isolated
+  static uint32_t lastRemind = 0;
+  if (stage >= bb::STAGE_CRITICAL && !buzzer.busy() && now - lastRemind >= cfg::BAND_REMIND_MS) {
+    lastRemind = now;
+    playStageTune(stage);
+  }
+}
+#endif
+
+// ===========================================================================
+// teacher: group state on LEDs, piezo per alarm
+#ifdef ROLE_TEACHER
+static void teacherBeep(uint8_t src, const bb::AlarmPayload& a, uint32_t now) {
+  auto& l = lastAlarm[src];
+  bool same = l.valid && l.stage == a.stage && l.prev == a.prev_stage && l.reason == a.reason &&
+              now - l.at < cfg::TEACHER_REALARM_MS;
+  l = {a.stage, a.prev_stage, a.reason, now, true};
+  if (same) return;  // retransmitted copy of the same alarm
+  namespace t = hw::tunes;
+  if (a.reason == bb::REASON_SOS)         { buzzer.play(t::SOS, t::SOS_N); urgentUntil = now + 30000; }
+  else if (a.reason == bb::REASON_TAMPER) { buzzer.play(t::TAMPER, t::TAMPER_N); urgentUntil = now + 30000; }
+  else if (a.stage == bb::STAGE_DRIFTING) buzzer.play(t::DRIFT, t::DRIFT_N);
+  else if (a.stage == bb::STAGE_CRITICAL) buzzer.play(t::CRITICAL, t::CRITICAL_N);
+  else if (a.stage == bb::STAGE_ISOLATED) buzzer.play(t::ISOLATED, t::ISOLATED_N);
+  else                                    buzzer.play(t::OK, t::OK_N);
+}
+
+static void updateLeds(uint32_t now) {
+  int worst = -1;
+  for (size_t i = 0; i < bb::OriginTable::capacity(); i++) {
+    const bb::Origin& o = origins.at(i);
+    if (!o.used) continue;
+    int s = childLost[o.src] ? static_cast<int>(bb::STAGE_ISOLATED) : static_cast<int>(o.stage);
+    if (s > worst) worst = s;
+  }
+  hw::Led l = worst < 0                         ? hw::Led::OFF
+            : (int32_t)(urgentUntil - now) > 0  ? hw::Led::RED
+            : worst >= bb::STAGE_ISOLATED       ? hw::Led::RED
+            : worst >= bb::STAGE_DRIFTING       ? hw::Led::YELLOW
+                                                : hw::Led::GREEN;
+  static hw::Led last = hw::Led::OFF;
+  if (l != last) {
+    static const char* names[] = {"off", "GREEN", "YELLOW", "RED"};
+    Serial.printf("# TEACHER LED -> %s\n", names[(int)l]);
+    last = l;
+  }
+  hw::ledsSet(l);
+}
+
+// a child is "lost" if no new message arrived for ISOLATION (protocol.md §6, D7)
+static void checkChildren(uint32_t now) {
+  for (size_t i = 0; i < bb::OriginTable::capacity(); i++) {
+    const bb::Origin& o = origins.at(i);
+    if (!o.used || childLost[o.src]) continue;
+    if (now - o.last_seen > stages.config().isolation_ms) {
+      childLost[o.src] = true;
+      Serial.printf("# TEACHER ALARM band %u isolated: no message for %lu ms (last stage %s, hops %u)\n",
+                    o.src, now - o.last_seen, bb::stageName(o.stage), o.hops);
+      buzzer.play(hw::tunes::ISOLATED, hw::tunes::ISOLATED_N);
+      // TODO WP3: publish alarm (reason isolation timeout)
+    }
+  }
+  updateLeds(now);
+}
+#endif
+
+// ===========================================================================
 static void printTables(uint32_t now) {
   Serial.printf("# t=%lus seq=%u rx=%lu dup=%lu own=%lu ign=%lu relayed=%lu txq=%u txdrop=%lu "
                 "bledrop=%lu | active=%u best=%d stage=%u (%s)\n",
@@ -97,13 +272,22 @@ static void printTables(uint32_t now) {
                 (unsigned)txSched.pending(), txSched.drops(), bb::bleDropped(),
                 neighbours.countActive(now, cfg::ACTIVE_WINDOW_MS),
                 neighbours.bestMedian(now, cfg::ACTIVE_WINDOW_MS), stage, bb::stageName(stage));
-  if (IS_TEACHER)
-    Serial.printf("#   teacher: alarms rx=%lu acks tx=%lu\n", stats.alarmsRx, stats.acksTx);
-  else
-    Serial.printf("#   alarm: %s tries=%u tx=%lu acked=%lu superseded=%lu last rtt=%lums/%u tries\n",
-                  alarms.pending() ? (alarms.latched() ? "LATCHED" : "pending") : "none",
-                  alarms.tries(), alarms.totalTx(), alarms.acked(), alarms.superseded(),
-                  alarms.lastRtt(), alarms.lastTries());
+#ifdef ROLE_TEACHER
+  Serial.printf("#   teacher: alarms rx=%lu acks tx=%lu gps rx=%lu\n", stats.alarmsRx, stats.acksTx, stats.gpsRx);
+#else
+  for (uint8_t r = 1; r <= 3; r++) {
+    const auto& a = alarmFor(r);
+    if (!a.pending() && !a.totalTx()) continue;
+    Serial.printf("#   alarm %-14s %s tries=%u tx=%lu acked=%lu last rtt=%lums/%u tries\n", reasonName(r),
+                  a.pending() ? (a.latched() ? "LATCHED" : "pending") : "none", a.tries(), a.totalTx(),
+                  a.acked(), a.lastRtt(), a.lastTries());
+  }
+  Serial.printf("#   sensors: reed=%s%s accel=%s gps=%s%s sentences=%lu fix=%s sats=%u gps tx=%lu\n",
+                reed.closed() ? "closed" : "open", reed.armed() ? "" : "(not armed)",
+                accel.present() ? "ok" : "MISSING", gps.powered() ? "on" : "off",
+                gpsForce < 0 ? "" : "(forced)", gps.sentences(), gps.fix().valid ? "yes" : "no",
+                gps.fix().sats, stats.gpsTx);
+#endif
   for (size_t i = 0; i < bb::NeighbourTable::capacity(); i++) {
     const bb::Neighbour& n = neighbours.at(i);
     if (!n.used) continue;
@@ -120,7 +304,7 @@ static void printTables(uint32_t now) {
   }
 }
 
-// ---------------------------------------------------------------------------
+// ===========================================================================
 static void handlePacket(const bb::RxPacket& rx) {
   stats.rx++;
   const bb::Header& h = rx.pkt.header();
@@ -150,44 +334,44 @@ static void handlePacket(const bb::RxPacket& rx) {
     const bb::AlarmPayload& a = rx.pkt.payload<bb::AlarmPayload>();
     stats.alarmsRx++;
     sendAck(h.src, h.seq, rx.ms);
-    Serial.printf("# TEACHER ALARM band %u: %s -> %s reason=%u hops=%u seq=%u  -> ACK sent\n",
-                  h.src, bb::stageName(a.prev_stage), bb::stageName(a.stage), a.reason,
+    Serial.printf("# TEACHER ALARM band %u: %s  %s -> %s  hops=%u seq=%u  -> ACK sent\n", h.src,
+                  reasonName(a.reason), bb::stageName(a.prev_stage), bb::stageName(a.stage),
                   bb::hops(h), h.seq);
-    // TODO WP3: publish as JSON via MQTT (protocol.md §7); TODO WP4: piezo
+    teacherBeep(h.src, a, rx.ms);
+    // TODO WP3: publish as JSON via MQTT (protocol.md §7)
+  } else if (h.type == bb::MSG_GPS) {
+    const bb::GpsPayload& g = rx.pkt.payload<bb::GpsPayload>();
+    stats.gpsRx++;
+    Serial.printf("# TEACHER GPS band %u: %.6f, %.6f (fix age %us, hops %u)  https://maps.google.com/?q=%.6f,%.6f\n",
+                  h.src, g.lat_e7 / 1e7, g.lon_e7 / 1e7, g.fix_age, bb::hops(h), g.lat_e7 / 1e7, g.lon_e7 / 1e7);
+    // TODO WP3: publish as JSON via MQTT (protocol.md §7)
   }
   if (childLost[h.src]) {
     childLost[h.src] = false;
     Serial.printf("# TEACHER band %u reachable again (hops=%u)\n", h.src, bb::hops(h));
   }
-  // TODO WP3: publish STATUS/GPS as JSON via MQTT (protocol.md §7)
 #else
   if (h.type == bb::MSG_ACK && rx.pkt.payload<bb::AckPayload>().dst == NODE_ID) {
-    if (alarms.onAck(rx.pkt.payload<bb::AckPayload>().acked_seq, rx.ms))
-      Serial.printf("# ALARM acked by teacher after %u tx, %lu ms (ACK hops=%u)\n",
-                    alarms.lastTries(), alarms.lastRtt(), bb::hops(h));
+    uint16_t acked = rx.pkt.payload<bb::AckPayload>().acked_seq;
+    for (uint8_t r = 1; r <= 3; r++) {
+      auto& a = alarmFor(r);
+      if (!a.onAck(acked, rx.ms)) continue;
+      Serial.printf("# ALARM %s acked by teacher after %u tx, %lu ms (ACK hops=%u)\n", reasonName(r),
+                    a.lastTries(), a.lastRtt(), bb::hops(h));
+      if (r != bb::REASON_NEIGHBOUR_LOSS) buzzer.play(hw::tunes::ACKED, hw::tunes::ACKED_N);  // "help is coming"
+    }
+  } else if (h.type == bb::MSG_CMD && rx.pkt.payload<bb::CmdPayload>().dst == NODE_ID) {
+    uint8_t cmd = rx.pkt.payload<bb::CmdPayload>().cmd;
+    Serial.printf("# CMD %s from teacher (hops=%u)\n", cmd == bb::CMD_RECALL ? "RECALL" : "STOP", bb::hops(h));
+    if (cmd == bb::CMD_RECALL) buzzer.play(hw::tunes::RECALL, hw::tunes::RECALL_N);
+    else buzzer.stop();
   }
-  // TODO WP3/WP4: CMD addressed to NODE_ID (recall -> piezo)
 #endif
 }
 
-// Teacher: a child is "lost" if no new message arrived for ISOLATION (protocol.md §6, D7).
-[[maybe_unused]] static void checkChildren(uint32_t now) {
-  for (size_t i = 0; i < bb::OriginTable::capacity(); i++) {
-    const bb::Origin& o = origins.at(i);
-    if (!o.used || childLost[o.src]) continue;
-    if (now - o.last_seen > stages.config().isolation_ms) {
-      childLost[o.src] = true;
-      Serial.printf("# TEACHER ALARM band %u isolated: no message for %lu ms (last stage %s, hops %u)\n",
-                    o.src, now - o.last_seen, bb::stageName(o.stage), o.hops);
-      // TODO WP3: publish alarm (reason isolation timeout); TODO WP4: piezo
-    }
-  }
-}
-
-// Debug commands in the serial monitor (type + Enter):
-//   ignore <id>    drop all packets transmitted by <id> (simulates "out of range")
-//   unignore <id>  undo        clear   undo all        help   list
-static void handleSerial() {
+// ===========================================================================
+// Debug commands in the serial monitor (type + Enter), see 'help'.
+static void handleSerial(uint32_t now) {
   static char line[32];
   static size_t len = 0;
   while (Serial.available()) {
@@ -209,21 +393,56 @@ static void handleSerial() {
     } else if (strcmp(line, "clear") == 0) {
       memset(ignoreTx, 0, sizeof ignoreTx);
       Serial.println("# ignore list cleared");
+    } else if (strcmp(line, "beep") == 0) {
+      buzzer.play(hw::tunes::BOOT, hw::tunes::BOOT_N);
+#ifdef ROLE_TEACHER
+    } else if (sscanf(line, "recall %d", &id) == 1 && id > 0 && id < 255) {
+      sendCmd(id, bb::CMD_RECALL, now);
+      Serial.printf("# CMD recall -> band %d\n", id);
+    } else if (sscanf(line, "stop %d", &id) == 1 && id > 0 && id < 255) {
+      sendCmd(id, bb::CMD_STOP, now);
+      Serial.printf("# CMD stop -> band %d\n", id);
+#else
+    } else if (strcmp(line, "sos") == 0) {
+      triggerSos(now);
+    } else if (strcmp(line, "tamper") == 0) {
+      triggerTamper(now);
+    } else if (strcmp(line, "gps on") == 0 || strcmp(line, "gps off") == 0 || strcmp(line, "gps auto") == 0) {
+      gpsForce = line[5] == 'n' ? 1 : line[5] == 'f' ? 0 : -1;
+      Serial.printf("# GPS mode: %s\n", gpsForce < 0 ? "auto (D9)" : gpsForce ? "forced on" : "forced off");
+#endif
     } else {
-      Serial.print("# commands: ignore <id> | unignore <id> | clear   ignored:");
+      Serial.print("# commands: ignore <id> | unignore <id> | clear | beep");
+#ifdef ROLE_TEACHER
+      Serial.print(" | recall <id> | stop <id>");
+#else
+      Serial.print(" | sos | tamper | gps on|off|auto");
+#endif
+      Serial.print("   ignored:");
       for (int i = 0; i < 256; i++) if (ignoreTx[i]) Serial.printf(" %d", i);
       Serial.println();
     }
   }
 }
 
-// ---------------------------------------------------------------------------
+// ===========================================================================
 void setup() {
   Serial.begin(115200);
   delay(1500);
   seq = static_cast<uint16_t>(esp_random());  // avoid duplicate-cache hits after a reboot
   Serial.printf("# BuddyBand %s, node %d, group %d, protocol v%d, seq start %u\n",
                 ROLE, NODE_ID, GROUP_ID, bb::PROTOCOL_VERSION, seq);
+
+  buzzer.begin(pins::PIEZO);
+#ifdef ROLE_TEACHER
+  hw::ledsBegin();
+#else
+  reed.begin(pins::REED);
+  bool acc = accel.begin(pins::SDA, pins::SCL, cfg::TAP_THRESHOLD);
+  gps.begin(pins::GPS_RX, pins::GPS_TX, pins::GPS_EN);
+  Serial.printf("# sensors: reed %s, accel %s, GPS on UART2 (power per D9)\n",
+                reed.closed() ? "closed (armed)" : "open (arms when closed)", acc ? "ok" : "NOT FOUND");
+#endif
 
   bb::bleBegin(cfg::TX_POWER_DBM);
   lastRxMs = millis();  // isolation timer starts at boot
@@ -235,8 +454,8 @@ void setup() {
                 sc.isolation_ms);
 #endif
   Serial.println("# type 'help' for debug commands");
+  buzzer.play(hw::tunes::BOOT, hw::tunes::BOOT_N);
 
-  // TODO WP4: LEDs, piezo, GPS, accelerometer, reed switch
 #ifdef ROLE_TEACHER
   // TODO WP3: Wi-Fi + MQTT (PubSubClient) with LWT, subscribe buddyband/<group>/cmd/#
 #endif
@@ -245,9 +464,11 @@ void setup() {
 void loop() {
   bb::RxPacket rx;
   while (bb::bleReceive(rx)) handlePacket(rx);
-  handleSerial();
 
   uint32_t now = millis();
+  handleSerial(now);
+  buzzer.update(now);
+
   static uint32_t lastStatus = 0, lastDebug = 0;
   [[maybe_unused]] static uint32_t lastStageTick = 0;
 
@@ -261,11 +482,12 @@ void loop() {
                     neighbours.countActive(now, cfg::ACTIVE_WINDOW_MS));
       sendStatus(now);  // report the new stage right away
       lastStatus = now;
-      alarms.raise(bb::AlarmPayload{stage, stages.previous(), bb::REASON_NEIGHBOUR_LOSS}, now);
-      // TODO WP4: LED colour / piezo pattern per stage; GPS EN high from stage 1 (D9)
+      raiseAlarm(bb::REASON_NEIGHBOUR_LOSS, stages.previous(), now);
+      playStageTune(stage);
     }
   }
-  serviceAlarm(now);
+  serviceSensors(now);
+  serviceAlarms(now);
 #else
   static uint32_t lastCheck = 0;
   if (now - lastCheck >= cfg::TEACHER_CHECK_MS) {

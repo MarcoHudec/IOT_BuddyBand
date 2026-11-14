@@ -37,8 +37,8 @@ Deadline: **Wed 9 Dec 2026** (code, report ≤ 7 pages, poster, demo). That leav
 | GPS sensor (UART NMEA) | 3 | 1 per child band |
 | Magnetic door switch (reed) | 3 | 1 per child band: clasp-open → tamper alarm |
 | Piezo speaker | 4 | 3 child bands (recall / alarm beep) + teacher band (alarm) |
-| LEDs green/yellow/red | 3 | ⚠️ see note |
-| Resistor 330 Ω | 3 | LED series resistors |
+| LEDs green/yellow/red | 3 | **teacher band only** (decided 14 Nov): group state green = all complete, yellow = any drifting/critical, red = any isolated |
+| Resistor 330 Ω | 3 | LED series resistors (teacher band) |
 | Small breadboard | 3 | 1 per child band |
 | Wires | 20 + 20 | |
 
@@ -67,11 +67,17 @@ Deadline: **Wed 9 Dec 2026** (code, report ≤ 7 pages, poster, demo). That leav
 | GPS TX → RX | GPS RX | 17 (UART2 TX) | for PMTK config commands |
 | GPS power gate | GPS EN | 25 | LOW = off |
 | Reed switch | one lead | 27 | `INPUT_PULLUP`, other lead to GND; open clasp = HIGH |
-| Piezo | + | 26 | LEDC PWM `tone()` if passive; digital if active buzzer |
-| LED green / yellow / red | anode via 330 Ω | 18 / 19 / 23 | cathode to GND |
+| Piezo | + | 14 | LEDC PWM `tone()`; changed from 26 on 14 Nov (band 2 wired to 14, found by pin scan). GPIO14 may click briefly at boot – harmless |
 | Power | VIN / 3V3 / GND | – | sensors on 3V3 |
 
-Teacher band: piezo on 26 (+ optional LEDs on 18/19/23), no other sensors.
+Teacher band (as wired on board 0, 14 Nov): piezo + on 14, − on GND; LEDs green / yellow / red, anode via
+330 Ω on 25 / 26 / 27, cathodes to GND; no other sensors. (25/27 are GPS EN / reed on child bands –
+no conflict, the teacher has neither.)
+
+Hardware check: `pio run -e hwtest_band -t upload` / `-e hwtest_teacher` (firmware/src/hwtest) – I²C scan,
+MMA8452Q ID, GPS baud + RX/TX auto-detect, reed, piezo, LEDs. First result (14 Nov, board 2): MMA8452Q at
+0x1D OK, GPS 9600 baud on GPIO16/17 OK, GPS has no backup battery → every power-on is a cold start
+(affects D9; measure TTFF outdoors).
 
 ---
 
