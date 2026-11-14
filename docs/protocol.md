@@ -135,12 +135,12 @@ Every board carries a sticker with its node ID.
 
 | Node ID | Role | Build environment | MAC address |
 | --- | --- | --- | --- |
-| 0 | Teacher band | `teacher` | tbd |
-| 1 | Child band | `band1` | tbd |
-| 2 | Child band | `band2` | tbd |
-| 3 | Child band | `band3` | tbd |
-| 11 | RSSI test sender | `rssi_a` | 24:0a:c4:1d:24:70 |
-| 12 | RSSI test receiver | `rssi_b` | tbd |
+| 0 | Teacher band | `teacher` | 40:f5:20:70:58:90 |
+| 1 | Child band | `band1` | 24:0a:c4:1d:25:f8 |
+| 2 | Child band | `band2` | 24:0a:c4:1d:24:70 |
+| 3 | Child band | `band3` | 40:f5:20:70:15:70 |
+| 11 | RSSI test sender | `rssi_a` | flashed on board 1 (24:0a:c4:1d:25:f8) since 14 Nov; on 11 Nov it was board 2 |
+| 12 | RSSI test receiver | `rssi_b` | flashed on board 2 (24:0a:c4:1d:24:70) since 14 Nov |
 
 The MAC address is printed by the upload log (`MAC: ...`). IDs 11/12 are test
 IDs only; the boards get IDs 0–3 when the application firmware is flashed.
@@ -182,4 +182,4 @@ Findings that affect the design:
 - [ ] Exact RSSI thresholds and time conditions for stages 1 and 2 (WP1, from calibration)
 - [ ] Battery measurement possible on the dev boards? Otherwise send 255 = unknown
 - [ ] Wi-Fi + BLE coexistence on the teacher band: measure scan loss (WP2/WP3)
-- [ ] Fill in MAC addresses of all boards (table in section 8)
+- [x] Fill in MAC addresses of all boards (table in section 8) – done 14 Nov

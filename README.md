@@ -14,7 +14,8 @@ HSLU I.MA_IOTSUWO.H26 · Group 4: Marco Hudec, Lino Bucher, Reto Wirz, Milorad B
 | Gateway | Raspberry Pi 4 B | RabbitMQ (MQTT + AMQP), Node-RED dashboard, Python event logger |
 | Cloud (optional) | Azure IoT Hub | alarm events only |
 
-Details: [`docs/protocol.md`](docs/protocol.md).
+Details: [`docs/protocol.md`](docs/protocol.md). Architecture review, cloud split and
+work plan: [`docs/architecture.md`](docs/architecture.md).
 
 ## Repository layout
 
