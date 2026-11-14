@@ -1,0 +1,1160 @@
+# recording start 15:37:36
+   1.1 # t=484s seq=25698 rx=11540 dup=9181 own=1742 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-33 stage=0 (complete)
+   1.1 #   teacher: alarms rx=2 acks tx=2
+   1.1 #   nb  tx=  1 median= -33 last= -33 samples=10 age=  106ms
+   1.1 #   nb  tx=  3 median= -43 last= -47 samples=10 age=   92ms
+   1.1 #   nb  tx=  2 median= -52 last= -40 samples=10 age=   92ms
+   1.1 #   src=  1 seq=25699 hops=0 stage=0 nb=3 best= -33 age=  521ms msgs=244
+   1.1 #   src=  3 seq=29144 hops=0 stage=0 nb=3 best= -37 age= 1653ms msgs=240
+   1.1 #   src=  2 seq=49255 hops=0 stage=0 nb=3 best= -47 age= 1647ms msgs=133
+   3.1 # t=486s seq=25699 rx=11597 dup=9227 own=1750 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+   3.1 #   teacher: alarms rx=2 acks tx=2
+   3.1 #   nb  tx=  1 median= -34 last= -38 samples=10 age=  117ms
+   3.1 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   84ms
+   3.1 #   nb  tx=  2 median= -51 last= -52 samples=10 age=   30ms
+   3.1 #   src=  1 seq=25700 hops=1 stage=0 nb=3 best= -33 age=  489ms msgs=245
+   3.1 #   src=  3 seq=29145 hops=0 stage=0 nb=3 best= -36 age= 1643ms msgs=241
+   3.1 #   src=  2 seq=49256 hops=0 stage=0 nb=3 best= -44 age= 1669ms msgs=134
+   5.1 # t=488s seq=25700 rx=11654 dup=9273 own=1758 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+   5.1 #   teacher: alarms rx=2 acks tx=2
+   5.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   18ms
+   5.1 #   nb  tx=  3 median= -40 last= -40 samples=10 age=   96ms
+   5.1 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   41ms
+   5.1 #   src=  1 seq=25701 hops=0 stage=0 nb=3 best= -32 age=  509ms msgs=246
+   5.1 #   src=  3 seq=29146 hops=0 stage=0 nb=3 best= -36 age= 1643ms msgs=242
+   5.1 #   src=  2 seq=49257 hops=0 stage=0 nb=3 best= -47 age= 1650ms msgs=135
+   7.1 # t=490s seq=25701 rx=11713 dup=9320 own=1767 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+   7.1 #   teacher: alarms rx=2 acks tx=2
+   7.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   21ms
+   7.1 #   nb  tx=  3 median= -40 last= -39 samples=10 age=   82ms
+   7.1 #   nb  tx=  2 median= -53 last= -57 samples=10 age=   82ms
+   7.1 #   src=  1 seq=25702 hops=0 stage=0 nb=3 best= -34 age=  520ms msgs=247
+   7.1 #   src=  3 seq=29147 hops=0 stage=0 nb=3 best= -37 age= 1644ms msgs=243
+   7.1 #   src=  2 seq=49258 hops=0 stage=0 nb=3 best= -46 age= 1666ms msgs=136
+   9.1 # t=492s seq=25702 rx=11772 dup=9368 own=1775 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+   9.1 #   teacher: alarms rx=2 acks tx=2
+   9.1 #   nb  tx=  1 median= -34 last= -38 samples=10 age=   18ms
+   9.1 #   nb  tx=  3 median= -40 last= -41 samples=10 age=   88ms
+   9.1 #   nb  tx=  2 median= -53 last= -43 samples=10 age=   88ms
+   9.1 #   src=  1 seq=25703 hops=0 stage=0 nb=3 best= -34 age=  517ms msgs=248
+   9.1 #   src=  3 seq=29148 hops=0 stage=0 nb=3 best= -37 age= 1533ms msgs=244
+   9.1 #   src=  2 seq=49259 hops=0 stage=0 nb=3 best= -48 age= 1568ms msgs=137
+  11.1 # t=494s seq=25703 rx=11829 dup=9413 own=1784 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  11.1 #   teacher: alarms rx=2 acks tx=2
+  11.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   12ms
+  11.1 #   nb  tx=  3 median= -40 last= -39 samples=10 age=   70ms
+  11.1 #   nb  tx=  2 median= -53 last= -58 samples=10 age=   79ms
+  11.1 #   src=  1 seq=25704 hops=0 stage=0 nb=3 best= -34 age=  507ms msgs=249
+  11.1 #   src=  3 seq=29149 hops=0 stage=0 nb=3 best= -35 age= 1600ms msgs=245
+  11.1 #   src=  2 seq=49260 hops=0 stage=0 nb=3 best= -47 age= 1634ms msgs=138
+  13.1 # t=496s seq=25704 rx=11885 dup=9458 own=1792 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  13.1 #   teacher: alarms rx=2 acks tx=2
+  13.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   15ms
+  13.1 #   nb  tx=  3 median= -40 last= -41 samples=10 age=   39ms
+  13.1 #   nb  tx=  2 median= -52 last= -53 samples=10 age=   94ms
+  13.1 #   src=  1 seq=25705 hops=0 stage=0 nb=3 best= -33 age=  527ms msgs=250
+  13.1 #   src=  3 seq=29150 hops=0 stage=0 nb=3 best= -36 age= 1647ms msgs=246
+  13.1 #   src=  2 seq=49261 hops=0 stage=0 nb=3 best= -46 age= 1655ms msgs=139
+  15.1 # t=498s seq=25705 rx=11942 dup=9505 own=1799 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  15.1 #   teacher: alarms rx=2 acks tx=2
+  15.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=  104ms
+  15.1 #   nb  tx=  3 median= -41 last= -44 samples=10 age=   81ms
+  15.1 #   nb  tx=  2 median= -51 last= -43 samples=10 age=  104ms
+  15.1 #   src=  1 seq=25706 hops=0 stage=0 nb=3 best= -33 age=  522ms msgs=251
+  15.1 #   src=  3 seq=29151 hops=0 stage=0 nb=3 best= -36 age= 1648ms msgs=247
+  15.1 #   src=  2 seq=49262 hops=0 stage=0 nb=3 best= -47 age= 1627ms msgs=140
+  17.1 # t=500s seq=25706 rx=11999 dup=9551 own=1807 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  17.1 #   teacher: alarms rx=2 acks tx=2
+  17.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   11ms
+  17.1 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   11ms
+  17.1 #   nb  tx=  2 median= -52 last= -52 samples=10 age=   85ms
+  17.1 #   src=  1 seq=25707 hops=1 stage=0 nb=3 best= -34 age=  491ms msgs=252
+  17.1 #   src=  3 seq=29152 hops=0 stage=0 nb=3 best= -35 age= 1630ms msgs=248
+  17.1 #   src=  2 seq=49263 hops=0 stage=0 nb=3 best= -47 age= 1651ms msgs=141
+  19.1 # t=502s seq=25707 rx=12051 dup=9592 own=1815 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  19.1 #   teacher: alarms rx=2 acks tx=2
+  19.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=  214ms
+  19.1 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   71ms
+  19.1 #   nb  tx=  2 median= -51 last= -49 samples=10 age=    2ms
+  19.1 #   src=  1 seq=25708 hops=0 stage=0 nb=3 best= -33 age=  529ms msgs=253
+  19.1 #   src=  3 seq=29153 hops=0 stage=0 nb=3 best= -38 age= 1659ms msgs=249
+  19.1 #   src=  2 seq=49264 hops=0 stage=0 nb=3 best= -49 age= 1659ms msgs=142
+  21.2 # t=504s seq=25708 rx=12106 dup=9636 own=1823 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-35 stage=0 (complete)
+  21.2 #   teacher: alarms rx=2 acks tx=2
+  21.2 #   nb  tx=  1 median= -35 last= -37 samples=10 age=  121ms
+  21.2 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   50ms
+  21.2 #   nb  tx=  2 median= -47 last= -57 samples=10 age=   89ms
+  21.2 #   src=  1 seq=25709 hops=0 stage=0 nb=3 best= -34 age=  526ms msgs=254
+  21.2 #   src=  3 seq=29154 hops=0 stage=0 nb=3 best= -35 age= 1671ms msgs=250
+  21.2 #   src=  2 seq=49265 hops=0 stage=0 nb=3 best= -47 age= 1642ms msgs=143
+  23.2 # t=506s seq=25709 rx=12162 dup=9680 own=1832 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  23.2 #   teacher: alarms rx=2 acks tx=2
+  23.2 #   nb  tx=  1 median= -34 last= -38 samples=10 age=   23ms
+  23.2 #   nb  tx=  3 median= -41 last= -52 samples=10 age=   89ms
+  23.2 #   nb  tx=  2 median= -51 last= -42 samples=10 age=   89ms
+  23.2 #   src=  1 seq=25710 hops=0 stage=0 nb=3 best= -34 age=  412ms msgs=255
+  23.2 #   src=  3 seq=29155 hops=0 stage=0 nb=3 best= -37 age= 1643ms msgs=251
+  23.2 #   src=  2 seq=49266 hops=0 stage=0 nb=3 best= -48 age= 1660ms msgs=144
+  25.2 # t=508s seq=25710 rx=12215 dup=9721 own=1841 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  25.2 #   teacher: alarms rx=2 acks tx=2
+  25.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   13ms
+  25.2 #   nb  tx=  3 median= -40 last= -41 samples=10 age=   47ms
+  25.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age=  527ms
+  25.2 #   src=  1 seq=25711 hops=0 stage=0 nb=3 best= -34 age=  527ms msgs=256
+  25.2 #   src=  3 seq=29156 hops=0 stage=0 nb=3 best= -36 age= 1667ms msgs=252
+  25.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age= 1646ms msgs=145
+  27.1 # t=510s seq=25711 rx=12255 dup=9754 own=1846 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  27.2 #   teacher: alarms rx=2 acks tx=2
+  27.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=    6ms
+  27.2 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   97ms
+  27.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age= 2528ms
+  27.2 #   src=  1 seq=25712 hops=0 stage=0 nb=3 best= -34 age=  510ms msgs=257
+  27.2 #   src=  3 seq=29157 hops=0 stage=0 nb=3 best= -36 age= 1655ms msgs=253
+  27.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age= 3647ms msgs=145
+  29.1 # t=512s seq=25712 rx=12293 dup=9784 own=1852 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  29.1 #   teacher: alarms rx=2 acks tx=2
+  29.2 #   nb  tx=  1 median= -34 last= -38 samples=10 age=   12ms
+  29.2 #   nb  tx=  3 median= -41 last= -55 samples=10 age=   43ms
+  29.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age= 4529ms  (stale)
+  29.2 #   src=  1 seq=25713 hops=0 stage=0 nb=2 best= -34 age=  512ms msgs=258
+  29.2 #   src=  3 seq=29158 hops=0 stage=0 nb=3 best= -38 age= 1652ms msgs=254
+  29.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age= 5648ms msgs=145
+  31.1 # t=514s seq=25713 rx=12328 dup=9812 own=1857 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  31.1 #   teacher: alarms rx=2 acks tx=2
+  31.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=    8ms
+  31.2 #   nb  tx=  3 median= -47 last= -58 samples=10 age=  105ms
+  31.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age= 6530ms  (stale)
+  31.2 #   src=  1 seq=25714 hops=0 stage=0 nb=2 best= -33 age=  515ms msgs=259
+  31.2 #   src=  3 seq=29159 hops=0 stage=0 nb=2 best= -36 age= 1644ms msgs=255
+  31.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age= 7649ms msgs=145
+  31.9 # TEACHER ALARM band 2 isolated: no message for 8456 ms (last stage complete, hops 0)
+  33.1 # t=516s seq=25714 rx=12366 dup=9842 own=1863 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  33.1 #   teacher: alarms rx=2 acks tx=2
+  33.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   12ms
+  33.2 #   nb  tx=  3 median= -40 last= -50 samples=10 age=   45ms
+  33.2 #   src=  1 seq=25715 hops=0 stage=0 nb=2 best= -34 age=  528ms msgs=260
+  33.2 #   src=  3 seq=29160 hops=1 stage=0 nb=2 best= -39 age= 1491ms msgs=256
+  33.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age= 9650ms msgs=145  LOST
+  35.1 # t=518s seq=25715 rx=12409 dup=9877 own=1869 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  35.1 #   teacher: alarms rx=2 acks tx=2
+  35.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   20ms
+  35.1 #   nb  tx=  3 median= -42 last= -58 samples=10 age=   79ms
+  35.2 #   nb  tx=  2 median= -47 last= -47 samples= 1 age=  290ms
+  35.2 #   src=  1 seq=25716 hops=0 stage=0 nb=2 best= -32 age=  517ms msgs=261
+  35.2 #   src=  3 seq=29161 hops=0 stage=0 nb=2 best= -34 age= 1645ms msgs=257
+  35.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age=11650ms msgs=145  LOST
+  37.1 # t=520s seq=25716 rx=12449 dup=9909 own=1875 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  37.1 #   teacher: alarms rx=2 acks tx=2
+  37.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=    8ms
+  37.1 #   nb  tx=  3 median= -40 last= -41 samples=10 age=   85ms
+  37.1 #   nb  tx=  2 median= -47 last= -47 samples= 1 age= 2291ms
+  37.2 #   src=  1 seq=25717 hops=0 stage=0 nb=3 best= -33 age=  526ms msgs=262
+  37.2 #   src=  3 seq=29162 hops=0 stage=0 nb=3 best= -37 age= 1667ms msgs=258
+  37.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age=13651ms msgs=145  LOST
+  39.1 # t=522s seq=25717 rx=12485 dup=9938 own=1880 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  39.1 #   teacher: alarms rx=2 acks tx=2
+  39.1 #   nb  tx=  1 median= -34 last= -38 samples=10 age=  117ms
+  39.1 #   nb  tx=  3 median= -41 last= -42 samples=10 age=   67ms
+  39.1 #   nb  tx=  2 median= -47 last= -47 samples= 1 age= 4292ms  (stale)
+  39.1 #   src=  1 seq=25718 hops=0 stage=0 nb=3 best= -32 age=  516ms msgs=263
+  39.2 #   src=  3 seq=29163 hops=0 stage=0 nb=3 best= -38 age= 1679ms msgs=259
+  39.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age=15652ms msgs=145  LOST
+  41.1 # t=524s seq=25718 rx=12525 dup=9971 own=1885 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  41.1 #   teacher: alarms rx=2 acks tx=2
+  41.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=  113ms
+  41.1 #   nb  tx=  3 median= -41 last= -41 samples=10 age=   48ms
+  41.1 #   nb  tx=  2 median= -47 last= -47 samples= 1 age= 6293ms  (stale)
+  41.1 #   src=  1 seq=25719 hops=0 stage=0 nb=2 best= -33 age=  524ms msgs=264
+  41.2 #   src=  3 seq=29164 hops=0 stage=0 nb=2 best= -35 age= 1658ms msgs=260
+  41.2 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age=17653ms msgs=145  LOST
+  43.1 # t=526s seq=25719 rx=12565 dup=10004 own=1890 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  43.1 #   teacher: alarms rx=2 acks tx=2
+  43.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   22ms
+  43.1 #   nb  tx=  3 median= -40 last= -40 samples=10 age=   76ms
+  43.1 #   src=  1 seq=25720 hops=0 stage=0 nb=2 best= -32 age=  517ms msgs=265
+  43.1 #   src=  3 seq=29165 hops=0 stage=0 nb=2 best= -33 age= 1663ms msgs=261
+  43.1 #   src=  2 seq=49267 hops=0 stage=0 nb=3 best= -44 age=19654ms msgs=145  LOST
+  43.7 # TEACHER band 2 reachable again (hops=0)
+  45.1 # t=528s seq=25720 rx=12621 dup=10048 own=1898 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-35 stage=0 (complete)
+  45.1 #   teacher: alarms rx=2 acks tx=2
+  45.1 #   nb  tx=  1 median= -35 last= -33 samples=10 age=    2ms
+  45.1 #   nb  tx=  3 median= -40 last= -41 samples=10 age=  101ms
+  45.1 #   nb  tx=  2 median= -48 last= -47 samples=10 age=    1ms
+  45.1 #   src=  1 seq=25721 hops=0 stage=0 nb=3 best= -35 age=  526ms msgs=266
+  45.1 #   src=  3 seq=29166 hops=0 stage=0 nb=2 best= -35 age= 1654ms msgs=262
+  45.1 #   src=  2 seq=62456 hops=0 stage=0 nb=3 best= -51 age=  501ms msgs=147
+  47.1 # t=530s seq=25721 rx=12676 dup=10092 own=1906 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  47.1 #   teacher: alarms rx=2 acks tx=2
+  47.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=  296ms
+  47.1 #   nb  tx=  3 median= -39 last= -51 samples=10 age=  104ms
+  47.1 #   nb  tx=  2 median= -49 last= -51 samples=10 age=   86ms
+  47.1 #   src=  1 seq=25722 hops=0 stage=0 nb=3 best= -32 age=  514ms msgs=267
+  47.1 #   src=  3 seq=29167 hops=0 stage=0 nb=3 best= -35 age= 1600ms msgs=263
+  47.1 #   src=  2 seq=62457 hops=0 stage=0 nb=3 best= -49 age= 1000ms msgs=148
+  49.1 # t=532s seq=25722 rx=12737 dup=10141 own=1915 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  49.1 #   teacher: alarms rx=2 acks tx=2
+  49.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   16ms
+  49.1 #   nb  tx=  3 median= -56 last= -57 samples=10 age=   82ms
+  49.1 #   nb  tx=  2 median= -48 last= -50 samples=10 age=   51ms
+  49.1 #   src=  1 seq=25723 hops=0 stage=0 nb=3 best= -34 age=  525ms msgs=268
+  49.1 #   src=  3 seq=29168 hops=0 stage=0 nb=3 best= -47 age= 1663ms msgs=264
+  49.1 #   src=  2 seq=62458 hops=0 stage=0 nb=3 best= -50 age= 1238ms msgs=149
+  51.1 # t=534s seq=25723 rx=12799 dup=10193 own=1922 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  51.1 #   teacher: alarms rx=2 acks tx=2
+  51.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=    4ms
+  51.1 #   nb  tx=  3 median= -67 last= -67 samples=10 age=   94ms
+  51.1 #   nb  tx=  2 median= -46 last= -43 samples=10 age=   94ms
+  51.1 #   src=  1 seq=25724 hops=0 stage=0 nb=3 best= -34 age=  526ms msgs=269
+  51.1 #   src=  3 seq=29169 hops=0 stage=0 nb=3 best= -56 age= 1655ms msgs=265
+  51.1 #   src=  2 seq=62459 hops=0 stage=0 nb=3 best= -49 age= 1238ms msgs=150
+  53.1 # t=536s seq=25724 rx=12862 dup=10244 own=1931 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  53.1 #   teacher: alarms rx=2 acks tx=2
+  53.1 #   nb  tx=  1 median= -34 last= -35 samples=10 age=  221ms
+  53.1 #   nb  tx=  3 median= -61 last= -53 samples=10 age=   82ms
+  53.1 #   nb  tx=  2 median= -47 last= -49 samples=10 age=    1ms
+  53.1 #   src=  1 seq=25725 hops=0 stage=0 nb=3 best= -34 age=  525ms msgs=270
+  53.1 #   src=  3 seq=29170 hops=0 stage=0 nb=3 best= -63 age= 1629ms msgs=266
+  53.1 #   src=  2 seq=62460 hops=0 stage=0 nb=3 best= -47 age= 1218ms msgs=151
+  55.1 # t=538s seq=25725 rx=12919 dup=10290 own=1939 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  55.1 #   teacher: alarms rx=2 acks tx=2
+  55.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  118ms
+  55.1 #   nb  tx=  3 median= -76 last= -69 samples=10 age=   49ms
+  55.1 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   74ms
+  55.1 #   src=  1 seq=25726 hops=0 stage=0 nb=3 best= -34 age=  509ms msgs=271
+  55.1 #   src=  3 seq=29171 hops=0 stage=0 nb=3 best= -65 age= 1672ms msgs=267
+  55.1 #   src=  2 seq=62461 hops=0 stage=0 nb=3 best= -48 age= 1234ms msgs=152
+  57.1 # t=540s seq=25726 rx=12978 dup=10338 own=1947 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  57.1 #   teacher: alarms rx=2 acks tx=2
+  57.1 #   nb  tx=  1 median= -34 last= -35 samples=10 age=   12ms
+  57.1 #   nb  tx=  3 median= -81 last= -74 samples=10 age=  194ms
+  57.1 #   nb  tx=  2 median= -48 last= -48 samples=10 age=    7ms
+  57.1 #   src=  1 seq=25727 hops=0 stage=0 nb=3 best= -34 age=  526ms msgs=272
+  57.1 #   src=  3 seq=29172 hops=0 stage=0 nb=3 best= -68 age= 1632ms msgs=268
+  57.1 #   src=  2 seq=62462 hops=0 stage=0 nb=3 best= -48 age= 1225ms msgs=153
+  59.1 # t=542s seq=25727 rx=13035 dup=10385 own=1954 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  59.1 #   teacher: alarms rx=2 acks tx=2
+  59.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  111ms
+  59.1 #   nb  tx=  3 median= -74 last= -66 samples=10 age=  184ms
+  59.1 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   76ms
+  59.1 #   src=  1 seq=25728 hops=0 stage=0 nb=3 best= -34 age=  511ms msgs=273
+  59.1 #   src=  3 seq=29173 hops=0 stage=0 nb=3 best= -79 age= 1605ms msgs=269
+  59.1 #   src=  2 seq=62463 hops=0 stage=0 nb=3 best= -49 age= 1236ms msgs=154
+  60.7 # TEACHER ALARM band 3: complete -> drifting reason=1 hops=0 seq=29176  -> ACK sent
+  61.1 # t=544s seq=25729 rx=13096 dup=10432 own=1963 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  61.1 #   teacher: alarms rx=3 acks tx=3
+  61.1 #   nb  tx=  1 median= -34 last= -35 samples=10 age=   96ms
+  61.1 #   nb  tx=  3 median= -75 last= -76 samples=10 age=   25ms
+  61.1 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   57ms
+  61.1 #   src=  1 seq=25729 hops=0 stage=0 nb=3 best= -33 age=  299ms msgs=274
+  61.1 #   src=  3 seq=29176 hops=0 stage=1 nb=3 best= -77 age=  331ms msgs=272
+  61.1 #   src=  2 seq=62464 hops=0 stage=0 nb=3 best= -49 age= 1222ms msgs=155
+  63.1 # t=546s seq=25730 rx=13153 dup=10472 own=1977 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  63.1 #   teacher: alarms rx=3 acks tx=3
+  63.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   20ms
+  63.1 #   nb  tx=  3 median= -76 last= -83 samples=10 age=   58ms
+  63.1 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   77ms
+  63.1 #   src=  1 seq=25730 hops=0 stage=0 nb=3 best= -33 age=  320ms msgs=275
+  63.1 #   src=  3 seq=29177 hops=0 stage=1 nb=3 best= -77 age=  630ms msgs=273
+  63.1 #   src=  2 seq=62465 hops=0 stage=0 nb=3 best= -48 age= 1073ms msgs=156
+  65.2 # t=548s seq=25731 rx=13208 dup=10517 own=1984 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  65.2 #   teacher: alarms rx=3 acks tx=3
+  65.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=    1ms
+  65.2 #   nb  tx=  3 median= -80 last= -88 samples=10 age=   65ms
+  65.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   65ms
+  65.2 #   src=  1 seq=25731 hops=0 stage=0 nb=3 best= -33 age=  297ms msgs=276
+  65.2 #   src=  3 seq=29178 hops=0 stage=1 nb=3 best= -82 age=  631ms msgs=274
+  65.2 #   src=  2 seq=62466 hops=0 stage=0 nb=3 best= -48 age= 1240ms msgs=157
+  67.2 # t=550s seq=25732 rx=13263 dup=10562 own=1991 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  67.2 #   teacher: alarms rx=3 acks tx=3
+  67.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   18ms
+  67.2 #   nb  tx=  3 median= -91 last= -94 samples=10 age=   18ms
+  67.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   79ms
+  67.2 #   src=  1 seq=25732 hops=0 stage=0 nb=3 best= -33 age=  303ms msgs=277
+  67.2 #   src=  3 seq=29179 hops=0 stage=1 nb=3 best= -83 age=  642ms msgs=275
+  67.2 #   src=  2 seq=62467 hops=0 stage=0 nb=3 best= -49 age= 1238ms msgs=158
+  69.2 # t=552s seq=25733 rx=13303 dup=10593 own=1997 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  69.2 #   teacher: alarms rx=3 acks tx=3
+  69.2 #   nb  tx=  1 median= -34 last= -38 samples=10 age=   19ms
+  69.2 #   nb  tx=  3 median= -92 last= -98 samples=10 age= 1092ms
+  69.2 #   nb  tx=  2 median= -47 last= -43 samples=10 age=   61ms
+  69.2 #   src=  1 seq=25733 hops=1 stage=0 nb=3 best= -33 age=  461ms msgs=278
+  69.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=  225ms msgs=276
+  69.2 #   src=  2 seq=62468 hops=0 stage=0 nb=3 best= -49 age= 1236ms msgs=159
+  71.2 # t=554s seq=25734 rx=13342 dup=10625 own=2002 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-35 stage=0 (complete)
+  71.2 #   teacher: alarms rx=3 acks tx=3
+  71.2 #   nb  tx=  1 median= -35 last= -38 samples=10 age=   97ms
+  71.2 #   nb  tx=  3 median= -92 last= -98 samples=10 age= 3093ms
+  71.2 #   nb  tx=  2 median= -46 last= -49 samples=10 age=   62ms
+  71.2 #   src=  1 seq=25734 hops=0 stage=0 nb=3 best= -34 age=  527ms msgs=279
+  71.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age= 2226ms msgs=276
+  71.2 #   src=  2 seq=62469 hops=0 stage=0 nb=3 best= -47 age= 1238ms msgs=160
+  73.2 # t=556s seq=25735 rx=13380 dup=10656 own=2007 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+  73.2 #   teacher: alarms rx=3 acks tx=3
+  73.2 #   nb  tx=  1 median= -35 last= -35 samples=10 age=   20ms
+  73.2 #   nb  tx=  3 median= -92 last= -98 samples=10 age= 5094ms  (stale)
+  73.2 #   nb  tx=  2 median= -46 last= -48 samples=10 age=   86ms
+  73.2 #   src=  1 seq=25735 hops=0 stage=0 nb=3 best= -34 age=  520ms msgs=280
+  73.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age= 4227ms msgs=276
+  73.2 #   src=  2 seq=62470 hops=0 stage=0 nb=2 best= -47 age= 1236ms msgs=161
+  75.2 # t=558s seq=25736 rx=13420 dup=10688 own=2013 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+  75.2 #   teacher: alarms rx=3 acks tx=3
+  75.2 #   nb  tx=  1 median= -35 last= -38 samples=10 age=  110ms
+  75.2 #   nb  tx=  3 median= -92 last= -98 samples=10 age= 7095ms  (stale)
+  75.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   64ms
+  75.2 #   src=  1 seq=25736 hops=0 stage=0 nb=2 best= -34 age=  527ms msgs=281
+  75.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age= 6228ms msgs=276
+  75.2 #   src=  2 seq=62471 hops=0 stage=0 nb=2 best= -47 age= 1217ms msgs=162
+  77.0 # TEACHER ALARM band 3 isolated: no message for 8035 ms (last stage drifting, hops 1)
+  77.2 # t=560s seq=25737 rx=13459 dup=10722 own=2016 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+  77.2 #   teacher: alarms rx=3 acks tx=3
+  77.2 #   nb  tx=  1 median= -35 last= -38 samples=10 age=   22ms
+  77.2 #   nb  tx=  2 median= -47 last= -46 samples=10 age=   65ms
+  77.2 #   src=  1 seq=25737 hops=0 stage=0 nb=2 best= -34 age=  515ms msgs=282
+  77.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age= 8229ms msgs=276  LOST
+  77.2 #   src=  2 seq=62472 hops=0 stage=0 nb=2 best= -47 age= 1223ms msgs=163
+  79.1 # t=562s seq=25738 rx=13501 dup=10756 own=2022 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-35 stage=0 (complete)
+  79.2 #   teacher: alarms rx=3 acks tx=3
+  79.2 #   nb  tx=  1 median= -35 last= -33 samples=10 age=   94ms
+  79.2 #   nb  tx=  3 median= -98 last= -98 samples= 1 age=  856ms
+  79.2 #   nb  tx=  2 median= -47 last= -44 samples=10 age=   65ms
+  79.2 #   src=  1 seq=25738 hops=0 stage=0 nb=2 best= -34 age=  517ms msgs=283
+  79.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=10229ms msgs=276  LOST
+  79.2 #   src=  2 seq=62473 hops=0 stage=0 nb=3 best= -48 age= 1236ms msgs=164
+  81.1 # t=564s seq=25739 rx=13538 dup=10786 own=2027 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+  81.1 #   teacher: alarms rx=3 acks tx=3
+  81.2 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  125ms
+  81.2 #   nb  tx=  3 median= -98 last= -98 samples= 1 age= 2857ms
+  81.2 #   nb  tx=  2 median= -46 last= -48 samples=10 age=   67ms
+  81.2 #   src=  1 seq=25739 hops=0 stage=0 nb=3 best= -34 age=  517ms msgs=284
+  81.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=12230ms msgs=276  LOST
+  81.2 #   src=  2 seq=62474 hops=0 stage=0 nb=3 best= -48 age= 1236ms msgs=165
+  83.1 # t=566s seq=25740 rx=13577 dup=10818 own=2032 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  83.1 #   teacher: alarms rx=3 acks tx=3
+  83.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=  117ms
+  83.2 #   nb  tx=  3 median= -98 last= -98 samples= 1 age= 4858ms  (stale)
+  83.2 #   nb  tx=  2 median= -47 last= -43 samples=10 age=   71ms
+  83.2 #   src=  1 seq=25740 hops=0 stage=0 nb=3 best= -33 age=  514ms msgs=285
+  83.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=14231ms msgs=276  LOST
+  83.2 #   src=  2 seq=62475 hops=0 stage=0 nb=2 best= -48 age= 1238ms msgs=166
+  85.1 # t=568s seq=25741 rx=13614 dup=10848 own=2037 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  85.1 #   teacher: alarms rx=3 acks tx=3
+  85.1 #   nb  tx=  1 median= -34 last= -35 samples=10 age=  116ms
+  85.2 #   nb  tx=  3 median= -98 last= -98 samples= 1 age= 6859ms  (stale)
+  85.2 #   nb  tx=  2 median= -47 last= -42 samples=10 age=   68ms
+  85.2 #   src=  1 seq=25741 hops=1 stage=0 nb=2 best= -34 age=  468ms msgs=286
+  85.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=16232ms msgs=276  LOST
+  85.2 #   src=  2 seq=62476 hops=0 stage=0 nb=2 best= -45 age= 1238ms msgs=167
+  87.1 # t=570s seq=25742 rx=13654 dup=10880 own=2043 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  87.1 #   teacher: alarms rx=3 acks tx=3
+  87.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   15ms
+  87.1 #   nb  tx=  2 median= -46 last= -42 samples=10 age=   96ms
+  87.2 #   src=  1 seq=25742 hops=0 stage=0 nb=2 best= -34 age=  505ms msgs=287
+  87.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=18233ms msgs=276  LOST
+  87.2 #   src=  2 seq=62477 hops=0 stage=0 nb=2 best= -48 age= 1231ms msgs=168
+  89.1 # t=572s seq=25743 rx=13692 dup=10910 own=2049 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  89.1 #   teacher: alarms rx=3 acks tx=3
+  89.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   93ms
+  89.1 #   nb  tx=  2 median= -47 last= -50 samples=10 age=   84ms
+  89.1 #   src=  1 seq=25743 hops=0 stage=0 nb=2 best= -34 age=  505ms msgs=288
+  89.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=20233ms msgs=276  LOST
+  89.2 #   src=  2 seq=62478 hops=0 stage=0 nb=2 best= -47 age= 1206ms msgs=169
+  91.1 # t=574s seq=25744 rx=13733 dup=10943 own=2055 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  91.1 #   teacher: alarms rx=3 acks tx=3
+  91.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=  207ms
+  91.1 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   77ms
+  91.1 #   src=  1 seq=25744 hops=0 stage=0 nb=2 best= -33 age=  524ms msgs=289
+  91.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=22233ms msgs=276  LOST
+  91.2 #   src=  2 seq=62479 hops=0 stage=0 nb=2 best= -47 age= 1198ms msgs=170
+  93.1 # t=576s seq=25745 rx=13771 dup=10974 own=2060 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  93.1 #   teacher: alarms rx=3 acks tx=3
+  93.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=  119ms
+  93.1 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   69ms
+  93.1 #   src=  1 seq=25745 hops=0 stage=0 nb=2 best= -34 age=  507ms msgs=290
+  93.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=24233ms msgs=276  LOST
+  93.1 #   src=  2 seq=62480 hops=0 stage=0 nb=2 best= -49 age= 1237ms msgs=171
+  95.1 # t=578s seq=25746 rx=13812 dup=11007 own=2066 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+  95.1 #   teacher: alarms rx=3 acks tx=3
+  95.1 #   nb  tx=  1 median= -35 last= -37 samples=10 age=  119ms
+  95.1 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   88ms
+  95.1 #   src=  1 seq=25746 hops=0 stage=0 nb=2 best= -33 age=  517ms msgs=291
+  95.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=26233ms msgs=276  LOST
+  95.1 #   src=  2 seq=62481 hops=0 stage=0 nb=2 best= -49 age= 1234ms msgs=172
+  97.1 # t=580s seq=25747 rx=13849 dup=11037 own=2071 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+  97.1 #   teacher: alarms rx=3 acks tx=3
+  97.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  110ms
+  97.1 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   78ms
+  97.1 #   src=  1 seq=25747 hops=0 stage=0 nb=2 best= -33 age=  510ms msgs=292
+  97.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=28233ms msgs=276  LOST
+  97.1 #   src=  2 seq=62482 hops=0 stage=0 nb=2 best= -46 age= 1234ms msgs=173
+  99.1 # t=582s seq=25748 rx=13890 dup=11070 own=2077 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+  99.1 #   teacher: alarms rx=3 acks tx=3
+  99.1 #   nb  tx=  1 median= -35 last= -37 samples=10 age=  102ms
+  99.1 #   nb  tx=  2 median= -50 last= -51 samples=10 age=   33ms
+  99.1 #   src=  1 seq=25748 hops=0 stage=0 nb=2 best= -33 age=  519ms msgs=293
+  99.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=30233ms msgs=276  LOST
+  99.1 #   src=  2 seq=62483 hops=0 stage=0 nb=2 best= -48 age= 1234ms msgs=174
+ 101.1 # t=584s seq=25749 rx=13931 dup=11103 own=2083 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 101.1 #   teacher: alarms rx=3 acks tx=3
+ 101.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  102ms
+ 101.1 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   76ms
+ 101.1 #   src=  1 seq=25749 hops=0 stage=0 nb=2 best= -33 age=  501ms msgs=294
+ 101.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=32233ms msgs=276  LOST
+ 101.1 #   src=  2 seq=62484 hops=0 stage=0 nb=2 best= -50 age= 1200ms msgs=175
+ 103.1 # t=586s seq=25750 rx=13970 dup=11135 own=2088 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 103.1 #   teacher: alarms rx=3 acks tx=3
+ 103.1 #   nb  tx=  1 median= -34 last= -35 samples=10 age=  116ms
+ 103.1 #   nb  tx=  2 median= -49 last= -44 samples=10 age=   69ms
+ 103.1 #   src=  1 seq=25750 hops=1 stage=0 nb=2 best= -34 age=  479ms msgs=295
+ 103.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=34233ms msgs=276  LOST
+ 103.1 #   src=  2 seq=62485 hops=0 stage=0 nb=2 best= -50 age= 1214ms msgs=176
+ 105.2 # t=588s seq=25751 rx=14010 dup=11168 own=2093 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+ 105.2 #   teacher: alarms rx=3 acks tx=3
+ 105.2 #   nb  tx=  1 median= -35 last= -33 samples=10 age=    0ms
+ 105.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   84ms
+ 105.2 #   src=  1 seq=25751 hops=0 stage=0 nb=2 best= -33 age=  511ms msgs=296
+ 105.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=36233ms msgs=276  LOST
+ 105.2 #   src=  2 seq=62486 hops=0 stage=0 nb=2 best= -50 age= 1191ms msgs=177
+ 107.2 # t=590s seq=25752 rx=14048 dup=11198 own=2099 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 107.2 #   teacher: alarms rx=3 acks tx=3
+ 107.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=  306ms
+ 107.2 #   nb  tx=  2 median= -46 last= -50 samples=10 age=   22ms
+ 107.2 #   src=  1 seq=25752 hops=0 stage=0 nb=2 best= -34 age=  517ms msgs=297
+ 107.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=38233ms msgs=276  LOST
+ 107.2 #   src=  2 seq=62487 hops=0 stage=0 nb=2 best= -49 age= 1229ms msgs=178
+ 109.2 # t=592s seq=25753 rx=14087 dup=11229 own=2105 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 109.2 #   teacher: alarms rx=3 acks tx=3
+ 109.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   82ms
+ 109.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   74ms
+ 109.2 #   src=  1 seq=25753 hops=0 stage=0 nb=2 best= -34 age=  505ms msgs=298
+ 109.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=40233ms msgs=276  LOST
+ 109.2 #   src=  2 seq=62488 hops=0 stage=0 nb=2 best= -48 age= 1201ms msgs=179
+ 111.2 # t=594s seq=25754 rx=14130 dup=11264 own=2111 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 111.2 #   teacher: alarms rx=3 acks tx=3
+ 111.2 #   nb  tx=  1 median= -34 last= -38 samples=10 age=    0ms
+ 111.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   63ms
+ 111.2 #   src=  1 seq=25754 hops=0 stage=0 nb=2 best= -33 age=  513ms msgs=299
+ 111.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=42233ms msgs=276  LOST
+ 111.2 #   src=  2 seq=62489 hops=0 stage=0 nb=2 best= -48 age= 1228ms msgs=180
+ 113.2 # t=596s seq=25755 rx=14170 dup=11296 own=2117 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 113.2 #   teacher: alarms rx=3 acks tx=3
+ 113.2 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  102ms
+ 113.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   86ms
+ 113.2 #   src=  1 seq=25755 hops=0 stage=0 nb=2 best= -33 age=  513ms msgs=300
+ 113.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=44233ms msgs=276  LOST
+ 113.2 #   src=  2 seq=62490 hops=0 stage=0 nb=2 best= -48 age= 1227ms msgs=181
+ 115.2 # t=598s seq=25756 rx=14208 dup=11327 own=2122 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 115.2 #   teacher: alarms rx=3 acks tx=3
+ 115.2 #   nb  tx=  1 median= -34 last= -37 samples=10 age=  207ms
+ 115.2 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   70ms
+ 115.2 #   src=  1 seq=25756 hops=0 stage=0 nb=2 best= -35 age=  495ms msgs=301
+ 115.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=46233ms msgs=276  LOST
+ 115.2 #   src=  2 seq=62491 hops=0 stage=0 nb=2 best= -47 age= 1224ms msgs=182
+ 117.2 # t=600s seq=25757 rx=14250 dup=11361 own=2128 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 117.2 #   teacher: alarms rx=3 acks tx=3
+ 117.2 #   nb  tx=  1 median= -34 last= -35 samples=10 age=  105ms
+ 117.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   31ms
+ 117.2 #   src=  1 seq=25757 hops=0 stage=0 nb=2 best= -33 age=  510ms msgs=302
+ 117.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=48233ms msgs=276  LOST
+ 117.2 #   src=  2 seq=62492 hops=0 stage=0 nb=2 best= -48 age= 1226ms msgs=183
+ 119.2 # t=602s seq=25758 rx=14291 dup=11395 own=2133 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 119.2 #   teacher: alarms rx=3 acks tx=3
+ 119.2 #   nb  tx=  1 median= -34 last= -37 samples=10 age=    0ms
+ 119.2 #   nb  tx=  2 median= -47 last= -46 samples=10 age=   33ms
+ 119.2 #   src=  1 seq=25758 hops=0 stage=0 nb=2 best= -33 age=  477ms msgs=303
+ 119.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=50233ms msgs=276  LOST
+ 119.2 #   src=  2 seq=62493 hops=0 stage=0 nb=2 best= -47 age= 1224ms msgs=184
+ 121.1 # t=604s seq=25759 rx=14328 dup=11424 own=2139 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+ 121.2 #   teacher: alarms rx=3 acks tx=3
+ 121.2 #   nb  tx=  1 median= -35 last= -37 samples=10 age=   81ms
+ 121.2 #   nb  tx=  2 median= -48 last= -51 samples=10 age=   81ms
+ 121.2 #   src=  1 seq=25759 hops=0 stage=0 nb=2 best= -33 age=  510ms msgs=304
+ 121.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=52233ms msgs=276  LOST
+ 121.2 #   src=  2 seq=62494 hops=0 stage=0 nb=2 best= -47 age= 1224ms msgs=185
+ 123.1 # t=606s seq=25760 rx=14370 dup=11458 own=2145 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 123.1 #   teacher: alarms rx=3 acks tx=3
+ 123.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   79ms
+ 123.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   79ms
+ 123.2 #   src=  1 seq=25760 hops=0 stage=0 nb=2 best= -33 age=  506ms msgs=305
+ 123.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=54233ms msgs=276  LOST
+ 123.2 #   src=  2 seq=62495 hops=0 stage=0 nb=2 best= -49 age= 1191ms msgs=186
+ 125.1 # t=608s seq=25761 rx=14409 dup=11490 own=2150 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 125.1 #   teacher: alarms rx=3 acks tx=3
+ 125.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   98ms
+ 125.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   69ms
+ 125.2 #   src=  1 seq=25761 hops=0 stage=0 nb=2 best= -33 age=  502ms msgs=306
+ 125.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=56233ms msgs=276  LOST
+ 125.2 #   src=  2 seq=62496 hops=0 stage=0 nb=2 best= -48 age= 1219ms msgs=187
+ 127.1 # t=610s seq=25762 rx=14449 dup=11523 own=2155 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 127.1 #   teacher: alarms rx=3 acks tx=3
+ 127.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   90ms
+ 127.2 #   nb  tx=  2 median= -48 last= -48 samples=10 age=   28ms
+ 127.2 #   src=  1 seq=25762 hops=0 stage=0 nb=2 best= -33 age=  503ms msgs=307
+ 127.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=58233ms msgs=276  LOST
+ 127.2 #   src=  2 seq=62497 hops=0 stage=0 nb=2 best= -48 age= 1218ms msgs=188
+ 129.1 # t=612s seq=25763 rx=14490 dup=11556 own=2161 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 129.1 #   teacher: alarms rx=3 acks tx=3
+ 129.1 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   69ms
+ 129.1 #   nb  tx=  2 median= -47 last= -47 samples=10 age=    4ms
+ 129.2 #   src=  1 seq=25763 hops=0 stage=0 nb=2 best= -33 age=  505ms msgs=308
+ 129.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=60233ms msgs=276  LOST
+ 129.2 #   src=  2 seq=62498 hops=0 stage=0 nb=2 best= -49 age= 1221ms msgs=189
+ 131.1 # t=614s seq=25764 rx=14525 dup=11585 own=2165 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 131.1 #   teacher: alarms rx=3 acks tx=3
+ 131.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   99ms
+ 131.1 #   nb  tx=  2 median= -47 last= -45 samples=10 age=  233ms
+ 131.1 #   src=  1 seq=25764 hops=0 stage=0 nb=2 best= -34 age=  506ms msgs=309
+ 131.2 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=62233ms msgs=276  LOST
+ 131.2 #   src=  2 seq=62499 hops=0 stage=0 nb=2 best= -48 age= 1219ms msgs=190
+ 133.1 # t=616s seq=25765 rx=14564 dup=11616 own=2171 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 133.1 #   teacher: alarms rx=3 acks tx=3
+ 133.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   98ms
+ 133.1 #   nb  tx=  2 median= -48 last= -47 samples=10 age=   69ms
+ 133.1 #   src=  1 seq=25765 hops=0 stage=0 nb=2 best= -34 age=  505ms msgs=310
+ 133.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=64233ms msgs=276  LOST
+ 133.2 #   src=  2 seq=62500 hops=0 stage=0 nb=2 best= -47 age= 1216ms msgs=191
+ 135.1 # t=618s seq=25766 rx=14603 dup=11647 own=2177 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+ 135.1 #   teacher: alarms rx=3 acks tx=3
+ 135.1 #   nb  tx=  1 median= -35 last= -33 samples=10 age=   69ms
+ 135.1 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   59ms
+ 135.1 #   src=  1 seq=25766 hops=0 stage=0 nb=2 best= -34 age=  504ms msgs=311
+ 135.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=66233ms msgs=276  LOST
+ 135.1 #   src=  2 seq=62501 hops=0 stage=0 nb=2 best= -48 age= 1215ms msgs=192
+ 137.1 # t=620s seq=25767 rx=14642 dup=11678 own=2183 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 137.1 #   teacher: alarms rx=3 acks tx=3
+ 137.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   96ms
+ 137.1 #   nb  tx=  2 median= -48 last= -48 samples=10 age=  169ms
+ 137.1 #   src=  1 seq=25767 hops=0 stage=0 nb=2 best= -33 age=  503ms msgs=312
+ 137.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=68233ms msgs=276  LOST
+ 137.1 #   src=  2 seq=62502 hops=0 stage=0 nb=2 best= -48 age= 1214ms msgs=193
+ 139.1 # t=622s seq=25768 rx=14675 dup=11704 own=2188 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+ 139.1 #   teacher: alarms rx=3 acks tx=3
+ 139.1 #   nb  tx=  1 median= -35 last= -33 samples=10 age=   76ms
+ 139.1 #   nb  tx=  2 median= -46 last= -49 samples=10 age=   28ms
+ 139.1 #   src=  1 seq=25768 hops=0 stage=0 nb=2 best= -34 age=  269ms msgs=313
+ 139.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=70233ms msgs=276  LOST
+ 139.1 #   src=  2 seq=62503 hops=0 stage=0 nb=2 best= -48 age= 1214ms msgs=194
+ 141.1 # t=624s seq=25769 rx=14714 dup=11735 own=2194 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-34 stage=0 (complete)
+ 141.1 #   teacher: alarms rx=3 acks tx=3
+ 141.1 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   88ms
+ 141.1 #   nb  tx=  2 median= -48 last= -49 samples=10 age=  169ms
+ 141.1 #   src=  1 seq=25769 hops=0 stage=0 nb=2 best= -33 age=  496ms msgs=314
+ 141.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=72233ms msgs=276  LOST
+ 141.1 #   src=  2 seq=62504 hops=0 stage=0 nb=2 best= -47 age= 1209ms msgs=195
+ 143.1 # t=626s seq=25770 rx=14749 dup=11764 own=2198 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-35 stage=0 (complete)
+ 143.1 #   teacher: alarms rx=3 acks tx=3
+ 143.1 #   nb  tx=  1 median= -35 last= -33 samples=10 age=   75ms
+ 143.1 #   nb  tx=  2 median= -46 last= -48 samples=10 age=  176ms
+ 143.1 #   src=  1 seq=25770 hops=0 stage=0 nb=2 best= -33 age=  500ms msgs=315
+ 143.1 #   src=  3 seq=29180 hops=1 stage=1 nb=3 best= -92 age=74233ms msgs=276  LOST
+ 143.1 #   src=  2 seq=62505 hops=0 stage=0 nb=2 best= -48 age= 1179ms msgs=196
+ 143.7 # TEACHER band 3 reachable again (hops=1)
+ 145.2 # t=628s seq=25771 rx=14795 dup=11799 own=2205 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 145.2 #   teacher: alarms rx=3 acks tx=3
+ 145.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   85ms
+ 145.2 #   nb  tx=  3 median= -95 last= -89 samples= 4 age=   85ms
+ 145.2 #   nb  tx=  2 median= -46 last= -46 samples=10 age=   38ms
+ 145.2 #   src=  1 seq=25771 hops=0 stage=0 nb=3 best= -33 age=  469ms msgs=316
+ 145.2 #   src=  3 seq=29242 hops=0 stage=3 nb=1 best=-105 age=  686ms msgs=278
+ 145.2 #   src=  2 seq=62506 hops=0 stage=0 nb=3 best= -45 age= 1047ms msgs=197
+ 146.0 # TEACHER ALARM band 3: isolated -> critical reason=1 hops=0 seq=29244  -> ACK sent
+ 147.2 # t=630s seq=25773 rx=14848 dup=11834 own=2219 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-33 stage=0 (complete)
+ 147.2 #   teacher: alarms rx=4 acks tx=4
+ 147.2 #   nb  tx=  1 median= -33 last= -34 samples=10 age=   41ms
+ 147.2 #   nb  tx=  3 median= -85 last= -80 samples=10 age=    3ms
+ 147.2 #   nb  tx=  2 median= -46 last= -45 samples=10 age=    3ms
+ 147.2 #   src=  1 seq=25772 hops=0 stage=0 nb=3 best= -33 age=  246ms msgs=317
+ 147.2 #   src=  3 seq=29244 hops=0 stage=2 nb=3 best= -91 age= 1179ms msgs=280
+ 147.2 #   src=  2 seq=62507 hops=0 stage=0 nb=3 best= -46 age= 1138ms msgs=198
+ 149.2 # t=632s seq=25774 rx=14903 dup=11876 own=2228 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 149.2 #   teacher: alarms rx=4 acks tx=4
+ 149.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   70ms
+ 149.2 #   nb  tx=  3 median= -80 last= -76 samples=10 age=   33ms
+ 149.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age=  252ms
+ 149.2 #   src=  1 seq=25773 hops=0 stage=0 nb=3 best= -34 age=  486ms msgs=318
+ 149.2 #   src=  3 seq=29246 hops=0 stage=2 nb=3 best= -83 age=  118ms msgs=282
+ 149.2 #   src=  2 seq=62508 hops=0 stage=0 nb=3 best= -46 age= 1210ms msgs=199
+ 151.2 # t=634s seq=25775 rx=14960 dup=11921 own=2237 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 151.2 #   teacher: alarms rx=4 acks tx=4
+ 151.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   23ms
+ 151.2 #   nb  tx=  3 median= -79 last= -78 samples=10 age=   23ms
+ 151.2 #   nb  tx=  2 median= -48 last= -44 samples=10 age=   58ms
+ 151.2 #   src=  1 seq=25774 hops=0 stage=0 nb=3 best= -33 age=  492ms msgs=319
+ 151.2 #   src=  3 seq=29247 hops=0 stage=2 nb=3 best= -78 age=  140ms msgs=283
+ 151.2 #   src=  2 seq=62509 hops=0 stage=0 nb=3 best= -48 age= 1212ms msgs=200
+ 153.2 # t=636s seq=25776 rx=15015 dup=11964 own=2246 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 153.2 #   teacher: alarms rx=4 acks tx=4
+ 153.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   64ms
+ 153.2 #   nb  tx=  3 median= -72 last= -71 samples=10 age=  140ms
+ 153.2 #   nb  tx=  2 median= -46 last= -46 samples=10 age=   64ms
+ 153.2 #   src=  1 seq=25775 hops=0 stage=0 nb=3 best= -33 age=  478ms msgs=320
+ 153.2 #   src=  3 seq=29248 hops=0 stage=2 nb=3 best= -75 age=  140ms msgs=284
+ 153.2 #   src=  2 seq=62510 hops=0 stage=0 nb=3 best= -48 age= 1182ms msgs=201
+ 155.2 # t=638s seq=25777 rx=15075 dup=12014 own=2253 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-33 stage=0 (complete)
+ 155.2 #   teacher: alarms rx=4 acks tx=4
+ 155.2 #   nb  tx=  1 median= -33 last= -33 samples=10 age=   47ms
+ 155.2 #   nb  tx=  3 median= -74 last= -69 samples=10 age=   13ms
+ 155.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   73ms
+ 155.2 #   src=  1 seq=25776 hops=0 stage=0 nb=3 best= -33 age=  496ms msgs=321
+ 155.2 #   src=  3 seq=29249 hops=0 stage=2 nb=3 best= -72 age=  102ms msgs=285
+ 155.2 #   src=  2 seq=62511 hops=0 stage=0 nb=3 best= -48 age= 1205ms msgs=202
+ 155.9 # TEACHER ALARM band 3: critical -> drifting reason=1 hops=0 seq=29251  -> ACK sent
+ 157.2 # t=640s seq=25779 rx=15131 dup=12052 own=2267 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 157.2 #   teacher: alarms rx=5 acks tx=5
+ 157.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   53ms
+ 157.2 #   nb  tx=  3 median= -77 last= -72 samples=10 age=    2ms
+ 157.2 #   nb  tx=  2 median= -47 last= -83 samples=10 age=    2ms
+ 157.2 #   src=  1 seq=25777 hops=0 stage=0 nb=3 best= -34 age=  263ms msgs=322
+ 157.2 #   src=  3 seq=29251 hops=0 stage=1 nb=3 best= -73 age= 1236ms msgs=287
+ 157.2 #   src=  2 seq=62512 hops=0 stage=0 nb=3 best= -47 age= 1163ms msgs=203
+ 159.2 # t=642s seq=25780 rx=15185 dup=12094 own=2276 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 159.2 #   teacher: alarms rx=5 acks tx=5
+ 159.2 #   nb  tx=  1 median= -34 last= -37 samples=10 age=   79ms
+ 159.2 #   nb  tx=  3 median= -73 last= -71 samples=10 age=   75ms
+ 159.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   79ms
+ 159.2 #   src=  1 seq=25778 hops=0 stage=0 nb=3 best= -33 age=  497ms msgs=323
+ 159.2 #   src=  3 seq=29252 hops=0 stage=1 nb=3 best= -82 age= 1626ms msgs=288
+ 159.2 #   src=  2 seq=62513 hops=0 stage=0 nb=3 best= -47 age= 1104ms msgs=204
+ 161.2 # t=644s seq=25781 rx=15247 dup=12144 own=2285 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 161.2 #   teacher: alarms rx=5 acks tx=5
+ 161.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   76ms
+ 161.2 #   nb  tx=  3 median= -65 last= -66 samples=10 age=   70ms
+ 161.2 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   14ms
+ 161.2 #   src=  1 seq=25779 hops=0 stage=0 nb=3 best= -33 age=  499ms msgs=324
+ 161.2 #   src=  3 seq=29253 hops=0 stage=1 nb=3 best= -74 age= 1635ms msgs=289
+ 161.2 #   src=  2 seq=62514 hops=0 stage=0 nb=3 best= -47 age= 1197ms msgs=205
+ 163.2 # t=646s seq=25782 rx=15306 dup=12193 own=2292 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 163.2 #   teacher: alarms rx=5 acks tx=5
+ 163.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   87ms
+ 163.2 #   nb  tx=  3 median= -65 last= -56 samples=10 age=   59ms
+ 163.2 #   nb  tx=  2 median= -46 last= -49 samples=10 age=   59ms
+ 163.2 #   src=  1 seq=25780 hops=0 stage=0 nb=3 best= -35 age=  498ms msgs=325
+ 163.2 #   src=  3 seq=29254 hops=1 stage=1 nb=3 best= -63 age= 1620ms msgs=290
+ 163.2 #   src=  2 seq=62515 hops=0 stage=0 nb=3 best= -48 age= 1210ms msgs=206
+ 164.6 # TEACHER ALARM band 3: drifting -> complete reason=1 hops=0 seq=29257  -> ACK sent
+ 165.1 # t=648s seq=25784 rx=15362 dup=12230 own=2307 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 165.2 #   teacher: alarms rx=6 acks tx=6
+ 165.2 #   nb  tx=  1 median= -34 last= -33 samples=10 age=   36ms
+ 165.2 #   nb  tx=  3 median= -51 last= -55 samples=10 age=   71ms
+ 165.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   37ms
+ 165.2 #   src=  1 seq=25780 hops=0 stage=0 nb=3 best= -35 age= 2499ms msgs=325
+ 165.2 #   src=  3 seq=29257 hops=0 stage=0 nb=3 best= -58 age=  578ms msgs=293
+ 165.2 #   src=  2 seq=62516 hops=0 stage=0 nb=3 best= -46 age= 1209ms msgs=207
+ 167.1 # t=650s seq=25785 rx=15417 dup=12272 own=2316 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-34 stage=0 (complete)
+ 167.1 #   teacher: alarms rx=6 acks tx=6
+ 167.2 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   86ms
+ 167.2 #   nb  tx=  3 median= -48 last= -42 samples=10 age=   49ms
+ 167.2 #   nb  tx=  2 median= -46 last= -49 samples=10 age=   49ms
+ 167.2 #   src=  1 seq=25782 hops=0 stage=0 nb=3 best= -34 age=  499ms msgs=327
+ 167.2 #   src=  3 seq=29258 hops=0 stage=0 nb=3 best= -50 age=  879ms msgs=294
+ 167.2 #   src=  2 seq=62517 hops=0 stage=0 nb=3 best= -47 age= 1210ms msgs=208
+ 169.1 # t=652s seq=25786 rx=15480 dup=12323 own=2325 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-33 stage=0 (complete)
+ 169.1 #   teacher: alarms rx=6 acks tx=6
+ 169.2 #   nb  tx=  1 median= -35 last= -38 samples=10 age=   91ms
+ 169.2 #   nb  tx=  3 median= -33 last= -35 samples=10 age=   80ms
+ 169.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   65ms
+ 169.2 #   src=  1 seq=25783 hops=0 stage=0 nb=3 best= -34 age=  482ms msgs=328
+ 169.2 #   src=  3 seq=29259 hops=0 stage=0 nb=3 best= -35 age=  869ms msgs=295
+ 169.2 #   src=  2 seq=62518 hops=0 stage=0 nb=3 best= -47 age= 1212ms msgs=209
+ 171.1 # t=654s seq=25787 rx=15542 dup=12374 own=2333 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-32 stage=0 (complete)
+ 171.1 #   teacher: alarms rx=6 acks tx=6
+ 171.1 #   nb  tx=  1 median= -34 last= -34 samples=10 age=   84ms
+ 171.2 #   nb  tx=  3 median= -32 last= -35 samples=10 age=   54ms
+ 171.2 #   nb  tx=  2 median= -48 last= -50 samples=10 age=   54ms
+ 171.2 #   src=  1 seq=25784 hops=0 stage=0 nb=3 best= -34 age=  499ms msgs=329
+ 171.2 #   src=  3 seq=29260 hops=0 stage=0 nb=3 best= -34 age=  858ms msgs=296
+ 171.2 #   src=  2 seq=62519 hops=0 stage=0 nb=3 best= -41 age= 1195ms msgs=210
+ 173.1 # t=656s seq=25788 rx=15596 dup=12416 own=2342 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-31 stage=0 (complete)
+ 173.1 #   teacher: alarms rx=6 acks tx=6
+ 173.1 #   nb  tx=  1 median= -35 last= -33 samples=10 age=   82ms
+ 173.1 #   nb  tx=  3 median= -31 last= -35 samples=10 age=   55ms
+ 173.2 #   nb  tx=  2 median= -46 last= -52 samples=10 age=   55ms
+ 173.2 #   src=  1 seq=25785 hops=0 stage=0 nb=3 best= -34 age=  492ms msgs=330
+ 173.2 #   src=  3 seq=29261 hops=1 stage=0 nb=3 best= -34 age=  855ms msgs=297
+ 173.2 #   src=  2 seq=62520 hops=0 stage=0 nb=3 best= -41 age= 1210ms msgs=211
+ 175.1 # t=658s seq=25789 rx=15660 dup=12468 own=2351 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-33 stage=0 (complete)
+ 175.1 #   teacher: alarms rx=6 acks tx=6
+ 175.1 #   nb  tx=  1 median= -38 last= -41 samples=10 age=   83ms
+ 175.1 #   nb  tx=  3 median= -33 last= -29 samples=10 age=   47ms
+ 175.2 #   nb  tx=  2 median= -48 last= -43 samples=10 age=   47ms
+ 175.2 #   src=  1 seq=25786 hops=0 stage=0 nb=3 best= -34 age=  496ms msgs=331
+ 175.2 #   src=  3 seq=29262 hops=0 stage=0 nb=3 best= -34 age=  872ms msgs=298
+ 175.2 #   src=  2 seq=62521 hops=0 stage=0 nb=3 best= -41 age= 1212ms msgs=212
+ 177.1 # t=660s seq=25790 rx=15715 dup=12511 own=2360 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-46 stage=0 (complete)
+ 177.1 #   teacher: alarms rx=6 acks tx=6
+ 177.1 #   nb  tx=  1 median= -54 last= -54 samples=10 age=   86ms
+ 177.1 #   nb  tx=  3 median= -51 last= -53 samples=10 age=   72ms
+ 177.1 #   nb  tx=  2 median= -46 last= -49 samples=10 age=   22ms
+ 177.2 #   src=  1 seq=25787 hops=0 stage=0 nb=3 best= -48 age=  499ms msgs=332
+ 177.2 #   src=  3 seq=29263 hops=0 stage=0 nb=3 best= -36 age=  878ms msgs=299
+ 177.2 #   src=  2 seq=62522 hops=0 stage=0 nb=3 best= -44 age= 1210ms msgs=213
+ 179.1 # t=662s seq=25791 rx=15772 dup=12556 own=2369 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 179.1 #   teacher: alarms rx=6 acks tx=6
+ 179.1 #   nb  tx=  1 median= -60 last= -56 samples=10 age=  185ms
+ 179.1 #   nb  tx=  3 median= -64 last= -66 samples=10 age=  154ms
+ 179.1 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   45ms
+ 179.1 #   src=  1 seq=25788 hops=0 stage=0 nb=3 best= -55 age=  491ms msgs=333
+ 179.2 #   src=  3 seq=29264 hops=0 stage=0 nb=3 best= -55 age=  819ms msgs=300
+ 179.2 #   src=  2 seq=62523 hops=0 stage=0 nb=3 best= -48 age= 1185ms msgs=214
+ 181.1 # t=664s seq=25792 rx=15827 dup=12601 own=2376 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 181.1 #   teacher: alarms rx=6 acks tx=6
+ 181.1 #   nb  tx=  1 median= -67 last= -73 samples=10 age=   86ms
+ 181.1 #   nb  tx=  3 median= -63 last= -57 samples=10 age=   77ms
+ 181.1 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   13ms
+ 181.1 #   src=  1 seq=25789 hops=0 stage=0 nb=3 best= -48 age=  486ms msgs=334
+ 181.2 #   src=  3 seq=29265 hops=0 stage=0 nb=3 best= -52 age=  874ms msgs=301
+ 181.2 #   src=  2 seq=62524 hops=0 stage=0 nb=3 best= -48 age= 1208ms msgs=215
+ 183.1 # t=666s seq=25793 rx=15886 dup=12648 own=2385 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-46 stage=0 (complete)
+ 183.1 #   teacher: alarms rx=6 acks tx=6
+ 183.1 #   nb  tx=  1 median= -75 last= -75 samples=10 age=   87ms
+ 183.1 #   nb  tx=  3 median= -60 last= -61 samples=10 age=   72ms
+ 183.1 #   nb  tx=  2 median= -46 last= -46 samples=10 age=   34ms
+ 183.1 #   src=  1 seq=25790 hops=0 stage=0 nb=3 best= -47 age=  487ms msgs=335
+ 183.1 #   src=  3 seq=29266 hops=0 stage=0 nb=3 best= -49 age=  876ms msgs=302
+ 183.2 #   src=  2 seq=62525 hops=0 stage=0 nb=3 best= -48 age= 1210ms msgs=216
+ 185.1 # t=668s seq=25794 rx=15943 dup=12693 own=2394 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 185.1 #   teacher: alarms rx=6 acks tx=6
+ 185.1 #   nb  tx=  1 median= -73 last= -60 samples=10 age=   92ms
+ 185.1 #   nb  tx=  3 median= -60 last= -53 samples=10 age=   59ms
+ 185.1 #   nb  tx=  2 median= -47 last= -46 samples=10 age=   69ms
+ 185.1 #   src=  1 seq=25791 hops=0 stage=0 nb=3 best= -39 age=  497ms msgs=336
+ 185.1 #   src=  3 seq=29267 hops=0 stage=0 nb=3 best= -50 age=  867ms msgs=303
+ 185.2 #   src=  2 seq=62526 hops=0 stage=0 nb=3 best= -47 age= 1213ms msgs=217
+ 187.2 # t=670s seq=25795 rx=16003 dup=12741 own=2403 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 187.2 #   teacher: alarms rx=6 acks tx=6
+ 187.2 #   nb  tx=  1 median= -70 last= -69 samples=10 age=   92ms
+ 187.2 #   nb  tx=  3 median= -61 last= -68 samples=10 age=   18ms
+ 187.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=   58ms
+ 187.2 #   src=  1 seq=25792 hops=0 stage=0 nb=3 best= -38 age=  489ms msgs=337
+ 187.2 #   src=  3 seq=29268 hops=0 stage=0 nb=3 best= -41 age=  871ms msgs=304
+ 187.2 #   src=  2 seq=62527 hops=0 stage=0 nb=3 best= -47 age= 1204ms msgs=218
+ 189.2 # t=672s seq=25796 rx=16056 dup=12784 own=2410 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 189.2 #   teacher: alarms rx=6 acks tx=6
+ 189.2 #   nb  tx=  1 median= -84 last= -85 samples=10 age=  297ms
+ 189.2 #   nb  tx=  3 median= -74 last= -75 samples=10 age=   50ms
+ 189.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   50ms
+ 189.2 #   src=  1 seq=25793 hops=0 stage=0 nb=3 best= -40 age=  497ms msgs=338
+ 189.2 #   src=  3 seq=29269 hops=0 stage=0 nb=3 best= -44 age=  858ms msgs=305
+ 189.2 #   src=  2 seq=62528 hops=0 stage=0 nb=3 best= -48 age= 1203ms msgs=219
+ 191.2 # t=674s seq=25797 rx=16106 dup=12822 own=2419 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-48 stage=0 (complete)
+ 191.2 #   teacher: alarms rx=6 acks tx=6
+ 191.2 #   nb  tx=  1 median= -86 last= -82 samples=10 age=   96ms
+ 191.2 #   nb  tx=  3 median= -75 last= -75 samples=10 age=    7ms
+ 191.2 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   75ms
+ 191.2 #   src=  1 seq=25794 hops=0 stage=0 nb=3 best= -47 age=  491ms msgs=339
+ 191.2 #   src=  3 seq=29270 hops=0 stage=0 nb=3 best= -50 age=  834ms msgs=306
+ 191.2 #   src=  2 seq=62529 hops=0 stage=0 nb=3 best= -50 age= 1210ms msgs=220
+ 193.2 # t=676s seq=25798 rx=16159 dup=12865 own=2426 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 193.2 #   teacher: alarms rx=6 acks tx=6
+ 193.2 #   nb  tx=  1 median= -82 last= -83 samples=10 age=  192ms
+ 193.2 #   nb  tx=  3 median= -74 last= -85 samples=10 age=  139ms
+ 193.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   59ms
+ 193.2 #   src=  1 seq=25795 hops=0 stage=0 nb=3 best= -52 age=  492ms msgs=340
+ 193.2 #   src=  3 seq=29271 hops=1 stage=0 nb=3 best= -52 age=  865ms msgs=307
+ 193.2 #   src=  2 seq=62530 hops=0 stage=0 nb=3 best= -49 age= 1206ms msgs=221
+ 195.2 # t=678s seq=25799 rx=16212 dup=12907 own=2434 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-46 stage=0 (complete)
+ 195.2 #   teacher: alarms rx=6 acks tx=6
+ 195.2 #   nb  tx=  1 median= -84 last= -82 samples=10 age=   96ms
+ 195.2 #   nb  tx=  3 median= -82 last= -78 samples=10 age=   20ms
+ 195.2 #   nb  tx=  2 median= -46 last= -41 samples=10 age=   66ms
+ 195.2 #   src=  1 seq=25796 hops=0 stage=0 nb=3 best= -48 age=  498ms msgs=341
+ 195.2 #   src=  3 seq=29272 hops=0 stage=0 nb=3 best= -50 age=  878ms msgs=308
+ 195.2 #   src=  2 seq=62531 hops=1 stage=0 nb=3 best= -48 age= 1181ms msgs=222
+ 197.2 # t=680s seq=25800 rx=16268 dup=12952 own=2442 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 197.2 #   teacher: alarms rx=6 acks tx=6
+ 197.2 #   nb  tx=  1 median= -90 last= -80 samples=10 age=   82ms
+ 197.2 #   nb  tx=  3 median= -77 last= -78 samples=10 age=   82ms
+ 197.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   69ms
+ 197.2 #   src=  1 seq=25797 hops=1 stage=0 nb=3 best= -51 age=  479ms msgs=342
+ 197.2 #   src=  3 seq=29273 hops=0 stage=0 nb=3 best= -55 age=  863ms msgs=309
+ 197.2 #   src=  2 seq=62532 hops=0 stage=0 nb=3 best= -47 age= 1198ms msgs=223
+ 199.2 # t=682s seq=25801 rx=16329 dup=13001 own=2451 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 199.2 #   teacher: alarms rx=6 acks tx=6
+ 199.2 #   nb  tx=  1 median= -85 last= -87 samples=10 age=   97ms
+ 199.2 #   nb  tx=  3 median= -82 last= -80 samples=10 age=   66ms
+ 199.2 #   nb  tx=  2 median= -47 last= -44 samples=10 age=   40ms
+ 199.2 #   src=  1 seq=25798 hops=0 stage=0 nb=3 best= -48 age=  495ms msgs=343
+ 199.2 #   src=  3 seq=29274 hops=0 stage=0 nb=3 best= -49 age=  879ms msgs=310
+ 199.2 #   src=  2 seq=62533 hops=0 stage=0 nb=3 best= -48 age= 1197ms msgs=224
+ 201.2 # t=684s seq=25802 rx=16387 dup=13048 own=2459 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-46 stage=0 (complete)
+ 201.2 #   teacher: alarms rx=6 acks tx=6
+ 201.2 #   nb  tx=  1 median= -80 last= -79 samples=10 age=   26ms
+ 201.2 #   nb  tx=  3 median= -70 last= -67 samples=10 age=   26ms
+ 201.2 #   nb  tx=  2 median= -46 last= -47 samples=10 age=   11ms
+ 201.2 #   src=  1 seq=25799 hops=0 stage=0 nb=3 best= -50 age=  449ms msgs=344
+ 201.2 #   src=  3 seq=29275 hops=1 stage=0 nb=3 best= -49 age=  867ms msgs=311
+ 201.2 #   src=  2 seq=62534 hops=0 stage=0 nb=3 best= -47 age= 1211ms msgs=225
+ 203.2 # t=686s seq=25803 rx=16443 dup=13092 own=2468 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 203.2 #   teacher: alarms rx=6 acks tx=6
+ 203.2 #   nb  tx=  1 median= -84 last= -83 samples=10 age=   75ms
+ 203.2 #   nb  tx=  3 median= -80 last= -91 samples=10 age=   57ms
+ 203.2 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   57ms
+ 203.2 #   src=  1 seq=25800 hops=0 stage=0 nb=3 best= -58 age=  501ms msgs=345
+ 203.2 #   src=  3 seq=29276 hops=0 stage=0 nb=3 best= -61 age=  864ms msgs=312
+ 203.2 #   src=  2 seq=62535 hops=0 stage=0 nb=3 best= -47 age= 1197ms msgs=226
+ 205.2 # t=688s seq=25804 rx=16497 dup=13135 own=2476 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 205.2 #   teacher: alarms rx=6 acks tx=6
+ 205.2 #   nb  tx=  1 median= -83 last= -83 samples=10 age=  200ms
+ 205.2 #   nb  tx=  3 median= -82 last= -86 samples=10 age=   43ms
+ 205.2 #   nb  tx=  2 median= -47 last= -49 samples=10 age=   52ms
+ 205.2 #   src=  1 seq=25801 hops=0 stage=0 nb=3 best= -52 age=  501ms msgs=346
+ 205.2 #   src=  3 seq=29277 hops=0 stage=0 nb=3 best= -54 age=  878ms msgs=313
+ 205.2 #   src=  2 seq=62536 hops=0 stage=0 nb=3 best= -48 age= 1212ms msgs=227
+ 207.2 # t=690s seq=25805 rx=16550 dup=13178 own=2483 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 207.2 #   teacher: alarms rx=6 acks tx=6
+ 207.2 #   nb  tx=  1 median= -81 last= -77 samples=10 age=   77ms
+ 207.2 #   nb  tx=  3 median= -87 last= -96 samples=10 age=   57ms
+ 207.2 #   nb  tx=  2 median= -47 last= -48 samples=10 age=   45ms
+ 207.2 #   src=  1 seq=25802 hops=0 stage=0 nb=3 best= -64 age=  499ms msgs=347
+ 207.2 #   src=  3 seq=29278 hops=0 stage=0 nb=3 best= -59 age=  869ms msgs=314
+ 207.2 #   src=  2 seq=62537 hops=0 stage=0 nb=3 best= -48 age= 1199ms msgs=228
+ 209.2 # t=692s seq=25806 rx=16592 dup=13212 own=2488 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 209.2 #   teacher: alarms rx=6 acks tx=6
+ 209.2 #   nb  tx=  1 median= -83 last= -88 samples=10 age=   82ms
+ 209.2 #   nb  tx=  3 median= -91 last= -90 samples=10 age=  849ms
+ 209.2 #   nb  tx=  2 median= -47 last= -44 samples=10 age=   51ms
+ 209.2 #   src=  1 seq=25803 hops=1 stage=0 nb=3 best= -64 age=  443ms msgs=348
+ 209.2 #   src=  3 seq=29279 hops=0 stage=0 nb=3 best= -67 age=  849ms msgs=315
+ 209.2 #   src=  2 seq=62538 hops=0 stage=0 nb=3 best= -47 age= 1213ms msgs=229
+ 211.2 # t=694s seq=25807 rx=16626 dup=13238 own=2493 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-50 stage=0 (complete)
+ 211.2 #   teacher: alarms rx=6 acks tx=6
+ 211.2 #   nb  tx=  1 median= -84 last= -89 samples=10 age=  201ms
+ 211.2 #   nb  tx=  3 median= -91 last= -90 samples=10 age= 2850ms
+ 211.2 #   nb  tx=  2 median= -50 last= -49 samples=10 age=   72ms
+ 211.2 #   src=  1 seq=25804 hops=0 stage=0 nb=3 best= -76 age=  401ms msgs=349
+ 211.2 #   src=  3 seq=29280 hops=1 stage=0 nb=3 best= -83 age=  701ms msgs=316
+ 211.2 #   src=  2 seq=62539 hops=0 stage=0 nb=3 best= -49 age= 1201ms msgs=230
+ 213.2 # t=696s seq=25808 rx=16668 dup=13271 own=2499 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 213.2 #   teacher: alarms rx=6 acks tx=6
+ 213.2 #   nb  tx=  1 median= -87 last= -77 samples=10 age=   55ms
+ 213.2 #   nb  tx=  3 median= -91 last= -90 samples=10 age= 4851ms  (stale)
+ 213.2 #   nb  tx=  2 median= -49 last= -52 samples=10 age=   55ms
+ 213.2 #   src=  1 seq=25805 hops=0 stage=0 nb=3 best= -81 age=  498ms msgs=350
+ 213.2 #   src=  3 seq=29281 hops=1 stage=0 nb=2 best= -86 age=  821ms msgs=317
+ 213.2 #   src=  2 seq=62540 hops=0 stage=0 nb=3 best= -50 age= 1202ms msgs=231
+ 214.4 # TEACHER ALARM band 1: complete -> drifting reason=1 hops=0 seq=25807  -> ACK sent
+ 214.7 # TEACHER ALARM band 3: complete -> drifting reason=1 hops=1 seq=29283  -> ACK sent
+ 215.2 # t=698s seq=25811 rx=16706 dup=13296 own=2507 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 215.2 #   teacher: alarms rx=8 acks tx=8
+ 215.2 #   nb  tx=  1 median= -79 last= -76 samples=10 age=   22ms
+ 215.2 #   nb  tx=  3 median= -91 last= -90 samples=10 age= 6852ms  (stale)
+ 215.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=   22ms
+ 215.2 #   src=  1 seq=25807 hops=0 stage=1 nb=3 best= -79 age=  723ms msgs=352
+ 215.2 #   src=  3 seq=29283 hops=1 stage=1 nb=2 best= -84 age=  424ms msgs=319
+ 215.2 #   src=  2 seq=62541 hops=0 stage=0 nb=2 best= -50 age= 1003ms msgs=232
+ 215.6 # TEACHER ALARM band 3: complete -> drifting reason=1 hops=1 seq=29284  -> ACK sent
+ 217.2 # t=700s seq=25813 rx=16740 dup=13311 own=2522 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 217.2 #   teacher: alarms rx=9 acks tx=9
+ 217.2 #   nb  tx=  1 median= -85 last= -85 samples=10 age=   15ms
+ 217.2 #   nb  tx=  2 median= -49 last= -48 samples=10 age=   15ms
+ 217.2 #   src=  1 seq=25808 hops=0 stage=1 nb=3 best= -78 age=  311ms msgs=353
+ 217.2 #   src=  3 seq=29285 hops=1 stage=1 nb=1 best= -89 age=  625ms msgs=321
+ 217.2 #   src=  2 seq=62542 hops=0 stage=0 nb=2 best= -50 age=  322ms msgs=233
+ 219.1 # t=702s seq=25814 rx=16773 dup=13335 own=2528 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-50 stage=0 (complete)
+ 219.2 #   teacher: alarms rx=9 acks tx=9
+ 219.2 #   nb  tx=  1 median= -83 last= -86 samples=10 age=  118ms
+ 219.2 #   nb  tx=  3 median= -90 last= -90 samples= 1 age=  613ms
+ 219.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=  118ms
+ 219.2 #   src=  1 seq=25809 hops=0 stage=1 nb=3 best= -79 age= 1030ms msgs=354
+ 219.2 #   src=  3 seq=29286 hops=1 stage=1 nb=1 best= -83 age= 1333ms msgs=322
+ 219.2 #   src=  2 seq=62543 hops=0 stage=0 nb=2 best= -50 age=  820ms msgs=234
+ 221.1 # t=704s seq=25815 rx=16802 dup=13356 own=2533 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-47 stage=0 (complete)
+ 221.1 #   teacher: alarms rx=9 acks tx=9
+ 221.2 #   nb  tx=  1 median= -86 last= -84 samples=10 age=   11ms
+ 221.2 #   nb  tx=  3 median= -90 last= -90 samples= 1 age= 2614ms
+ 221.2 #   nb  tx=  2 median= -47 last= -47 samples=10 age=  405ms
+ 221.2 #   src=  1 seq=25810 hops=0 stage=1 nb=3 best= -78 age=  932ms msgs=355
+ 221.2 #   src=  3 seq=29287 hops=2 stage=1 nb=2 best= -85 age= 1305ms msgs=323
+ 221.2 #   src=  2 seq=62544 hops=0 stage=0 nb=3 best= -51 age= 1008ms msgs=235
+ 223.1 # t=706s seq=25816 rx=16837 dup=13382 own=2539 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 223.1 #   teacher: alarms rx=9 acks tx=9
+ 223.1 #   nb  tx=  1 median= -83 last= -77 samples=10 age=   10ms
+ 223.2 #   nb  tx=  3 median= -90 last= -90 samples= 1 age= 4615ms  (stale)
+ 223.2 #   nb  tx=  2 median= -49 last= -52 samples=10 age=   44ms
+ 223.2 #   src=  1 seq=25811 hops=0 stage=1 nb=3 best= -78 age= 1030ms msgs=356
+ 223.2 #   src=  3 seq=29288 hops=1 stage=1 nb=3 best= -84 age= 1335ms msgs=324
+ 223.2 #   src=  2 seq=62545 hops=0 stage=0 nb=3 best= -50 age=  973ms msgs=236
+ 225.1 # t=708s seq=25817 rx=16876 dup=13412 own=2545 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 225.1 #   teacher: alarms rx=9 acks tx=9
+ 225.1 #   nb  tx=  1 median= -83 last= -85 samples=10 age=    0ms
+ 225.1 #   nb  tx=  3 median= -90 last= -90 samples= 1 age= 6616ms  (stale)
+ 225.2 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   78ms
+ 225.2 #   src=  1 seq=25812 hops=0 stage=1 nb=3 best= -78 age= 1223ms msgs=357
+ 225.2 #   src=  3 seq=29289 hops=1 stage=1 nb=2 best= -82 age=  609ms msgs=325
+ 225.2 #   src=  2 seq=62546 hops=0 stage=0 nb=2 best= -49 age= 1210ms msgs=237
+ 227.2 # t=710s seq=25818 rx=16911 dup=13438 own=2551 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-47 stage=0 (complete)
+ 227.2 #   teacher: alarms rx=9 acks tx=9
+ 227.2 #   nb  tx=  1 median= -84 last= -77 samples=10 age=   18ms
+ 227.2 #   nb  tx=  2 median= -47 last= -51 samples=10 age=   99ms
+ 227.3 #   src=  1 seq=25813 hops=0 stage=1 nb=3 best= -78 age= 1048ms msgs=358
+ 227.3 #   src=  3 seq=29290 hops=1 stage=1 nb=1 best= -82 age= 1341ms msgs=326
+ 227.3 #   src=  2 seq=62547 hops=0 stage=0 nb=2 best= -49 age= 1210ms msgs=238
+ 229.2 # t=712s seq=25819 rx=16951 dup=13469 own=2557 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 229.2 #   teacher: alarms rx=9 acks tx=9
+ 229.2 #   nb  tx=  1 median= -84 last= -85 samples=10 age=   27ms
+ 229.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=    8ms
+ 229.2 #   src=  1 seq=25814 hops=0 stage=1 nb=3 best= -78 age= 1038ms msgs=359
+ 229.3 #   src=  3 seq=29291 hops=1 stage=1 nb=1 best= -83 age= 1352ms msgs=327
+ 229.3 #   src=  2 seq=62548 hops=0 stage=0 nb=2 best= -52 age= 1038ms msgs=239
+ 231.2 # t=714s seq=25820 rx=16988 dup=13497 own=2563 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-48 stage=0 (complete)
+ 231.2 #   teacher: alarms rx=9 acks tx=9
+ 231.2 #   nb  tx=  1 median= -83 last= -84 samples=10 age=   32ms
+ 231.2 #   nb  tx=  2 median= -48 last= -49 samples=10 age=   89ms
+ 231.2 #   src=  1 seq=25815 hops=0 stage=1 nb=3 best= -78 age= 1047ms msgs=360
+ 231.2 #   src=  3 seq=29292 hops=1 stage=1 nb=1 best= -83 age= 1346ms msgs=328
+ 231.3 #   src=  2 seq=62549 hops=0 stage=0 nb=2 best= -50 age= 1008ms msgs=240
+ 233.2 # t=716s seq=25821 rx=17023 dup=13523 own=2569 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-48 stage=0 (complete)
+ 233.2 #   teacher: alarms rx=9 acks tx=9
+ 233.2 #   nb  tx=  1 median= -83 last= -77 samples=10 age=  208ms
+ 233.2 #   nb  tx=  2 median= -48 last= -52 samples=10 age=   80ms
+ 233.2 #   src=  1 seq=25816 hops=0 stage=1 nb=3 best= -78 age= 1022ms msgs=361
+ 233.2 #   src=  3 seq=29293 hops=1 stage=1 nb=1 best= -83 age= 1215ms msgs=329
+ 233.2 #   src=  2 seq=62550 hops=0 stage=0 nb=2 best= -50 age= 1081ms msgs=241
+ 235.2 # t=718s seq=25822 rx=17060 dup=13552 own=2574 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 235.2 #   teacher: alarms rx=9 acks tx=9
+ 235.2 #   nb  tx=  1 median= -84 last= -84 samples=10 age=    8ms
+ 235.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=  155ms
+ 235.2 #   src=  1 seq=25817 hops=0 stage=1 nb=3 best= -78 age= 1019ms msgs=362
+ 235.2 #   src=  3 seq=29294 hops=1 stage=1 nb=1 best= -83 age= 1308ms msgs=330
+ 235.2 #   src=  2 seq=62551 hops=0 stage=0 nb=2 best= -50 age=  962ms msgs=242
+ 237.2 # t=720s seq=25823 rx=17097 dup=13580 own=2580 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 237.2 #   teacher: alarms rx=9 acks tx=9
+ 237.2 #   nb  tx=  1 median= -85 last= -77 samples=10 age=  126ms
+ 237.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=   89ms
+ 237.2 #   src=  1 seq=25818 hops=0 stage=1 nb=3 best= -78 age= 1025ms msgs=363
+ 237.2 #   src=  3 seq=29295 hops=1 stage=1 nb=1 best= -83 age= 1308ms msgs=331
+ 237.2 #   src=  2 seq=62552 hops=0 stage=0 nb=2 best= -50 age= 1203ms msgs=243
+ 239.2 # t=722s seq=25824 rx=17133 dup=13607 own=2586 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 239.2 #   teacher: alarms rx=9 acks tx=9
+ 239.2 #   nb  tx=  1 median= -84 last= -84 samples=10 age=  108ms
+ 239.2 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   49ms
+ 239.2 #   src=  1 seq=25819 hops=0 stage=1 nb=3 best= -78 age= 1036ms msgs=364
+ 239.2 #   src=  3 seq=29296 hops=1 stage=1 nb=1 best= -83 age= 1336ms msgs=332
+ 239.2 #   src=  2 seq=62553 hops=0 stage=0 nb=2 best= -50 age=  972ms msgs=244
+ 241.2 # t=724s seq=25825 rx=17168 dup=13634 own=2591 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 241.2 #   teacher: alarms rx=9 acks tx=9
+ 241.2 #   nb  tx=  1 median= -84 last= -76 samples=10 age=  108ms
+ 241.2 #   nb  tx=  2 median= -50 last= -47 samples=10 age=   65ms
+ 241.2 #   src=  1 seq=25820 hops=0 stage=1 nb=3 best= -78 age= 1028ms msgs=365
+ 241.2 #   src=  3 seq=29297 hops=1 stage=1 nb=1 best= -85 age= 1328ms msgs=333
+ 241.2 #   src=  2 seq=62554 hops=0 stage=0 nb=2 best= -50 age=  984ms msgs=245
+ 243.2 # t=726s seq=25826 rx=17201 dup=13658 own=2597 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 243.2 #   teacher: alarms rx=9 acks tx=9
+ 243.2 #   nb  tx=  1 median= -82 last= -86 samples=10 age=   16ms
+ 243.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=   72ms
+ 243.2 #   src=  1 seq=25821 hops=0 stage=1 nb=3 best= -79 age= 1008ms msgs=366
+ 243.2 #   src=  3 seq=29298 hops=1 stage=1 nb=1 best= -83 age= 1327ms msgs=334
+ 243.2 #   src=  2 seq=62555 hops=0 stage=0 nb=2 best= -49 age=  796ms msgs=246
+ 245.2 # t=728s seq=25827 rx=17240 dup=13688 own=2603 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 245.2 #   teacher: alarms rx=9 acks tx=9
+ 245.2 #   nb  tx=  1 median= -85 last= -86 samples=10 age=   32ms
+ 245.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=  208ms
+ 245.2 #   src=  1 seq=25822 hops=0 stage=1 nb=3 best= -78 age= 1021ms msgs=367
+ 245.2 #   src=  3 seq=29299 hops=1 stage=1 nb=1 best= -83 age= 1357ms msgs=335
+ 245.2 #   src=  2 seq=62556 hops=0 stage=0 nb=2 best= -50 age= 1016ms msgs=247
+ 247.2 # t=730s seq=25828 rx=17273 dup=13712 own=2609 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 247.2 #   teacher: alarms rx=9 acks tx=9
+ 247.2 #   nb  tx=  1 median= -84 last= -85 samples=10 age=    8ms
+ 247.2 #   nb  tx=  2 median= -49 last= -51 samples=10 age=   29ms
+ 247.2 #   src=  1 seq=25823 hops=0 stage=1 nb=3 best= -78 age= 1034ms msgs=368
+ 247.2 #   src=  3 seq=29300 hops=1 stage=1 nb=1 best= -83 age= 1231ms msgs=336
+ 247.2 #   src=  2 seq=62557 hops=0 stage=0 nb=2 best= -50 age=  888ms msgs=248
+ 249.2 # t=732s seq=25829 rx=17312 dup=13742 own=2615 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 249.2 #   teacher: alarms rx=9 acks tx=9
+ 249.2 #   nb  tx=  1 median= -84 last= -84 samples=10 age=   21ms
+ 249.2 #   nb  tx=  2 median= -50 last= -53 samples=10 age=    8ms
+ 249.2 #   src=  1 seq=25824 hops=0 stage=1 nb=3 best= -78 age=  927ms msgs=369
+ 249.2 #   src=  3 seq=29301 hops=1 stage=1 nb=1 best= -83 age= 1238ms msgs=337
+ 249.2 #   src=  2 seq=62558 hops=0 stage=0 nb=2 best= -52 age=  922ms msgs=249
+ 251.2 # t=734s seq=25830 rx=17345 dup=13766 own=2621 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 251.2 #   teacher: alarms rx=9 acks tx=9
+ 251.2 #   nb  tx=  1 median= -84 last= -85 samples=10 age=  233ms
+ 251.2 #   nb  tx=  2 median= -49 last= -52 samples=10 age=   81ms
+ 251.2 #   src=  1 seq=25825 hops=0 stage=1 nb=3 best= -79 age= 1022ms msgs=370
+ 251.2 #   src=  3 seq=29302 hops=1 stage=1 nb=1 best= -83 age= 1337ms msgs=338
+ 251.2 #   src=  2 seq=62559 hops=0 stage=0 nb=2 best= -49 age= 1022ms msgs=250
+ 253.2 # t=736s seq=25831 rx=17382 dup=13794 own=2627 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 253.2 #   teacher: alarms rx=9 acks tx=9
+ 253.2 #   nb  tx=  1 median= -87 last= -84 samples=10 age=   29ms
+ 253.2 #   nb  tx=  2 median= -49 last= -47 samples=10 age=   68ms
+ 253.2 #   src=  1 seq=25826 hops=0 stage=1 nb=3 best= -79 age=  914ms msgs=371
+ 253.2 #   src=  3 seq=29303 hops=1 stage=1 nb=1 best= -83 age= 1345ms msgs=339
+ 253.2 #   src=  2 seq=62560 hops=0 stage=0 nb=2 best= -50 age= 1008ms msgs=251
+ 255.2 # t=738s seq=25832 rx=17413 dup=13817 own=2632 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-51 stage=0 (complete)
+ 255.2 #   teacher: alarms rx=9 acks tx=9
+ 255.2 #   nb  tx=  1 median= -83 last= -87 samples=10 age=   21ms
+ 255.2 #   nb  tx=  2 median= -51 last= -47 samples=10 age=   91ms
+ 255.2 #   src=  1 seq=25827 hops=0 stage=1 nb=3 best= -79 age= 1055ms msgs=372
+ 255.2 #   src=  3 seq=29304 hops=1 stage=1 nb=1 best= -83 age= 1346ms msgs=340
+ 255.2 #   src=  2 seq=62561 hops=0 stage=0 nb=2 best= -50 age= 1008ms msgs=252
+ 257.2 # t=740s seq=25833 rx=17450 dup=13847 own=2636 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 257.2 #   teacher: alarms rx=9 acks tx=9
+ 257.2 #   nb  tx=  1 median= -83 last= -84 samples=10 age=   25ms
+ 257.2 #   nb  tx=  2 median= -49 last= -47 samples=10 age=   52ms
+ 257.2 #   src=  1 seq=25828 hops=0 stage=1 nb=3 best= -79 age= 1042ms msgs=373
+ 257.2 #   src=  3 seq=29305 hops=1 stage=1 nb=1 best= -84 age= 1336ms msgs=341
+ 257.2 #   src=  2 seq=62562 hops=0 stage=0 nb=2 best= -49 age=  960ms msgs=253
+ 259.1 # t=742s seq=25834 rx=17489 dup=13877 own=2642 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 259.2 #   teacher: alarms rx=9 acks tx=9
+ 259.2 #   nb  tx=  1 median= -83 last= -80 samples=10 age=   30ms
+ 259.2 #   nb  tx=  2 median= -49 last= -45 samples=10 age=   11ms
+ 259.2 #   src=  1 seq=25829 hops=0 stage=1 nb=3 best= -78 age= 1049ms msgs=374
+ 259.2 #   src=  3 seq=29306 hops=1 stage=1 nb=1 best= -83 age= 1345ms msgs=342
+ 259.2 #   src=  2 seq=62563 hops=0 stage=0 nb=2 best= -50 age= 1029ms msgs=254
+ 261.1 # t=744s seq=25835 rx=17524 dup=13903 own=2648 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-48 stage=0 (complete)
+ 261.1 #   teacher: alarms rx=9 acks tx=9
+ 261.2 #   nb  tx=  1 median= -83 last= -81 samples=10 age=  515ms
+ 261.2 #   nb  tx=  2 median= -48 last= -47 samples=10 age=   46ms
+ 261.2 #   src=  1 seq=25830 hops=0 stage=1 nb=3 best= -78 age= 1030ms msgs=375
+ 261.2 #   src=  3 seq=29307 hops=1 stage=1 nb=1 best= -85 age= 1314ms msgs=343
+ 261.2 #   src=  2 seq=62564 hops=0 stage=0 nb=2 best= -49 age=  966ms msgs=255
+ 263.1 # t=746s seq=25836 rx=17561 dup=13931 own=2654 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 263.1 #   teacher: alarms rx=9 acks tx=9
+ 263.1 #   nb  tx=  1 median= -86 last= -80 samples=10 age=   16ms
+ 263.2 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   87ms
+ 263.2 #   src=  1 seq=25831 hops=0 stage=1 nb=3 best= -78 age= 1037ms msgs=376
+ 263.2 #   src=  3 seq=29308 hops=1 stage=1 nb=1 best= -83 age= 1308ms msgs=344
+ 263.2 #   src=  2 seq=62565 hops=0 stage=0 nb=2 best= -50 age= 1182ms msgs=256
+ 265.1 # t=748s seq=25837 rx=17590 dup=13953 own=2658 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-49 stage=0 (complete)
+ 265.1 #   teacher: alarms rx=9 acks tx=9
+ 265.1 #   nb  tx=  1 median= -79 last= -78 samples=10 age=  408ms
+ 265.2 #   nb  tx=  2 median= -49 last= -47 samples=10 age=   55ms
+ 265.2 #   src=  1 seq=25832 hops=0 stage=1 nb=3 best= -81 age= 1030ms msgs=377
+ 265.2 #   src=  3 seq=29309 hops=1 stage=1 nb=1 best= -83 age= 1330ms msgs=345
+ 265.2 #   src=  2 seq=62566 hops=0 stage=0 nb=2 best= -50 age=  989ms msgs=257
+ 267.2 # t=750s seq=25838 rx=17624 dup=13979 own=2663 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=2 best=-50 stage=0 (complete)
+ 267.2 #   teacher: alarms rx=9 acks tx=9
+ 267.2 #   nb  tx=  1 median= -82 last= -74 samples=10 age=   12ms
+ 267.2 #   nb  tx=  2 median= -50 last= -51 samples=10 age=  420ms
+ 267.2 #   src=  1 seq=25833 hops=0 stage=1 nb=3 best= -79 age= 1047ms msgs=378
+ 267.3 #   src=  3 seq=29310 hops=1 stage=1 nb=1 best= -86 age= 1351ms msgs=346
+ 267.3 #   src=  2 seq=62567 hops=0 stage=0 nb=2 best= -48 age= 1019ms msgs=258
+ 269.2 # t=752s seq=25839 rx=17666 dup=14013 own=2668 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 269.2 #   teacher: alarms rx=9 acks tx=9
+ 269.2 #   nb  tx=  1 median= -83 last= -75 samples=10 age=  108ms
+ 269.2 #   nb  tx=  3 median= -93 last= -93 samples= 4 age=  408ms
+ 269.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   78ms
+ 269.3 #   src=  1 seq=25834 hops=0 stage=1 nb=3 best= -76 age= 1036ms msgs=379
+ 269.3 #   src=  3 seq=29311 hops=1 stage=1 nb=2 best= -79 age= 1325ms msgs=347
+ 269.3 #   src=  2 seq=62568 hops=0 stage=0 nb=3 best= -50 age=  996ms msgs=259
+ 271.2 # t=754s seq=25840 rx=17712 dup=14049 own=2675 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 271.2 #   teacher: alarms rx=9 acks tx=9
+ 271.2 #   nb  tx=  1 median= -82 last= -82 samples=10 age=    9ms
+ 271.2 #   nb  tx=  3 median= -89 last= -82 samples=10 age=   46ms
+ 271.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=   15ms
+ 271.2 #   src=  1 seq=25835 hops=0 stage=1 nb=3 best= -67 age= 1009ms msgs=380
+ 271.3 #   src=  3 seq=29312 hops=0 stage=1 nb=3 best= -67 age= 1367ms msgs=348
+ 271.3 #   src=  2 seq=62569 hops=0 stage=0 nb=3 best= -49 age=  921ms msgs=260
+ 273.2 # t=756s seq=25841 rx=17753 dup=14079 own=2683 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 273.2 #   teacher: alarms rx=9 acks tx=9
+ 273.2 #   nb  tx=  1 median= -84 last= -87 samples=10 age=   43ms
+ 273.2 #   nb  tx=  3 median= -83 last= -83 samples=10 age=  310ms
+ 273.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=  610ms
+ 273.2 #   src=  1 seq=25836 hops=1 stage=1 nb=3 best= -55 age= 1021ms msgs=381
+ 273.2 #   src=  3 seq=29313 hops=0 stage=1 nb=3 best= -61 age= 1354ms msgs=349
+ 273.3 #   src=  2 seq=62570 hops=0 stage=0 nb=3 best= -49 age= 1012ms msgs=261
+ 274.0 # TEACHER ALARM band 1: drifting -> complete reason=1 hops=0 seq=25838  -> ACK sent
+ 275.2 # t=758s seq=25843 rx=17806 dup=14114 own=2696 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 275.2 #   teacher: alarms rx=10 acks tx=10
+ 275.2 #   nb  tx=  1 median= -83 last= -86 samples=10 age=   56ms
+ 275.2 #   nb  tx=  3 median= -77 last= -81 samples=10 age=  194ms
+ 275.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=   80ms
+ 275.2 #   src=  1 seq=25838 hops=0 stage=0 nb=3 best= -50 age= 1211ms msgs=383
+ 275.2 #   src=  3 seq=29315 hops=1 stage=0 nb=3 best= -59 age=   80ms msgs=351
+ 275.3 #   src=  2 seq=62571 hops=0 stage=0 nb=3 best= -51 age=  690ms msgs=262
+ 275.5 # TEACHER ALARM band 3: drifting -> complete reason=1 hops=0 seq=29316  -> ACK sent
+ 277.2 # t=760s seq=25845 rx=17859 dup=14151 own=2708 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 277.2 #   teacher: alarms rx=11 acks tx=11
+ 277.2 #   nb  tx=  1 median= -82 last= -84 samples=10 age=   31ms
+ 277.2 #   nb  tx=  3 median= -82 last= -84 samples=10 age=   80ms
+ 277.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   31ms
+ 277.2 #   src=  1 seq=25839 hops=0 stage=0 nb=3 best= -59 age= 1178ms msgs=384
+ 277.2 #   src=  3 seq=29317 hops=0 stage=0 nb=3 best= -64 age=  501ms msgs=353
+ 277.2 #   src=  2 seq=62572 hops=0 stage=0 nb=3 best= -50 age=  841ms msgs=263
+ 279.2 # t=762s seq=25846 rx=17916 dup=14196 own=2717 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 279.2 #   teacher: alarms rx=11 acks tx=11
+ 279.2 #   nb  tx=  1 median= -84 last= -86 samples=10 age=   73ms
+ 279.2 #   nb  tx=  3 median= -81 last= -85 samples=10 age=   77ms
+ 279.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=   73ms
+ 279.2 #   src=  1 seq=25840 hops=0 stage=0 nb=3 best= -66 age= 1667ms msgs=385
+ 279.2 #   src=  3 seq=29318 hops=0 stage=0 nb=3 best= -63 age=  613ms msgs=354
+ 279.2 #   src=  2 seq=62573 hops=0 stage=0 nb=3 best= -49 age= 1189ms msgs=264
+ 281.2 # t=764s seq=25847 rx=17976 dup=14244 own=2726 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 281.2 #   teacher: alarms rx=11 acks tx=11
+ 281.2 #   nb  tx=  1 median= -81 last= -74 samples=10 age=   55ms
+ 281.2 #   nb  tx=  3 median= -69 last= -75 samples=10 age=    7ms
+ 281.2 #   nb  tx=  2 median= -49 last= -50 samples=10 age=   77ms
+ 281.2 #   src=  1 seq=25841 hops=0 stage=0 nb=3 best= -58 age= 1648ms msgs=386
+ 281.2 #   src=  3 seq=29319 hops=0 stage=0 nb=3 best= -52 age=  617ms msgs=355
+ 281.2 #   src=  2 seq=62574 hops=0 stage=0 nb=3 best= -49 age= 1190ms msgs=265
+ 283.2 # t=766s seq=25848 rx=18028 dup=14286 own=2733 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-50 stage=0 (complete)
+ 283.2 #   teacher: alarms rx=11 acks tx=11
+ 283.2 #   nb  tx=  1 median= -82 last= -83 samples=10 age=   84ms
+ 283.2 #   nb  tx=  3 median= -78 last= -78 samples=10 age=    0ms
+ 283.2 #   nb  tx=  2 median= -50 last= -50 samples=10 age=   69ms
+ 283.2 #   src=  1 seq=25842 hops=0 stage=0 nb=3 best= -42 age= 1660ms msgs=387
+ 283.2 #   src=  3 seq=29320 hops=0 stage=0 nb=3 best= -42 age=  615ms msgs=356
+ 283.2 #   src=  2 seq=62575 hops=0 stage=0 nb=3 best= -49 age= 1185ms msgs=266
+ 285.2 # t=768s seq=25849 rx=18082 dup=14328 own=2742 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-50 stage=0 (complete)
+ 285.2 #   teacher: alarms rx=11 acks tx=11
+ 285.2 #   nb  tx=  1 median= -77 last= -69 samples=10 age=  151ms
+ 285.2 #   nb  tx=  3 median= -73 last= -71 samples=10 age=   91ms
+ 285.2 #   nb  tx=  2 median= -50 last= -51 samples=10 age=   49ms
+ 285.2 #   src=  1 seq=25843 hops=1 stage=0 nb=3 best= -41 age= 1616ms msgs=388
+ 285.2 #   src=  3 seq=29321 hops=1 stage=0 nb=3 best= -41 age=  596ms msgs=357
+ 285.2 #   src=  2 seq=62576 hops=0 stage=0 nb=3 best= -49 age= 1192ms msgs=267
+ 287.2 # t=770s seq=25850 rx=18142 dup=14377 own=2750 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 287.2 #   teacher: alarms rx=11 acks tx=11
+ 287.2 #   nb  tx=  1 median= -74 last= -75 samples=10 age=   85ms
+ 287.2 #   nb  tx=  3 median= -76 last= -70 samples=10 age=   85ms
+ 287.2 #   nb  tx=  2 median= -49 last= -48 samples=10 age=   81ms
+ 287.2 #   src=  1 seq=25844 hops=0 stage=0 nb=3 best= -37 age= 1642ms msgs=389
+ 287.2 #   src=  3 seq=29322 hops=0 stage=0 nb=3 best= -38 age=  619ms msgs=358
+ 287.2 #   src=  2 seq=62577 hops=0 stage=0 nb=3 best= -49 age= 1184ms msgs=268
+ 289.2 # t=772s seq=25851 rx=18199 dup=14422 own=2759 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 289.2 #   teacher: alarms rx=11 acks tx=11
+ 289.2 #   nb  tx=  1 median= -79 last= -85 samples=10 age=   57ms
+ 289.2 #   nb  tx=  3 median= -78 last= -76 samples=10 age=   92ms
+ 289.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   57ms
+ 289.2 #   src=  1 seq=25845 hops=0 stage=0 nb=3 best= -32 age= 1575ms msgs=390
+ 289.2 #   src=  3 seq=29323 hops=1 stage=0 nb=3 best= -36 age=  565ms msgs=359
+ 289.2 #   src=  2 seq=62578 hops=0 stage=0 nb=3 best= -49 age= 1173ms msgs=269
+ 291.2 # t=774s seq=25852 rx=18258 dup=14470 own=2767 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-50 stage=0 (complete)
+ 291.2 #   teacher: alarms rx=11 acks tx=11
+ 291.2 #   nb  tx=  1 median= -74 last= -75 samples=10 age=   19ms
+ 291.2 #   nb  tx=  3 median= -71 last= -76 samples=10 age=  108ms
+ 291.2 #   nb  tx=  2 median= -50 last= -52 samples=10 age=   79ms
+ 291.2 #   src=  1 seq=25846 hops=0 stage=0 nb=3 best= -30 age= 1651ms msgs=391
+ 291.2 #   src=  3 seq=29324 hops=0 stage=0 nb=3 best= -34 age=  588ms msgs=360
+ 291.2 #   src=  2 seq=62579 hops=0 stage=0 nb=3 best= -50 age= 1173ms msgs=270
+ 293.2 # t=776s seq=25853 rx=18314 dup=14516 own=2774 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 293.2 #   teacher: alarms rx=11 acks tx=11
+ 293.2 #   nb  tx=  1 median= -69 last= -75 samples=10 age=   69ms
+ 293.2 #   nb  tx=  3 median= -67 last= -69 samples=10 age=    5ms
+ 293.2 #   nb  tx=  2 median= -49 last= -52 samples=10 age=   54ms
+ 293.2 #   src=  1 seq=25847 hops=0 stage=0 nb=3 best= -34 age= 1656ms msgs=392
+ 293.2 #   src=  3 seq=29325 hops=1 stage=0 nb=3 best= -44 age=  574ms msgs=361
+ 293.2 #   src=  2 seq=62580 hops=0 stage=0 nb=3 best= -49 age= 1191ms msgs=271
+ 295.2 # t=778s seq=25854 rx=18367 dup=14558 own=2782 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 295.2 #   teacher: alarms rx=11 acks tx=11
+ 295.2 #   nb  tx=  1 median= -64 last= -67 samples=10 age=  175ms
+ 295.2 #   nb  tx=  3 median= -66 last= -65 samples=10 age=  110ms
+ 295.2 #   nb  tx=  2 median= -49 last= -49 samples=10 age=   83ms
+ 295.2 #   src=  1 seq=25848 hops=0 stage=0 nb=3 best= -37 age= 1628ms msgs=393
+ 295.2 #   src=  3 seq=29326 hops=0 stage=0 nb=3 best= -37 age=  587ms msgs=362
+ 295.2 #   src=  2 seq=62581 hops=0 stage=0 nb=3 best= -49 age= 1191ms msgs=272
+ 297.2 # t=780s seq=25855 rx=18430 dup=14609 own=2791 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 297.2 #   teacher: alarms rx=11 acks tx=11
+ 297.2 #   nb  tx=  1 median= -62 last= -63 samples=10 age=   64ms
+ 297.2 #   nb  tx=  3 median= -65 last= -68 samples=10 age=   10ms
+ 297.2 #   nb  tx=  2 median= -49 last= -47 samples=10 age=   63ms
+ 297.2 #   src=  1 seq=25849 hops=0 stage=0 nb=3 best= -35 age= 1644ms msgs=394
+ 297.2 #   src=  3 seq=29327 hops=1 stage=0 nb=3 best= -33 age=  582ms msgs=363
+ 297.2 #   src=  2 seq=62582 hops=0 stage=0 nb=3 best= -49 age= 1193ms msgs=273
+ 299.2 # t=782s seq=25856 rx=18483 dup=14652 own=2798 ign=0 relayed=0 txq=0 txdrop=0 bledrop=0 | active=3 best=-49 stage=0 (complete)
+ 299.2 #   teacher: alarms rx=11 acks tx=11
+ 299.2 #   nb  tx=  1 median= -57 last= -57 samples=10 age=   60ms
+ 299.2 #   nb  tx=  3 median= -56 last= -57 samples=10 age=    1ms
+ 299.2 #   nb  tx=  2 median= -49 last= -48 samples=10 age=   60ms
+ 299.2 #   src=  1 seq=25850 hops=0 stage=0 nb=3 best= -37 age= 1660ms msgs=395
+ 299.2 #   src=  3 seq=29328 hops=0 stage=0 nb=3 best= -38 age=  573ms msgs=364
+ 299.2 #   src=  2 seq=62583 hops=0 stage=0 nb=3 best= -50 age= 1189ms msgs=274
