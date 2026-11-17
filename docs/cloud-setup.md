@@ -1,0 +1,46 @@
+# Azure IoT Hub – setup (WP3 cloud tier)
+
+Architecture: `docs/architecture.md` §5. The Pi (device `buddyband-gw`) forwards alarms, GPS,
+teacher online/offline and one summary per minute; raw status stays on the Pi.
+
+## 1. Subscription
+Azure for Students via HSLU account: <https://azure.microsoft.com/free/students> → sign in at
+<https://portal.azure.com>. No credit card needed.
+
+## 2. Resource group + IoT Hub (portal)
+1. **Create a resource → Resource group**: name `buddyband-rg`, region **Switzerland North**
+   (or West Europe).
+2. **Create a resource → IoT Hub**:
+   - Subscription: Azure for Students, resource group `buddyband-rg`
+   - IoT hub name: globally unique, e.g. `buddyband-hub-g4`
+   - Region: same as the resource group
+   - **Tier: Free (F1)** – 8 000 messages/day, one F1 hub per subscription
+   - everything else default → Review + create (takes 1–2 min)
+
+## 3. Device identity for the Pi
+IoT Hub → **Devices → Add device**: Device ID `buddyband-gw`, authentication **Symmetric key**,
+auto-generate keys → Save. Open the device → copy **Primary connection string**
+(`HostName=...;DeviceId=buddyband-gw;SharedAccessKey=...`). Treat it like a password.
+
+## 4. Give the connection string to the Pi (never into the repo)
+```bash
+ssh buddyband-gw
+nano ~/buddyband-credentials.env      # add one line:  BB_IOTHUB_CONN=HostName=...;DeviceId=buddyband-gw;SharedAccessKey=...
+exit
+ssh -t buddyband-gw 'sudo bash ~/buddyband-gateway/install_services.sh'   # (re)starts buddyband-cloud
+ssh buddyband-gw 'journalctl -u buddyband-cloud -f'                      # "connected to Azure IoT Hub"
+```
+Without the line the forwarder runs in buffering mode: messages wait in `cloud.outbox`
+(max 20 000, oldest dropped first) and are sent as soon as the connection string exists.
+
+## 5. See messages arrive
+- Portal: IoT Hub → Overview → **Metrics** "Telemetry messages sent" / Device → Device-to-cloud messages
+- VS Code extension *Azure IoT Hub* → right-click the device → **Start monitoring built-in event endpoint**
+
+## 6. Next (cloud processing)
+- Message routing: `$body.kind = 'alarm'` → Logic App (e-mail / Teams), all → Storage (history)
+- Teacher app (§5.4): Azure Function (IoT Hub trigger) → Web PubSub → Static Web Apps
+
+## Quota check
+Alarms + stage changes ~500/day, summary 1/min ≈ 480/8 h, GPS during incidents ~120 →
+**≈ 1 100 messages/day ≪ 8 000** (F1).

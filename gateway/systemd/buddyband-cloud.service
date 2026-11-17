@@ -1,0 +1,19 @@
+# BuddyBand cloud forwarder (RabbitMQ -> Azure IoT Hub) – installed by gateway/install_services.sh
+# Needs the venv:  python3 -m venv ~/buddyband-gateway/.venv && ~/buddyband-gateway/.venv/bin/pip install azure-iot-device pika
+# Without BB_IOTHUB_CONN in the credentials file it only buffers (queue cloud.outbox).
+# Logs:  journalctl -u buddyband-cloud -f
+[Unit]
+Description=BuddyBand cloud forwarder (RabbitMQ -> Azure IoT Hub)
+After=network-online.target rabbitmq-server.service
+Wants=network-online.target
+Requires=rabbitmq-server.service
+
+[Service]
+User=@OWNER@
+WorkingDirectory=@HOME@/buddyband-gateway/cloud
+ExecStart=@HOME@/buddyband-gateway/.venv/bin/python @HOME@/buddyband-gateway/cloud/cloud_forwarder.py --cred @HOME@/buddyband-credentials.env
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
