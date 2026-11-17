@@ -3,7 +3,7 @@
 // config.json decides the data source: {"mode":"local"|"cloud"|"demo", ...}; ?demo forces the demo.
 // One band = one child. The teacher band has id 0.
 
-import { CloudSource, DemoSource, LocalSource } from "./sources.js";
+import { CloudSource, DemoSource, LocalSource } from "./sources.js?v=dev";
 
 const STAGES = [
   { name: "beisammen",     cls: "s0", say: "ist bei der Gruppe" },

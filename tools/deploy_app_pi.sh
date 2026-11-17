@@ -8,6 +8,10 @@ cd "$(dirname "$0")/.."
 PI="${BB_SSH:-buddyband-gw}"
 ssh "$PI" 'mkdir -p ~/buddyband-app'
 tar -C app --exclude=config.json -cf - . | ssh "$PI" 'tar -C ~/buddyband-app -xf -'
+# cache busting: ?v=dev -> ?v=<commit>-<time>, so phones fetch the new css/js after every deploy
+VER="$(git rev-parse --short HEAD 2>/dev/null || echo x)-$(date +%s)"
+ssh "$PI" "sed -i 's/?v=dev/?v=$VER/g' ~/buddyband-app/index.html ~/buddyband-app/app.js ~/buddyband-app/sources.js"
+scp -q gateway/app_server.py "$PI":buddyband-gateway/app_server.py
 ssh "$PI" 'python3 - <<EOF
 import json, pathlib
 home = pathlib.Path.home()

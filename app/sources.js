@@ -3,7 +3,7 @@
 //   onConn(state, detail)    state = "online" | "offline" | "connecting"
 // and offer send(band, cmd) for the recall command.
 
-import { MqttWs } from "./mqtt-ws.js";
+import { MqttWs } from "./mqtt-ws.js?v=dev";
 
 // ---------------------------------------------------------------- local (Pi)
 // MQTT over WebSocket straight to RabbitMQ on the Pi (works without internet).
