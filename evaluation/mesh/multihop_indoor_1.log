@@ -1,0 +1,159 @@
+===== PHASE A normal at t=0.0s =====
+   1.6 # t=204s seq=32716 rx=3818 dup=3040 own=575 ign=0 relayed=203 txq=1 txdrop=0 bledrop=0 | active=2 best=-26 stage=0 (complete)
+   1.7 #   nb  tx=  1 median= -42 last= -42 samples=10 age=   10ms
+   1.7 #   nb  tx=  3 median= -26 last= -28 samples=10 age=   93ms
+   1.7 #   src=  1 seq=42282 hops=0 stage=0 nb=2 best= -37 age=  308ms msgs=102
+   1.7 #   src=  3 seq=12159 hops=0 stage=0 nb=2 best= -23 age= 1638ms msgs=101
+   3.6 # t=206s seq=32717 rx=3856 dup=3070 own=581 ign=0 relayed=205 txq=1 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+   3.6 #   nb  tx=  1 median= -42 last= -49 samples=10 age=   16ms
+   3.7 #   nb  tx=  3 median= -25 last= -24 samples=10 age=   84ms
+   3.7 #   src=  1 seq=42283 hops=0 stage=0 nb=2 best= -37 age=  303ms msgs=103
+   3.7 #   src=  3 seq=12160 hops=0 stage=0 nb=2 best= -22 age= 1617ms msgs=102
+   5.6 # t=208s seq=32718 rx=3888 dup=3094 own=587 ign=0 relayed=207 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+   5.6 #   nb  tx=  1 median= -45 last= -43 samples=10 age=   13ms
+   5.7 #   nb  tx=  3 median= -25 last= -25 samples=10 age=   85ms
+   5.7 #   src=  1 seq=42284 hops=0 stage=0 nb=2 best= -37 age=  316ms msgs=104
+   5.7 #   src=  3 seq=12161 hops=0 stage=0 nb=2 best= -22 age= 1638ms msgs=103
+   7.6 # t=210s seq=32719 rx=3926 dup=3124 own=593 ign=0 relayed=209 txq=1 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+   7.6 #   nb  tx=  1 median= -42 last= -38 samples=10 age=   16ms
+   7.6 #   nb  tx=  3 median= -25 last= -25 samples=10 age=   72ms
+   7.7 #   src=  1 seq=42285 hops=0 stage=0 nb=2 best= -36 age=  304ms msgs=105
+   7.7 #   src=  3 seq=12162 hops=0 stage=0 nb=2 best= -22 age= 1609ms msgs=104
+   9.6 # t=212s seq=32720 rx=3965 dup=3155 own=599 ign=0 relayed=211 txq=1 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+   9.6 #   nb  tx=  1 median= -42 last= -43 samples=10 age=   17ms
+   9.6 #   nb  tx=  3 median= -25 last= -25 samples=10 age=   73ms
+   9.6 #   src=  1 seq=42286 hops=0 stage=0 nb=2 best= -36 age=  317ms msgs=106
+   9.7 #   src=  3 seq=12163 hops=0 stage=0 nb=2 best= -23 age= 1636ms msgs=105
+  11.6 # t=214s seq=32721 rx=4000 dup=3182 own=605 ign=0 relayed=213 txq=1 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  11.6 #   nb  tx=  1 median= -46 last= -47 samples=10 age=    7ms
+  11.6 #   nb  tx=  3 median= -25 last= -24 samples=10 age=   79ms
+  11.6 #   src=  1 seq=42287 hops=0 stage=0 nb=2 best= -36 age=  309ms msgs=107
+  11.7 #   src=  3 seq=12164 hops=0 stage=0 nb=2 best= -24 age= 1619ms msgs=106
+  13.6 # t=216s seq=32722 rx=4034 dup=3208 own=611 ign=0 relayed=215 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  13.6 #   nb  tx=  1 median= -47 last= -47 samples=10 age=    4ms
+  13.6 #   nb  tx=  3 median= -25 last= -26 samples=10 age=  184ms
+  13.6 #   src=  1 seq=42288 hops=0 stage=0 nb=2 best= -37 age=  316ms msgs=108
+  13.6 #   src=  3 seq=12165 hops=0 stage=0 nb=2 best= -22 age= 1621ms msgs=107
+  15.6 # t=218s seq=32723 rx=4073 dup=3239 own=617 ign=0 relayed=217 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  15.6 #   nb  tx=  1 median= -43 last= -42 samples=10 age=    5ms
+  15.6 #   nb  tx=  3 median= -25 last= -25 samples=10 age=   44ms
+  15.6 #   src=  1 seq=42289 hops=0 stage=0 nb=2 best= -36 age=  317ms msgs=109
+  15.6 #   src=  3 seq=12166 hops=0 stage=0 nb=2 best= -23 age= 1653ms msgs=108
+===== PHASE B ignore 3 at t=16.0s =====
+  16.1 # ignoring tx=3 (simulated out of range)
+  17.6 # t=220s seq=32724 rx=4114 dup=3258 own=622 ign=15 relayed=219 txq=1 txdrop=0 bledrop=0 | active=2 best=-26 stage=0 (complete)
+  17.6 #   nb  tx=  1 median= -45 last= -48 samples=10 age=   19ms
+  17.6 #   nb  tx=  3 median= -26 last= -28 samples=10 age= 1568ms
+  17.6 #   src=  1 seq=42290 hops=0 stage=0 nb=2 best= -37 age=  312ms msgs=110
+  17.6 #   src=  3 seq=12167 hops=0 stage=0 nb=2 best= -22 age= 1674ms msgs=109
+  19.6 # t=222s seq=32725 rx=4150 dup=3270 own=625 ign=34 relayed=221 txq=1 txdrop=0 bledrop=0 | active=2 best=-26 stage=0 (complete)
+  19.6 #   nb  tx=  1 median= -41 last= -37 samples=10 age=   17ms
+  19.6 #   nb  tx=  3 median= -26 last= -28 samples=10 age= 3568ms
+  19.6 #   src=  1 seq=42291 hops=0 stage=0 nb=2 best= -36 age=  317ms msgs=111
+  19.6 #   src=  3 seq=12168 hops=1 stage=0 nb=2 best= -22 age= 1590ms msgs=110
+  21.6 # t=224s seq=32726 rx=4188 dup=3284 own=628 ign=53 relayed=223 txq=0 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  21.6 #   nb  tx=  1 median= -43 last= -42 samples=10 age=   18ms
+  21.6 #   nb  tx=  3 median= -26 last= -28 samples=10 age= 5568ms  (stale)
+  21.6 #   src=  1 seq=42292 hops=0 stage=0 nb=2 best= -36 age=  307ms msgs=112
+  21.6 #   src=  3 seq=12169 hops=1 stage=0 nb=2 best= -22 age= 1605ms msgs=111
+  23.7 # t=226s seq=32727 rx=4230 dup=3300 own=631 ign=74 relayed=225 txq=1 txdrop=0 bledrop=0 | active=1 best=-45 stage=0 (complete)
+  23.7 #   nb  tx=  1 median= -45 last= -50 samples=10 age=    6ms
+  23.7 #   nb  tx=  3 median= -26 last= -28 samples=10 age= 7569ms  (stale)
+  23.7 #   src=  1 seq=42293 hops=0 stage=0 nb=2 best= -36 age=  307ms msgs=113
+  23.7 #   src=  3 seq=12170 hops=1 stage=0 nb=2 best= -22 age= 1606ms msgs=112
+  25.7 # t=228s seq=32728 rx=4268 dup=3313 own=634 ign=94 relayed=227 txq=1 txdrop=0 bledrop=0 | active=1 best=-44 stage=0 (complete)
+  25.7 #   nb  tx=  1 median= -44 last= -40 samples=10 age=   18ms
+  25.7 #   src=  1 seq=42294 hops=0 stage=0 nb=2 best= -36 age=  318ms msgs=114
+  25.7 #   src=  3 seq=12171 hops=1 stage=0 nb=2 best= -22 age= 1623ms msgs=113
+  27.7 # t=230s seq=32729 rx=4307 dup=3327 own=637 ign=114 relayed=229 txq=1 txdrop=0 bledrop=0 | active=1 best=-44 stage=0 (complete)
+  27.7 #   nb  tx=  1 median= -44 last= -43 samples=10 age=   20ms
+  27.7 #   src=  1 seq=42295 hops=0 stage=0 nb=2 best= -36 age=  307ms msgs=115
+  27.7 #   src=  3 seq=12172 hops=1 stage=0 nb=2 best= -22 age= 1607ms msgs=114
+  29.7 # t=232s seq=32730 rx=4347 dup=3342 own=640 ign=134 relayed=231 txq=0 txdrop=0 bledrop=0 | active=1 best=-46 stage=0 (complete)
+  29.7 #   nb  tx=  1 median= -46 last= -39 samples=10 age=   20ms
+  29.7 #   src=  1 seq=42296 hops=0 stage=0 nb=2 best= -36 age=  320ms msgs=116
+  29.7 #   src=  3 seq=12173 hops=1 stage=0 nb=2 best= -22 age= 1619ms msgs=115
+  31.7 # t=234s seq=32731 rx=4385 dup=3356 own=643 ign=153 relayed=233 txq=0 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  31.7 #   nb  tx=  1 median= -43 last= -43 samples=10 age=   15ms
+  31.7 #   src=  1 seq=42297 hops=0 stage=0 nb=2 best= -36 age=  321ms msgs=117
+  31.7 #   src=  3 seq=12174 hops=1 stage=0 nb=2 best= -23 age= 1613ms msgs=116
+  33.7 # t=236s seq=32732 rx=4422 dup=3371 own=646 ign=170 relayed=235 txq=1 txdrop=0 bledrop=0 | active=1 best=-44 stage=0 (complete)
+  33.7 #   nb  tx=  1 median= -44 last= -48 samples=10 age=   22ms
+  33.7 #   src=  1 seq=42298 hops=0 stage=0 nb=2 best= -36 age=  320ms msgs=118
+  33.7 #   src=  3 seq=12175 hops=1 stage=0 nb=2 best= -22 age= 1608ms msgs=117
+  35.7 # t=238s seq=32733 rx=4460 dup=3384 own=649 ign=190 relayed=237 txq=0 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  35.7 #   nb  tx=  1 median= -43 last= -40 samples=10 age=   10ms
+  35.7 #   src=  1 seq=42299 hops=0 stage=0 nb=2 best= -36 age=  321ms msgs=119
+  35.7 #   src=  3 seq=12176 hops=1 stage=0 nb=2 best= -22 age= 1609ms msgs=118
+  37.7 # t=240s seq=32734 rx=4496 dup=3397 own=651 ign=209 relayed=239 txq=1 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  37.7 #   nb  tx=  1 median= -43 last= -42 samples=10 age=   20ms
+  37.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age=  311ms msgs=120
+  37.7 #   src=  3 seq=12177 hops=1 stage=0 nb=2 best= -22 age= 1509ms msgs=119
+===== PHASE C ignore 1 at t=38.1s =====
+  38.2 # ignoring tx=1 (simulated out of range)
+  39.7 # t=242s seq=32735 rx=4537 dup=3398 own=654 ign=245 relayed=240 txq=0 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  39.7 #   nb  tx=  1 median= -43 last= -45 samples=10 age= 1614ms
+  39.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age= 2311ms msgs=120
+  39.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age= 1614ms msgs=120
+  41.7 # t=244s seq=32736 rx=4572 dup=3398 own=654 ign=280 relayed=240 txq=0 txdrop=0 bledrop=0 | active=1 best=-43 stage=0 (complete)
+  41.7 #   nb  tx=  1 median= -43 last= -45 samples=10 age= 3614ms
+  41.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age= 4311ms msgs=120
+  41.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age= 3614ms msgs=120
+  43.7 # t=246s seq=32737 rx=4607 dup=3398 own=654 ign=315 relayed=240 txq=0 txdrop=0 bledrop=0 | active=0 best=-128 stage=0 (complete)
+  43.7 #   nb  tx=  1 median= -43 last= -45 samples=10 age= 5614ms  (stale)
+  43.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age= 6311ms msgs=120
+  43.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age= 5614ms msgs=120
+  45.7 # t=248s seq=32738 rx=4645 dup=3398 own=654 ign=353 relayed=240 txq=0 txdrop=0 bledrop=0 | active=0 best=-128 stage=0 (complete)
+  45.7 #   nb  tx=  1 median= -43 last= -45 samples=10 age= 7614ms  (stale)
+  45.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age= 8311ms msgs=120
+  45.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age= 7614ms msgs=120
+  46.3 # STAGE complete -> isolated  (best=-128 active=0)
+  47.7 # t=250s seq=32739 rx=4683 dup=3398 own=654 ign=391 relayed=240 txq=0 txdrop=0 bledrop=0 | active=0 best=-128 stage=3 (isolated)
+  47.7 #   nb  tx=  1 median= -43 last= -45 samples=10 age= 9615ms  (stale)
+  47.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age=10312ms msgs=120
+  47.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age= 9615ms msgs=120
+  49.7 # t=252s seq=32740 rx=4723 dup=3398 own=654 ign=431 relayed=240 txq=0 txdrop=0 bledrop=0 | active=0 best=-128 stage=3 (isolated)
+  49.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age=12313ms msgs=120
+  49.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age=11616ms msgs=120
+  51.7 # t=254s seq=32741 rx=4762 dup=3398 own=654 ign=470 relayed=240 txq=0 txdrop=0 bledrop=0 | active=0 best=-128 stage=3 (isolated)
+  51.7 #   src=  1 seq=42300 hops=0 stage=0 nb=2 best= -36 age=14314ms msgs=120
+  51.7 #   src=  3 seq=12178 hops=1 stage=0 nb=2 best= -23 age=13617ms msgs=120
+===== PHASE D clear at t=52.1s =====
+  52.2 # ignore list cleared
+  53.0 # STAGE isolated -> critical  (best=-25 active=2)
+  53.6 # t=256s seq=32743 rx=4795 dup=3408 own=664 ign=480 relayed=243 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=2 (critical)
+  53.6 #   nb  tx=  3 median= -25 last= -28 samples=10 age=   49ms
+  53.7 #   nb  tx=  1 median= -43 last= -47 samples=10 age=    0ms
+  53.7 #   src=  1 seq=42308 hops=0 stage=0 nb=2 best= -37 age=  213ms msgs=122
+  53.7 #   src=  3 seq=12185 hops=0 stage=0 nb=2 best= -22 age= 1481ms msgs=121
+  55.6 # t=258s seq=32744 rx=4834 dup=3439 own=670 ign=480 relayed=245 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=2 (critical)
+  55.6 #   nb  tx=  3 median= -25 last= -24 samples=10 age=   35ms
+  55.7 #   nb  tx=  1 median= -45 last= -40 samples=10 age=   80ms
+  55.7 #   src=  1 seq=42309 hops=0 stage=0 nb=2 best= -36 age=  266ms msgs=123
+  55.7 #   src=  3 seq=12186 hops=0 stage=0 nb=2 best= -23 age= 1852ms msgs=122
+  56.2 # STAGE critical -> complete  (best=-25 active=2)
+  57.6 # t=260s seq=32745 rx=4875 dup=3472 own=676 ign=480 relayed=247 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  57.6 #   nb  tx=  3 median= -25 last= -28 samples=10 age=   91ms
+  57.6 #   nb  tx=  1 median= -42 last= -43 samples=10 age=   13ms
+  57.7 #   src=  1 seq=42310 hops=0 stage=0 nb=2 best= -37 age=  314ms msgs=124
+  57.7 #   src=  3 seq=12187 hops=0 stage=0 nb=2 best= -22 age= 1883ms msgs=123
+  59.6 # t=262s seq=32746 rx=4916 dup=3505 own=682 ign=480 relayed=249 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  59.6 #   nb  tx=  3 median= -25 last= -26 samples=10 age=   63ms
+  59.6 #   nb  tx=  1 median= -47 last= -46 samples=10 age=   20ms
+  59.7 #   src=  1 seq=42311 hops=0 stage=0 nb=2 best= -36 age=  324ms msgs=125
+  59.7 #   src=  3 seq=12188 hops=0 stage=0 nb=2 best= -22 age= 1855ms msgs=124
+  61.6 # t=264s seq=32747 rx=4955 dup=3537 own=687 ign=480 relayed=251 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  61.6 #   nb  tx=  3 median= -25 last= -24 samples=10 age=   91ms
+  61.6 #   nb  tx=  1 median= -46 last= -49 samples=10 age=   13ms
+  61.6 #   src=  1 seq=42312 hops=0 stage=0 nb=2 best= -36 age=  316ms msgs=126
+  61.7 #   src=  3 seq=12189 hops=0 stage=0 nb=2 best= -24 age= 1883ms msgs=125
+  63.6 # t=266s seq=32748 rx=4996 dup=3570 own=693 ign=480 relayed=253 txq=0 txdrop=0 bledrop=0 | active=2 best=-26 stage=0 (complete)
+  63.6 #   nb  tx=  3 median= -26 last= -28 samples=10 age=   78ms
+  63.6 #   nb  tx=  1 median= -45 last= -45 samples=10 age=   13ms
+  63.6 #   src=  1 seq=42313 hops=0 stage=0 nb=2 best= -35 age=  325ms msgs=127
+  63.6 #   src=  3 seq=12190 hops=0 stage=0 nb=2 best= -22 age= 1866ms msgs=126
+  65.6 # t=268s seq=32749 rx=5034 dup=3601 own=698 ign=480 relayed=255 txq=0 txdrop=0 bledrop=0 | active=2 best=-25 stage=0 (complete)
+  65.6 #   nb  tx=  3 median= -25 last= -25 samples=10 age=   81ms
+  65.6 #   nb  tx=  1 median= -43 last= -44 samples=10 age=   24ms
+  65.6 #   src=  1 seq=42314 hops=0 stage=0 nb=2 best= -34 age=  322ms msgs=128
+  65.6 #   src=  3 seq=12191 hops=0 stage=0 nb=2 best= -22 age= 1879ms msgs=127
