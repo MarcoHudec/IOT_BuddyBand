@@ -64,12 +64,22 @@ Verified 17 Nov 2026: bands → teacher (BLE) → Wi-Fi/MQTT → RabbitMQ on the
 3 bands + summary every 2 s; `buddyband/1/cmd/2 {"cmd":"recall"}` reaches band 2 via the teacher;
 anonymous and foreign topics are refused.
 
-## 3. Event logger (AMQP) – TODO: run as user `logger` with BB_LOGGER_PW
+## 3. Event logger (AMQP) – systemd service
+
+`consumer/event_logger.py` consumes the durable queue `buddyband.events` (bound to `buddyband.#`
+on `amq.topic`) as user `logger` and writes one CSV per day to `~/buddyband-data/events-YYYY-MM-DD.csv`
+(columns `received_at, epoch_ms, routing_key, group, kind, band, payload`). Messages are acked only
+after the line is flushed (at-least-once); while the logger is down RabbitMQ keeps them in the queue.
 
 ```bash
-sudo apt install -y python3-pika
-python3 consumer/event_logger.py --out ../evaluation/events.csv
+scp -r gateway buddyband-gw:~/buddyband-gateway
+ssh -t buddyband-gw 'sudo bash ~/buddyband-gateway/install_services.sh'   # installs + starts buddyband-logger
+ssh buddyband-gw 'journalctl -u buddyband-logger -f'                     # live log
+tools/fetch_events.sh                                                     # CSVs -> evaluation/events/
 ```
+
+Verified 17 Nov 2026: during a 2-minute gap without consumer, 238 messages waited in the queue and
+were written within 2 s after the service started; band 2: 60 consecutive seq numbers, no gap.
 
 ## 4. Node-RED dashboard
 
