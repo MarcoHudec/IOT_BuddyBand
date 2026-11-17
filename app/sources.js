@@ -93,7 +93,7 @@ export class DemoSource {
     const pos = (id, t) => {                         // metres around the teacher (0, 0)
       const a = id * 2.1 + t / 15000;
       const wander = id === ids[ids.length - 1];
-      const r = wander ? 4 + 58 * (0.5 - 0.5 * Math.cos((2 * Math.PI * t) / 60000)) : 2 + 1.5 * id;
+      const r = wander ? 4 + 80 * (0.5 - 0.5 * Math.cos((2 * Math.PI * t) / 60000)) : 2 + 1.5 * id;
       return [r * Math.cos(a), r * Math.sin(a)];
     };
     const rssiAt = (d) => Math.round(-40 - 30 * Math.log10(Math.max(d, 0.5)) + (Math.random() * 4 - 2));
@@ -125,7 +125,7 @@ export class DemoSource {
         }
         if (st !== prev) emit(id, "alarm", { hops, stage: st, prev, reason: 1 });
         emit(id, "status", { hops, stage: st, neighbours: nb.length, rssi: best, battery: 255, nb: nb.slice(0, 4) });
-        if (Math.round(t / 2000) % 5 === 0)
+        if (st >= 2)                                 // like the firmware: GPS from stage "critical"
           emit(id, "gps", { lat: lat0 + y / 111111, lon: lon0 + x / (111111 * Math.cos((lat0 * Math.PI) / 180)), fix_age: 1 });
       }
       if (Math.round(t / 2000) % 45 === 12) emit(ids[0], "alarm", { hops: 0, stage: 0, prev: 0, reason: 3 });

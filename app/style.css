@@ -1,6 +1,6 @@
 :root {
   --bg: #fbf8f3; --fg: #1f2a27; --muted: #6b746f; --card: #fff; --line: #ece6dc; --soft: #f4efe6;
-  --s0: #2e9d5b; --s1: #e0a915; --s2: #e5701f; --s3: #d63a32; --none: #a8afab;
+  --s0: #2e9d5b; --s1: #f29a1d; --s2: #e5641c; --s3: #d63a32;   /* like the teacher band LEDs: green / orange / red */ --none: #a8afab;
   --q4: #2e9d5b; --q3: #7cbf3a; --q2: #e0a915; --q1: #e5701f;
   --radius: 16px; --shadow: 0 1px 2px rgb(60 50 30 / 6%), 0 4px 14px rgb(60 50 30 / 6%);
   color-scheme: light;
@@ -81,11 +81,14 @@ a { color: inherit; }
 
 /* ---------------------------------------------------------------- child cards */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-.card { --c: var(--none); position: relative; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
-        padding: 14px 16px 12px; box-shadow: var(--shadow); overflow: hidden; }
-.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 5px; background: var(--c); }
+/* the whole card takes the stage colour: green = with the group, orange = moving away, red = no contact */
+.card { --c: var(--none); position: relative; border-radius: var(--radius); padding: 16px 16px 12px; box-shadow: var(--shadow); overflow: hidden;
+        background: color-mix(in srgb, var(--c) 9%, var(--card)); border: 2px solid color-mix(in srgb, var(--c) 55%, var(--line));
+        transition: background .4s, border-color .4s; }
+.card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 6px; background: var(--c); }
 .card.s0 { --c: var(--s0); } .card.s1 { --c: var(--s1); } .card.s2 { --c: var(--s2); }
-.card.s3 { --c: var(--s3); background: color-mix(in srgb, var(--s3) 6%, var(--card)); }
+.card.s3 { --c: var(--s3); background: color-mix(in srgb, var(--s3) 14%, var(--card)); animation: lostpulse 1.6s infinite; }
+@keyframes lostpulse { 50% { border-color: color-mix(in srgb, var(--s3) 25%, var(--line)); } }
 .card header { display: flex; align-items: center; gap: 10px; }
 .card h3 { margin: 0; font-size: 1.1rem; line-height: 1.1; }
 .card header small { color: var(--muted); font-size: .78rem; }
@@ -94,7 +97,7 @@ a { color: inherit; }
           color: #fff; font-weight: 800; box-shadow: 0 0 0 3px var(--card), 0 0 0 5px var(--c); }
 .avatar.sm { width: 22px; height: 22px; font-size: .7rem; box-shadow: none; }
 .badge { font-size: .75rem; font-weight: 700; padding: 3px 9px; border-radius: 999px; background: var(--soft); color: var(--muted); white-space: nowrap; }
-.card.s0 .badge { background: var(--s0); color: #fff; } .card.s1 .badge { background: var(--s1); color: #222; }
+.card.s0 .badge { background: var(--s0); color: #fff; } .card.s1 .badge { background: var(--s1); color: #fff; }
 .card.s2 .badge { background: var(--s2); color: #fff; } .card.s3 .badge { background: var(--s3); color: #fff; }
 .say { margin: 10px 0 8px; font-weight: 600; }
 .card.s3 .say { color: var(--s3); }
@@ -115,7 +118,18 @@ a { color: inherit; }
 .chip .bars { height: 10px; margin: 0 0 0 2px; }
 .chip .bars i { width: 3px; }
 
-.card .gps { margin: 8px 0 0; font-size: .85rem; }
+.card .gps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 10px 0 0; padding: 7px 10px; border-radius: 10px;
+             font-size: .85rem; background: var(--card); border: 1px solid var(--line); }
+.card .gps.live b { color: var(--s0); }
+.card .gps.live b::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 5px;
+                            background: var(--s0); vertical-align: 1px; animation: blink 1s infinite; }
+.card .gps.last b { color: var(--s3); }
+.card .gps.wait { color: var(--muted); }
+.loc-links { margin-left: auto; display: inline-flex; gap: 10px; }
+.card button.link { width: auto; margin: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit;
+                    font-weight: 600; text-decoration: underline; cursor: pointer; }
+.card.s2 button.link, .card.s3 button.link { background: none; color: inherit; }
+@keyframes blink { 50% { opacity: .25; } }
 .card button { margin-top: 12px; width: 100%; padding: 9px; font: inherit; font-weight: 700; border-radius: 12px;
                border: 1px solid var(--line); background: var(--soft); color: var(--fg); cursor: pointer; }
 .card button:hover { border-color: var(--muted); }
@@ -124,6 +138,14 @@ a { color: inherit; }
 .note { font-size: .82rem; color: var(--muted); margin: 12px 2px 0; }
 .empty-msg { color: var(--muted); }
 
+.pin { display: grid; place-items: center; border-radius: 50%; background: var(--card); border: 4px solid var(--s0); box-shadow: 0 1px 4px rgb(0 0 0 / 35%); }
+.pin.s1 { border-color: var(--s1); } .pin.s2 { border-color: var(--s2); } .pin.s3 { border-color: var(--s3); }
+.pin .avatar.sm { width: 20px; height: 20px; }
+.pin.live { animation: pinlive 1.4s infinite; }
+.pin.s3 { animation: pinlost 1s infinite; }
+@keyframes pinlive { 50% { box-shadow: 0 0 0 8px color-mix(in srgb, var(--s2) 30%, transparent); } }
+@keyframes pinlost { 50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--s3) 30%, transparent); } }
+.map-note { font-size: .82rem; color: var(--muted); margin: 6px 2px 0; }
 .map { height: 340px; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
 
 /* ---------------------------------------------------------------- feed */

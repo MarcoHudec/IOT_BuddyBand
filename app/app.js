@@ -15,10 +15,13 @@ const STAGES = [
 // only every 30 s per band (cloud_forwarder.py), so allow 75 s there.
 let LOST_MS = 8000;
 const TEACHER = 0;
+// GPS: bands send a position every 5 s from stage "critical" (firmware config.h GPS_INTERVAL_MS).
+const TRACK_MS = 60 * 60 * 1000;     // keep the track of the last hour
+const LIVE_MS = 20000;               // newer than this = live position
 const COLORS = ["#334155", "#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6", "#f97316", "#0ea5e9", "#a855f7", "#84cc16"];
 
 const state = {
-  bands: new Map(),        // id -> { id, status, statusAt, gps, gpsAt, lastAlarm, timeout }
+  bands: new Map(),        // id -> { id, status, statusAt, gps, gpsAt, track: [{lat, lon, at}], lastAlarm, timeout }
   alarms: [],              // newest first
   teacherOnline: null,
   conn: "connecting",
@@ -69,9 +72,8 @@ function onEvent(ev) {
     const b = band(ev.band);
     b.status = ev.data; b.statusAt = ev.at; b.timeout = false;
   } else if (ev.kind === "gps") {
-    const b = band(ev.band);
-    b.gps = ev.data; b.gpsAt = ev.at;
-    updateMap();
+    addGps(band(ev.band), ev.data, ev.at);
+    saveTracks();
   } else if (ev.kind === "alarm") {
     const b = band(ev.band);
     const a = { ...ev.data, band: ev.band, at: ev.at };
@@ -92,6 +94,40 @@ function onEvent(ev) {
     state.teacherOnline = ev.data.online;
   }
   render();
+}
+
+function addGps(b, d, at) {
+  if (!Number.isFinite(d?.lat) || !Number.isFinite(d?.lon) || (d.lat === 0 && d.lon === 0)) return;
+  const t = at - (d.fix_age || 0) * 1000;            // when the fix was taken
+  b.track ||= [];
+  if (b.track.some((p) => p.at === t)) return;
+  b.track.push({ lat: d.lat, lon: d.lon, at: t });
+  b.track.sort((x, y) => x.at - y.at);
+  while (b.track.length && (b.track.length > 720 || t - b.track[0].at > TRACK_MS)) b.track.shift();
+  const last = b.track[b.track.length - 1];
+  b.gps = last; b.gpsAt = last.at;
+}
+
+// local copy: keep the tracks over a page reload (MQTT only delivers new GPS messages)
+const trackKey = () => `bb-tracks-${cfg.group}`;
+function saveTracks() {
+  if (cfg.mode !== "local") return;
+  clearTimeout(saveTracks.t);
+  saveTracks.t = setTimeout(() => {
+    try {
+      const o = {};
+      for (const b of state.bands.values()) if (b.track?.length) o[b.id] = b.track;
+      localStorage.setItem(trackKey(), JSON.stringify(o));
+    } catch { /* storage blocked */ }
+  }, 1000);
+}
+function loadTracks() {
+  if (cfg.mode !== "local") return;
+  try {
+    const o = JSON.parse(localStorage.getItem(trackKey()) || "{}");
+    for (const [id, pts] of Object.entries(o))
+      for (const p of pts) if (Date.now() - p.at < TRACK_MS) addGps(band(Number(id)), { lat: p.lat, lon: p.lon }, p.at);
+  } catch { /* nothing stored */ }
 }
 
 function onConn(s, detail) {
@@ -148,6 +184,7 @@ function render() {
   renderCards(now);
   renderNet(now);
   renderFeed();
+  updateMap(now);
 }
 
 function setHtml(el, html) { if (el.innerHTML !== html) el.innerHTML = html; }
@@ -201,8 +238,17 @@ function card(b, now) {
   // so a band that hears the teacher band directly counts as direct
   const direct = !s.hops || (Array.isArray(s.nb) && s.nb.some((n) => isTeacher(n.id)));
   const via = !direct ?`über ${s.hops} ${s.hops > 1 ? "andere Kinder" : "anderes Kind"} weitergeleitet` : "direkt beim Lehrer-Band";
-  const gps = b.gps ? `<p class="gps"><a href="https://maps.google.com/?q=${b.gps.lat},${b.gps.lon}" target="_blank" rel="noopener">
-       📍 Position anzeigen</a> <small class="muted">(${ago(b.gpsAt, now)})</small></p>` : "";
+  const loc = whereabouts(b, now);
+  let gps = "";
+  if (loc.show) {
+    const g = b.gps;
+    const words = !g ? "GPS sucht noch Satelliten …"
+      : loc.live ? `<b>Live</b> · ${ago(b.gpsAt, now)}`
+      : `<b>Letzter bekannter Standort</b> · ${ago(b.gpsAt, now)}`;
+    const links = g ? `<span class="loc-links"><button type="button" class="link" data-show="${b.id}">Auf Karte</button>
+        <a href="https://maps.google.com/?q=${g.lat},${g.lon}" target="_blank" rel="noopener">Google Maps</a></span>` : "";
+    gps = `<div class="gps ${loc.live ? "live" : g ? "last" : "wait"}">📍 <span>${words}</span>${links}</div>`;
+  }
   const html = `
     <header>${avatar(b.id)}<div><h3>${esc(name(b.id))}</h3>${name(b.id) === `Band ${b.id}` ? "" : `<small>Band ${b.id}</small>`}</div><span class="badge">${stage.name}</span></header>
     <p class="say">${esc(name(b.id))} ${say}</p>
@@ -214,6 +260,13 @@ function card(b, now) {
     </dl>
     ${gps}`;
   return { cls: stage.cls, html };
+}
+
+// Where is the child? Shown from stage "critical", while lost, and for 2 min after a position.
+function whereabouts(b, now) {
+  const st = effectiveStage(b, now);
+  const fresh = b.gpsAt && now - b.gpsAt < LIVE_MS;
+  return { show: st >= 2 || (b.gpsAt && now - b.gpsAt < 120000), live: fresh && !isLost(b, now) };
 }
 
 // "Wer ist bei wem?": teacher in the middle, children around it, a line for every
@@ -302,25 +355,55 @@ function toast(msg) {
 }
 
 // ------------------------------------------------------------------ map (only with internet)
-let map, markers = new Map();
-function updateMap() {
-  const withGps = [...state.bands.values()].filter((b) => b.gps);
+// Live track while a child is critical; when the connection is gone the last known
+// position stays on the map (red, with its age).
+let map, layers = new Map(), fittedIds = "";
+function updateMap(now = Date.now()) {
   const wrap = document.getElementById("map-wrap");
-  if (!withGps.length || !window.L) { wrap.hidden = true; return; }
+  const shown = children().filter((b) => b.gps && whereabouts(b, now).show);
+  if (!shown.length || !window.L) { wrap.hidden = true; return; }
+  const firstShow = wrap.hidden;
   wrap.hidden = false;
   if (!map) {
     map = L.map("map");
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap" }).addTo(map);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { attribution: "© OpenStreetMap", maxZoom: 19 }).addTo(map);
   }
-  for (const b of withGps) {
-    const ll = [b.gps.lat, b.gps.lon];
-    if (!markers.has(b.id)) {
-      const icon = L.divIcon({ className: "", html: avatar(b.id, "sm"), iconSize: [22, 22] });
-      markers.set(b.id, L.marker(ll, { icon }).addTo(map).bindTooltip(name(b.id), { permanent: true, direction: "right", offset: [10, 0] }));
+  if (firstShow) map.invalidateSize();
+  for (const [id, l] of layers) if (!shown.some((b) => b.id === id)) { l.line.remove(); l.marker.remove(); layers.delete(id); }
+  for (const b of shown) {
+    const lost = isLost(b, now), live = whereabouts(b, now).live;
+    const cls = STAGES[effectiveStage(b, now)].cls;
+    const pts = b.track.map((p) => [p.lat, p.lon]);
+    let l = layers.get(b.id);
+    if (!l) {
+      l = { line: L.polyline(pts, { weight: 4, opacity: 0.8 }).addTo(map),
+            marker: L.marker(pts[pts.length - 1], { zIndexOffset: 1000 }).addTo(map)
+              .bindTooltip("", { permanent: true, direction: "right", offset: [14, 0] }) };
+      layers.set(b.id, l);
     }
-    markers.get(b.id).setLatLng(ll);
+    l.line.setLatLngs(pts);
+    l.line.setStyle({ color: color(b.id), dashArray: lost ? "6 8" : null });
+    l.marker.setLatLng(pts[pts.length - 1]);
+    const key = `${cls}${live ? "-live" : ""}`;
+    if (l.key !== key) {
+      l.key = key;
+      l.marker.setIcon(L.divIcon({ className: `pin ${cls}${live ? " live" : ""}`, iconSize: [30, 30], iconAnchor: [15, 15],
+        html: `<span class="avatar sm" style="--a:${color(b.id)}">${esc(initial(b.id))}</span>` }));
+    }
+    l.marker.setTooltipContent(`${esc(name(b.id))} · ${live ? "live" : lost ? `zuletzt hier, ${ago(b.gpsAt, now)}` : ago(b.gpsAt, now)}`);
   }
-  if (!updateMap.fitted) { map.fitBounds(L.latLngBounds(withGps.map((b) => [b.gps.lat, b.gps.lon])).pad(0.4), { maxZoom: 18 }); updateMap.fitted = true; }
+  const ids = shown.map((b) => b.id).join(",");
+  if (ids !== fittedIds) {                            // re-fit when a child appears or disappears
+    fittedIds = ids;
+    map.fitBounds(L.latLngBounds(shown.flatMap((b) => b.track.map((p) => [p.lat, p.lon]))).pad(0.3), { maxZoom: 18 });
+  }
+}
+
+function showOnMap(id) {
+  const b = state.bands.get(id);
+  if (!b?.gps || !map) return;
+  document.getElementById("map-wrap").scrollIntoView({ behavior: "smooth", block: "center" });
+  map.setView([b.gps.lat, b.gps.lon], Math.max(map.getZoom(), 17));
 }
 
 // ------------------------------------------------------------------ sound
@@ -354,7 +437,10 @@ async function main() {
   document.getElementById("bands").addEventListener("click", (e) => {   // delegated: survives updates
     const btn = e.target.closest("button[data-recall]");
     if (btn) recall(Number(btn.dataset.recall));
+    const show = e.target.closest("button[data-show]");
+    if (show) showOnMap(Number(show.dataset.show));
   });
+  loadTracks();
   render();
   source.start(onEvent, onConn);
   setInterval(render, 1000);   // ages, lost detection

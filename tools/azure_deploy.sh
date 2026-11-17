@@ -7,7 +7,7 @@
 #
 # Resources (all in resource group buddyband-rg, one storage account for everything):
 #   IoT Hub (exists)            consumer group "app" on the built-in endpoint
-#   Storage account (exists)    blob container "alarms" (archive, IoT Hub route) + tables latest / alarms
+#   Storage account (exists)    blob container "alarms" (archive, IoT Hub route) + tables latest / alarms / track
 #   Function App (Consumption)  cloud/ingest: IoT Hub -> tables
 #   Static Web App (Free)       app/ + cloud/api (/api/state), no login (demo)
 # No secret is printed: connection strings go straight from az into app settings.
@@ -37,9 +37,9 @@ az iot hub consumer-group show --hub-name "$HUB" -g "$RG" -n app -o none 2>/dev/
   || az iot hub consumer-group create --hub-name "$HUB" -g "$RG" -n app -o none
 echo ok
 
-step "3/7 tables 'latest' and 'alarms' in $ST"
+step "3/7 tables 'latest', 'alarms' and 'track' in $ST"
 ST_CONN="$(az storage account show-connection-string -g "$RG" -n "$ST" -o tsv)"
-for t in latest alarms; do az storage table create -n "$t" --connection-string "$ST_CONN" -o none; done
+for t in latest alarms track; do az storage table create -n "$t" --connection-string "$ST_CONN" -o none; done
 echo ok
 
 step "4/7 Function App $FUNC (ingest)"
