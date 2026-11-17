@@ -49,12 +49,14 @@ export class CloudSource {
     this.label = "Cloud (Azure)";
     this.canSend = false;           // recall via cloud -> IoT Hub C2D: later
     this.seen = new Set();
+    this.base = cfg.api_base || "/api";
   }
 
   start(onEvent, onConn) {
+    let first = true;
     const tick = async () => {
       try {
-        const r = await fetch(`${this.cfg.api_base || "/api"}/state?group=${this.cfg.group}`, { cache: "no-store" });
+        const r = await fetch(`${this.base}/state?group=${this.cfg.group}`, { cache: "no-store" });
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const s = await r.json();
         onConn("online", "Azure");
@@ -62,8 +64,9 @@ export class CloudSource {
           const key = `${ev.kind}-${ev.band}-${ev.data?.seq}-${ev.at}`;
           if (this.seen.has(key)) continue;
           this.seen.add(key);
-          onEvent(ev);
+          onEvent(first ? { ...ev, history: true } : ev);   // no alarm sound for what happened before opening
         }
+        first = false;
       } catch (e) {
         onConn("offline", String(e.message || e));
       }

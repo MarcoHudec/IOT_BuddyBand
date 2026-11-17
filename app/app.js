@@ -11,7 +11,9 @@ const STAGES = [
   { name: "kritisch",      cls: "s2", say: "ist fast außer Reichweite – bitte zurückrufen" },
   { name: "isoliert",      cls: "s3", say: "hat keinen Kontakt zur Gruppe – bitte suchen!" },
 ];
-const LOST_MS = 8000;      // no status for 8 s -> lost (same as firmware isolation timeout)
+// No status for this long -> lost. Local: 8 s (= firmware isolation timeout). Cloud: STATUS arrives
+// only every 30 s per band (cloud_forwarder.py), so allow 75 s there.
+let LOST_MS = 8000;
 const TEACHER = 0;
 const COLORS = ["#334155", "#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6", "#f97316", "#0ea5e9", "#a855f7", "#84cc16"];
 
@@ -79,10 +81,13 @@ function onEvent(ev) {
     if (!dup) {
       state.alarms.unshift(a);
       state.alarms.length = Math.min(state.alarms.length, 200);
-      if (a.stage >= 2 || a.reason >= 2 || a.reason === 0) alertSound(a.reason === 3 ? 3 : 1);
+      if (!ev.history && (a.stage >= 2 || a.reason >= 2 || a.reason === 0)) alertSound(a.reason === 3 ? 3 : 1);
     }
     b.lastAlarm = a;
-    if (a.reason === 0) b.timeout = true;
+    if (a.reason === 0 && a.at >= (b.statusAt || 0)) b.timeout = true;   // an older timeout must not hide newer status
+  } else if (ev.kind === "summary") {
+    // the summary is published by the teacher band, so it is online (cloud only gets "online" on changes)
+    if (state.teacherOnline == null && Date.now() - ev.at < 180000) state.teacherOnline = true;
   } else if (ev.kind === "teacher_online") {
     state.teacherOnline = ev.data.online;
   }
@@ -339,8 +344,9 @@ document.addEventListener("click", () => { audio ||= new AudioContext(); }, { on
 // ------------------------------------------------------------------ start
 async function main() {
   cfg = await fetch("config.json", { cache: "no-store" }).then((r) => r.json())
-    .catch(() => ({ mode: "local", group: 1 }));
+    .catch(() => ({ mode: location.protocol === "https:" ? "cloud" : "local", group: 1 }));  // cloud copy has no config.json
   cfg.group ??= 1;
+  LOST_MS = (cfg.lost_s ?? (cfg.mode === "cloud" ? 75 : 8)) * 1000;
   if (new URLSearchParams(location.search).has("demo")) cfg.mode = "demo";
   source = cfg.mode === "cloud" ? new CloudSource(cfg) : cfg.mode === "demo" ? new DemoSource(cfg) : new LocalSource(cfg);
   document.getElementById("trip").textContent = `${cfg.trip || "Ausflug"} · Gruppe ${cfg.group}`;
