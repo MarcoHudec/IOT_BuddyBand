@@ -1,0 +1,18 @@
+# BuddyBand event logger (AMQP consumer) – installed by gateway/install_services.sh
+# Logs:   journalctl -u buddyband-logger -f
+# Data:   ~/buddyband-data/events-YYYY-MM-DD.csv
+[Unit]
+Description=BuddyBand event logger (RabbitMQ -> CSV)
+After=network-online.target rabbitmq-server.service
+Wants=network-online.target
+Requires=rabbitmq-server.service
+
+[Service]
+User=@OWNER@
+WorkingDirectory=@HOME@/buddyband-gateway/consumer
+ExecStart=/usr/bin/python3 @HOME@/buddyband-gateway/consumer/event_logger.py --cred @HOME@/buddyband-credentials.env --out-dir @HOME@/buddyband-data
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
