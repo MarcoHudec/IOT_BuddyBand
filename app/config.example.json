@@ -1,0 +1,13 @@
+{
+  "mode": "local",
+  "group": 1,
+  "mqtt_user": "app",
+  "mqtt_password": "CHANGE_ME (BB_APP_PW from buddyband-credentials.env)",
+  "local_url": "http://raspberrypi47.local:8080",
+  "names": {
+    "1": "Kind 1",
+    "2": "Kind 2",
+    "3": "Kind 3"
+  },
+  "trip": "Ausflug"
+}

@@ -10,3 +10,5 @@ __pycache__/
 *.swp
 # secrets (Wi-Fi passwords etc.)
 firmware/src/app/secrets.h
+# teacher app runtime config (contains the MQTT app password)
+app/config.json
