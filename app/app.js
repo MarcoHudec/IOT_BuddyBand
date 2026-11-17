@@ -192,7 +192,10 @@ function card(b, now) {
     nbHtml = n ? `${n} ${n === 1 ? "Band" : "Bänder"} in Reichweite` : `<small>niemand in der Nähe</small>`;
   }
 
-  const via = s.hops ? `über ${s.hops} ${s.hops > 1 ? "andere Kinder" : "anderes Kind"} weitergeleitet` : "direkt beim Lehrer-Band";
+  // hops comes from whichever copy reached the teacher first (a relayed copy can win the race),
+  // so a band that hears the teacher band directly counts as direct
+  const direct = !s.hops || (Array.isArray(s.nb) && s.nb.some((n) => isTeacher(n.id)));
+  const via = !direct ?`über ${s.hops} ${s.hops > 1 ? "andere Kinder" : "anderes Kind"} weitergeleitet` : "direkt beim Lehrer-Band";
   const gps = b.gps ? `<p class="gps"><a href="https://maps.google.com/?q=${b.gps.lat},${b.gps.lon}" target="_blank" rel="noopener">
        📍 Position anzeigen</a> <small class="muted">(${ago(b.gpsAt, now)})</small></p>` : "";
   const html = `
