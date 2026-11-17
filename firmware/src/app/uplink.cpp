@@ -129,10 +129,17 @@ const char* stateText() {
 void publishStatus(const bb::Packet& p) {
   const bb::Header& h = p.header();
   const bb::StatusPayload& s = p.payload<bb::StatusPayload>();
-  char topic[48], json[128];
+  char topic[48], json[256];
   bandTopic(topic, sizeof topic, h.src, "status");
-  snprintf(json, sizeof json, "{\"seq\":%u,\"hops\":%u,\"stage\":%u,\"neighbours\":%u,\"rssi\":%d,\"battery\":%u}",
-           h.seq, bb::hops(h), s.stage, s.neighbours, s.best_rssi, s.battery);
+  int len = snprintf(json, sizeof json, "{\"seq\":%u,\"hops\":%u,\"stage\":%u,\"neighbours\":%u,\"rssi\":%d,\"battery\":%u,\"nb\":[",
+                     h.seq, bb::hops(h), s.stage, s.neighbours, s.best_rssi, s.battery);
+  bool first = true;
+  for (const auto& e : s.nb) {         // "nb":[{"id":2,"rssi":-61},...] strongest first
+    if (e.id == bb::NB_EMPTY) continue;
+    len += snprintf(json + len, sizeof json - len, "%s{\"id\":%u,\"rssi\":%d}", first ? "" : ",", e.id, e.rssi);
+    first = false;
+  }
+  snprintf(json + len, sizeof json - len, "]}");
   pub(topic, json, true);  // retained: a new dashboard sees the last state at once
 }
 

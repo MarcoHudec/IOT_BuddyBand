@@ -6,15 +6,17 @@
 int main() {
   // STATUS round trip
   bb::Packet p;
-  bb::StatusPayload s{bb::STAGE_DRIFTING, 2, -67, 80};
+  bb::StatusPayload s{bb::STAGE_DRIFTING, 2, -67, 80, {{0, -67}, {3, -75}, {bb::NB_EMPTY, -128}, {bb::NB_EMPTY, -128}}};
   assert(bb::buildPacket(p, 1, bb::MSG_STATUS, 3, 42, s));
-  assert(p.len == 12);
+  assert(p.len == 20);
 
   bb::Packet q;
   assert(bb::parsePacket(p.data, p.len, 1, q));
   assert(q.header().src == 3 && q.header().tx == 3 && q.header().seq == 42);
   assert(q.header().ttl == bb::TTL_MAX && bb::hops(q.header()) == 0);
   assert(q.payload<bb::StatusPayload>().best_rssi == -67);
+  assert(q.payload<bb::StatusPayload>().nb[1].id == 3 && q.payload<bb::StatusPayload>().nb[1].rssi == -75);
+  assert(p.len == 20);
 
   // other group is rejected, wrong length is rejected
   assert(!bb::parsePacket(p.data, p.len, 2, q));

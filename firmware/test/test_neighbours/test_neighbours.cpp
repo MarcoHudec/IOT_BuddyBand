@@ -59,5 +59,16 @@ int main() {
   f.add(99, -40, 1000);
   assert(f.find(99) && !f.find(1) && f.find(2));
 
+  // strongest(): sorted by median, limited to max, inactive ones skipped
+  NeighbourTable s;
+  s.add(1, -80, 0); s.add(2, -50, 0); s.add(0, -65, 0); s.add(3, -70, 0); s.add(4, -90, 0);
+  s.add(9, -30, 0);
+  s.add(1, -80, 6000); s.add(2, -50, 6000); s.add(0, -65, 6000); s.add(3, -70, 6000); s.add(4, -90, 6000);
+  uint8_t ids[4]; int8_t rs[4];
+  uint8_t cnt = s.strongest(6000, 4000, ids, rs, 4);   // 9 is inactive
+  assert(cnt == 4 && ids[0] == 2 && ids[1] == 0 && ids[2] == 3 && ids[3] == 1);
+  assert(rs[0] == -50 && rs[3] == -80);
+  assert(s.strongest(20000, 4000, ids, rs, 4) == 0);
+
   puts("neighbours.h: all tests passed");
 }

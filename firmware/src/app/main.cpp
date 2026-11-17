@@ -100,7 +100,13 @@ static void sendStatus(uint32_t now) {
       neighbours.countActive(now, cfg::ACTIVE_WINDOW_MS),
       neighbours.bestMedian(now, cfg::ACTIVE_WINDOW_MS),
       255,  // battery unknown on DevKit
+      {},
   };
+  uint8_t ids[bb::STATUS_NB_MAX];
+  int8_t rssi[bb::STATUS_NB_MAX];
+  uint8_t n = neighbours.strongest(now, cfg::ACTIVE_WINDOW_MS, ids, rssi, bb::STATUS_NB_MAX);
+  for (uint8_t i = 0; i < bb::STATUS_NB_MAX; i++)
+    s.nb[i] = i < n ? bb::NeighbourEntry{ids[i], rssi[i]} : bb::NeighbourEntry{bb::NB_EMPTY, bb::RSSI_NONE};
   bb::Packet p;
   bb::buildPacket(p, GROUP_ID, bb::MSG_STATUS, NODE_ID, nextSeq(), s);
   txSched.enqueue(p, now);    // own slot right away ...

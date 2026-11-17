@@ -82,7 +82,7 @@ void loop() {
   static uint32_t last = 0;
   if (millis() - last >= 1000) {
     last = millis();
-    bb::StatusPayload s{bb::STAGE_COMPLETE, 0, 0, 255};
+    bb::StatusPayload s{bb::STAGE_COMPLETE, 0, 0, 255, {{bb::NB_EMPTY, -128}, {bb::NB_EMPTY, -128}, {bb::NB_EMPTY, -128}, {bb::NB_EMPTY, -128}}};
     bb::Packet p;
     bb::buildPacket(p, GROUP_ID, bb::MSG_STATUS, NODE_ID, seq++, s);
     advertise(p);
