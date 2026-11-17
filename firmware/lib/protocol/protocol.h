@@ -7,7 +7,7 @@
 
 namespace bb {
 
-constexpr uint8_t  PROTOCOL_VERSION = 1;
+constexpr uint8_t  PROTOCOL_VERSION = 2;  // v2: STATUS carries the neighbour list
 constexpr uint16_t COMPANY_ID       = 0xFFFF;  // BLE "reserved for testing"
 constexpr uint8_t  TTL_MAX          = 3;
 constexpr uint8_t  TEACHER_ID       = 0;
@@ -51,11 +51,20 @@ struct Header {
   uint8_t  ttl;   // remaining hops
 };
 
+constexpr uint8_t STATUS_NB_MAX = 4;     // neighbours listed in STATUS (strongest first)
+constexpr uint8_t NB_EMPTY      = 0xFF;  // unused slot in StatusPayload::nb
+
+struct NeighbourEntry {
+  uint8_t id;    // NB_EMPTY = unused
+  int8_t  rssi;  // rolling median in dBm
+};
+
 struct StatusPayload {
   uint8_t stage;
-  uint8_t neighbours;
+  uint8_t neighbours;  // all active neighbours (may be more than listed in nb)
   int8_t  best_rssi;
-  uint8_t battery;  // percent, 255 = unknown
+  uint8_t battery;     // percent, 255 = unknown
+  NeighbourEntry nb[STATUS_NB_MAX];
 };
 
 struct AlarmPayload {
@@ -84,6 +93,7 @@ struct CmdPayload {
 
 static_assert(sizeof(Header) == 8, "header must be 8 bytes");
 static_assert(sizeof(Header) + sizeof(GpsPayload) <= MAX_PACKET, "GPS packet too large");
+static_assert(sizeof(Header) + sizeof(StatusPayload) <= MAX_PACKET, "STATUS packet too large");
 
 // Payload size for a message type, 0 if unknown.
 inline size_t payloadSize(uint8_t type) {

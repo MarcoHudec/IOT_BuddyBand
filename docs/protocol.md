@@ -66,7 +66,7 @@ All multi-byte fields are little-endian (native ESP32 byte order).
 
 | Type | Value | Direction | Payload | Size |
 | --- | --- | --- | --- | --- |
-| STATUS | 1 | band → teacher, every 2 s | `stage` u8, `neighbours` u8, `best_rssi` i8, `battery` u8 (%) | 4 |
+| STATUS | 1 | band → teacher, every 2 s | `stage` u8, `neighbours` u8, `best_rssi` i8, `battery` u8 (%), `nb[4]` = 4 × (`id` u8, `rssi` i8 median), strongest first, `id` 0xFF = empty (since v2) | 12 |
 | ALARM | 2 | band → teacher, on stage change | `stage` u8, `prev_stage` u8, `reason` u8 | 3 |
 | GPS | 3 | band → teacher, every 5 s from stage 2 | `lat` i32 (deg × 10⁷), `lon` i32 (deg × 10⁷), `fix_age` u8 (s) | 9 |
 | ACK | 4 | teacher → band | `dst` u8, `acked_seq` u16 | 3 |

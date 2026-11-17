@@ -1,0 +1,16 @@
+# BuddyBand teacher app – local copy served by the Pi (architecture.md §5.4)
+# http://raspberrypi47.local:8080  (works without internet, talks MQTT over WebSocket to RabbitMQ)
+# Files: ~/buddyband-app (copy of app/, tools/deploy_app_pi.sh), server: gateway/app_server.py (no-cache)
+[Unit]
+Description=BuddyBand teacher app (local copy, port 8080)
+After=network-online.target rabbitmq-server.service
+Wants=network-online.target
+
+[Service]
+User=@OWNER@
+ExecStart=/usr/bin/python3 @HOME@/buddyband-gateway/app_server.py @HOME@/buddyband-app 8080
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

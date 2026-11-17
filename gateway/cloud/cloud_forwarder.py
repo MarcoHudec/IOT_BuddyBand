@@ -3,8 +3,11 @@
 
 Edge-first split: only what is useful far away / after the outing goes to the cloud:
   alarms (incl. teacher timeout), GPS (bands send it only from stage "critical"),
-  teacher online/offline, and the group summary at most once per minute.
-Raw STATUS (every 2 s per band) stays on the Pi -> ~1100 msgs/day, IoT Hub F1 allows 8000.
+  teacher online/offline, the group summary at most once per minute, and STATUS
+  thinned out to one per band every 30 s (+ on stage change) for the cloud teacher app.
+  -> ~4 000 msgs per 8 h outing with 3 bands, IoT Hub F1 allows 8 000/day.
+  STATUS uses its own small queue (cloud.status, newest minute only), so a long
+  offline phase can never push alarms out of cloud.outbox.
 
 Store-and-forward (lecture 7 queueing, lecture 2 delivery semantics):
   durable queue "cloud.outbox" bound to the topics above; a message is acked only
@@ -45,6 +48,12 @@ BINDINGS = [
 ]
 QUEUE_ARGS = {"x-max-length": 20000, "x-overflow": "drop-head"}
 SUMMARY_EVERY_S = 60
+# STATUS (every 2 s per band) has its own small queue so it can never push alarms out of
+# cloud.outbox while offline: only the newest ~minute is kept, older ones expire.
+STATUS_QUEUE = "cloud.status"
+STATUS_BINDING = "buddyband.*.band.*.status"
+STATUS_QUEUE_ARGS = {"x-max-length": 60, "x-overflow": "drop-head", "x-message-ttl": 60000}
+STATUS_EVERY_S = 30   # per band; a stage change is sent at once. 3 bands -> ~2 900 msgs per 8 h
 
 
 def load_env(path: Path) -> dict:
@@ -126,12 +135,52 @@ def declare(ch):
     ch.queue_declare(queue=QUEUE, durable=True, arguments=QUEUE_ARGS)
     for b in BINDINGS:
         ch.queue_bind(exchange=EXCHANGE, queue=QUEUE, routing_key=b)
+    ch.queue_declare(queue=STATUS_QUEUE, durable=True, arguments=STATUS_QUEUE_ARGS)
+    ch.queue_bind(exchange=EXCHANGE, queue=STATUS_QUEUE, routing_key=STATUS_BINDING)
+
+
+class StatusThrottle:
+    """Newest STATUS per band, forwarded every STATUS_EVERY_S or when the stage changes."""
+
+    def __init__(self):
+        self.sent = {}  # band -> (monotonic time, stage)
+
+    def due(self, band, stage, now):
+        last = self.sent.get(band)
+        return last is None or last[1] != stage or now - last[0] >= STATUS_EVERY_S
+
+    def mark(self, band, stage, now):
+        self.sent[band] = (now, stage)
+
+
+def drain_status(ch, sender, throttle, gateway, counts):
+    """Reads cloud.status (separate channel), keeps the newest per band, sends what is due."""
+    newest = {}
+    tags = []
+    for _ in range(STATUS_QUEUE_ARGS["x-max-length"]):
+        method, _props, body = ch.basic_get(STATUS_QUEUE)
+        if method is None:
+            break
+        tags.append(method.delivery_tag)
+        kind, msg_id, doc = to_cloud_doc(method.routing_key, body.decode("utf-8", "replace"), gateway)
+        newest[doc["band"]] = (kind, msg_id, doc)
+    now = time.monotonic()
+    for band, (kind, msg_id, doc) in newest.items():
+        if throttle.due(band, doc.get("stage"), now):
+            sender.send(kind, msg_id, doc)  # raises -> no ack -> redelivered
+            throttle.mark(band, doc.get("stage"), now)
+            counts["status"] += 1
+        else:
+            counts["status_skipped"] += 1
+    if tags:
+        ch.basic_ack(tags[-1], multiple=True)
 
 
 def run(args, env):
     gateway = socket.gethostname()
     counts = Counter()
     last_summary = 0.0
+    throttle = StatusThrottle()
     last_report = time.monotonic()
     backoff = 1
     sender = None
@@ -159,6 +208,7 @@ def run(args, env):
             if sender is None:
                 sender = Sender(conn_str, args.dry_run)
 
+            sch = conn.channel()  # second channel for the STATUS queue (basic_get)
             ch.basic_qos(prefetch_count=1)  # one at a time: keeps order, ack after cloud confirm
             backlog = ch.queue_declare(queue=QUEUE, passive=True).method.message_count
             print(f"[cloud] consuming {QUEUE} (backlog {backlog}) {'DRY RUN' if args.dry_run else ''}", flush=True)
@@ -177,6 +227,7 @@ def run(args, env):
                             last_summary = time.monotonic()
                         counts[kind] += 1
                     ch.basic_ack(method.delivery_tag)
+                drain_status(sch, sender, throttle, gateway, counts)
                 if time.monotonic() - last_report >= args.report_s:
                     last_report = time.monotonic()
                     print(f"[cloud] last {args.report_s}s: {dict(counts) or 'nothing'}", flush=True)

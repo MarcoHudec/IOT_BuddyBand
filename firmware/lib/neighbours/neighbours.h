@@ -104,6 +104,24 @@ class NeighbourTable {
     return best;
   }
 
+  // Writes up to `max` active neighbours (strongest median first) to ids/rssi,
+  // returns how many were written.
+  uint8_t strongest(uint32_t now, uint32_t window_ms, uint8_t* ids, int8_t* rssi, uint8_t max) const {
+    uint8_t n = 0;
+    for (const auto& e : entries_) {
+      if (!e.active(now, window_ms) || e.count == 0) continue;
+      int8_t m = e.median();
+      uint8_t pos = n;                               // insertion into the sorted output
+      while (pos > 0 && rssi[pos - 1] < m) {
+        if (pos < max) { ids[pos] = ids[pos - 1]; rssi[pos] = rssi[pos - 1]; }
+        pos--;
+      }
+      if (pos < max) { ids[pos] = e.id; rssi[pos] = m; }
+      if (n < max) n++;
+    }
+    return n;
+  }
+
   const Neighbour* find(uint8_t id) const {
     for (const auto& n : entries_) if (n.used && n.id == id) return &n;
     return nullptr;

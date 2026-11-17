@@ -1,0 +1,4 @@
+{
+  "globalHeaders": { "Cache-Control": "no-cache" },
+  "platform": { "apiRuntime": "python:3.10" }
+}
