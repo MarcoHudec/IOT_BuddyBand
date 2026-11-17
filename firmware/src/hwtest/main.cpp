@@ -36,7 +36,7 @@ static void beep(int ms = 120, int hz = 2700) {
 }
 
 // ---- piezo diagnostics (commands h / t / p) ----
-static void piezoDC() {  // active buzzer: beeps on plain DC
+[[maybe_unused]] static void piezoDC() {  // active buzzer: beeps on plain DC
   Serial.printf("# h: GPIO%d HIGH for 2 s (active buzzer should beep continuously)\n", PIN_PIEZO);
   noTone(PIN_PIEZO);
   pinMode(PIN_PIEZO, OUTPUT);
@@ -45,7 +45,7 @@ static void piezoDC() {  // active buzzer: beeps on plain DC
   digitalWrite(PIN_PIEZO, LOW);
 }
 
-static void piezoSweep() {  // passive piezo: very frequency dependent
+[[maybe_unused]] static void piezoSweep() {  // passive piezo: very frequency dependent
   Serial.println("# t: sweep 500..5000 Hz, 300 ms each");
   for (int hz = 500; hz <= 5000; hz += 500) {
     Serial.printf("#   %d Hz\n", hz);
@@ -57,7 +57,7 @@ static void piezoSweep() {  // passive piezo: very frequency dependent
 // Beeps on every GPIO that is not used by another part, so a piezo on a
 // different pin than expected is found. Skips 16/17 (GPS), 21/22 (I2C),
 // 25 (GPS EN), 27 (reed), 34 (input only), 0/2/12/15 (strapping) and 1/3 (USB serial).
-static void piezoPinScan() {
+[[maybe_unused]] static void piezoPinScan() {
   const int pins[] = {4, 5, 13, 14, 18, 19, 23, 26, 32, 33};  // 14 = expected piezo pin
   Serial.println("# p: pin scan - listen and note the pin number when you hear a beep");
   for (int p : pins) {

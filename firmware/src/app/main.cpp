@@ -8,6 +8,7 @@
 //        advertising scheduler (one slot per queued packet), origin table,
 //        ALARM with ACK / retry / latch, one alarm slot per reason (band),
 //        ACK + per-child isolation detection by STATUS timeout, CMD recall (teacher)
+//   WP3: teacher – Wi-Fi + MQTT uplink to the Pi (uplink.cpp, protocol.md §7)
 //   WP4: band  – reed tamper alarm, double-tap SOS (MMA8452Q), GPS duty cycle
 //                (on from stage 1, GPS packets from stage 2, D9), piezo feedback
 //        teacher – LEDs show the group state, piezo per alarm, GPS print
@@ -27,6 +28,9 @@
 #include "neighbours.h"
 #include "protocol.h"
 #include "stage.h"
+#ifdef ROLE_TEACHER
+#include "uplink.h"
+#endif
 
 #ifndef NODE_ID
 #error "NODE_ID must be set in platformio.ini"
@@ -225,11 +229,14 @@ static void teacherBeep(uint8_t src, const bb::AlarmPayload& a, uint32_t now) {
   else                                    buzzer.play(t::OK, t::OK_N);
 }
 
-static void updateLeds(uint32_t now) {
+static const char* updateLeds(uint32_t now, uint8_t& connected, uint8_t& total) {
   int worst = -1;
+  connected = total = 0;
   for (size_t i = 0; i < bb::OriginTable::capacity(); i++) {
     const bb::Origin& o = origins.at(i);
     if (!o.used) continue;
+    total++;
+    if (!childLost[o.src]) connected++;
     int s = childLost[o.src] ? static_cast<int>(bb::STAGE_ISOLATED) : static_cast<int>(o.stage);
     if (s > worst) worst = s;
   }
@@ -238,13 +245,14 @@ static void updateLeds(uint32_t now) {
             : worst >= bb::STAGE_ISOLATED       ? hw::Led::RED
             : worst >= bb::STAGE_DRIFTING       ? hw::Led::YELLOW
                                                 : hw::Led::GREEN;
+  static const char* names[] = {"off", "green", "yellow", "red"};
   static hw::Led last = hw::Led::OFF;
   if (l != last) {
-    static const char* names[] = {"off", "GREEN", "YELLOW", "RED"};
     Serial.printf("# TEACHER LED -> %s\n", names[(int)l]);
     last = l;
   }
   hw::ledsSet(l);
+  return names[(int)l];
 }
 
 // a child is "lost" if no new message arrived for ISOLATION (protocol.md §6, D7)
@@ -257,10 +265,21 @@ static void checkChildren(uint32_t now) {
       Serial.printf("# TEACHER ALARM band %u isolated: no message for %lu ms (last stage %s, hops %u)\n",
                     o.src, now - o.last_seen, bb::stageName(o.stage), o.hops);
       buzzer.play(hw::tunes::ISOLATED, hw::tunes::ISOLATED_N);
-      // TODO WP3: publish alarm (reason isolation timeout)
+      uplink::publishTimeout(o.src, o.stage, o.hops, now - o.last_seen);
     }
   }
-  updateLeds(now);
+  uint8_t connected, total;
+  const char* led = updateLeds(now, connected, total);
+  static uint32_t lastSummary = 0;
+  if (now - lastSummary >= cfg::STATUS_INTERVAL_MS) {
+    lastSummary = now;
+    uplink::publishSummary(connected, total, led);
+  }
+}
+
+static void onMqttCmd(uint8_t dst, uint8_t cmd) {
+  sendCmd(dst, cmd, millis());
+  Serial.printf("# CMD %s -> band %u (from MQTT)\n", cmd == bb::CMD_RECALL ? "recall" : "stop", dst);
 }
 #endif
 
@@ -273,7 +292,9 @@ static void printTables(uint32_t now) {
                 neighbours.countActive(now, cfg::ACTIVE_WINDOW_MS),
                 neighbours.bestMedian(now, cfg::ACTIVE_WINDOW_MS), stage, bb::stageName(stage));
 #ifdef ROLE_TEACHER
-  Serial.printf("#   teacher: alarms rx=%lu acks tx=%lu gps rx=%lu\n", stats.alarmsRx, stats.acksTx, stats.gpsRx);
+  Serial.printf("#   teacher: alarms rx=%lu acks tx=%lu gps rx=%lu | uplink %s published=%lu failed=%lu\n",
+                stats.alarmsRx, stats.acksTx, stats.gpsRx, uplink::stateText(), uplink::published(),
+                uplink::failed());
 #else
   for (uint8_t r = 1; r <= 3; r++) {
     const auto& a = alarmFor(r);
@@ -338,13 +359,15 @@ static void handlePacket(const bb::RxPacket& rx) {
                   reasonName(a.reason), bb::stageName(a.prev_stage), bb::stageName(a.stage),
                   bb::hops(h), h.seq);
     teacherBeep(h.src, a, rx.ms);
-    // TODO WP3: publish as JSON via MQTT (protocol.md §7)
+    uplink::publishAlarm(rx.pkt);
+  } else if (h.type == bb::MSG_STATUS) {
+    uplink::publishStatus(rx.pkt);
   } else if (h.type == bb::MSG_GPS) {
     const bb::GpsPayload& g = rx.pkt.payload<bb::GpsPayload>();
     stats.gpsRx++;
     Serial.printf("# TEACHER GPS band %u: %.6f, %.6f (fix age %us, hops %u)  https://maps.google.com/?q=%.6f,%.6f\n",
                   h.src, g.lat_e7 / 1e7, g.lon_e7 / 1e7, g.fix_age, bb::hops(h), g.lat_e7 / 1e7, g.lon_e7 / 1e7);
-    // TODO WP3: publish as JSON via MQTT (protocol.md §7)
+    uplink::publishGps(rx.pkt);
   }
   if (childLost[h.src]) {
     childLost[h.src] = false;
@@ -457,7 +480,7 @@ void setup() {
   buzzer.play(hw::tunes::BOOT, hw::tunes::BOOT_N);
 
 #ifdef ROLE_TEACHER
-  // TODO WP3: Wi-Fi + MQTT (PubSubClient) with LWT, subscribe buddyband/<group>/cmd/#
+  uplink::begin(GROUP_ID, onMqttCmd);  // Wi-Fi + MQTT with LWT, subscribes buddyband/<g>/cmd/+
 #endif
 }
 
@@ -489,6 +512,7 @@ void loop() {
   serviceSensors(now);
   serviceAlarms(now);
 #else
+  uplink::loop(now);
   static uint32_t lastCheck = 0;
   if (now - lastCheck >= cfg::TEACHER_CHECK_MS) {
     lastCheck = now;
